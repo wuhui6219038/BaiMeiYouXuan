@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.baimeiyx.www.MainActivity">
+
+    <include layout="@layout/view_app_title" />
+
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp">
+
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="#AA00151A" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_icon_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_8dp"
+                    android:text="@string/icon_search"
+                    android:textColor="@color/colorTransparent"
+                    android:textSize="@dimen/font_xx_size" />
+
+                <EditText
+                    android:id="@+id/et_search_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/hint_home_search"
+                    android:padding="@dimen/padding_8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_h_size" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_icon_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_8dp"
+                android:text="@string/icon_message"
+                android:textColor="@color/colorTransparent"
+                android:textSize="@dimen/font_xx_size" />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/padding_16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:padding="@dimen/padding_8dp"
+                    android:text="@string/text_target"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/font_h_size" />
+
+                <com.baimeiyx.www.view.circleprogress.DonutProgress
+                    android:id="@+id/donut_progress"
+                    android:layout_width="@dimen/size_s_circleprogress"
+                    android:layout_height="@dimen/size_s_circleprogress"
+                    custom:donut_finished_color="@android:color/darker_gray"
+                    custom:donut_finished_stroke_width="2dp"
+                    custom:donut_progress="30"
+                    custom:donut_text_color="@android:color/darker_gray"
+                    custom:donut_text_size="@dimen/font_m_size"
+                    custom:donut_unfinished_stroke_width="2dp" />
+            </LinearLayout>
+
+            <com.baimeiyx.www.view.circleprogress.ArcProgress
+                android:id="@+id/arc_progress"
+                android:layout_width="@dimen/size_m_circleprogress"
+                android:layout_height="@dimen/size_m_circleprogress"
+                android:layout_centerInParent="true"
+                custom:arc_bottom_text="已减(公斤)"
+                custom:arc_finished_color="@color/colorPrimary"
+                custom:arc_progress="55"
+                custom:arc_stroke_width="8dp"
+                custom:arc_suffix_text=" "
+                custom:arc_text_color="@android:color/white"
+                custom:arc_unfinished_color="@android:color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:padding="@dimen/padding_8dp"
+                    android:text="@string/text_progress"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/font_h_size" />
+
+                <com.baimeiyx.www.view.circleprogress.DonutProgress
+                    android:id="@+id/donut_target_progress"
+                    android:layout_width="@dimen/size_s_circleprogress"
+                    android:layout_height="@dimen/size_s_circleprogress"
+
+                    custom:donut_finished_color="@android:color/darker_gray"
+                    custom:donut_finished_stroke_width="2dp"
+                    custom:donut_progress="10"
+                    custom:donut_text_color="@android:color/darker_gray"
+                    custom:donut_text_size="@dimen/font_m_size"
+                    custom:donut_unfinished_stroke_width="2dp"
+
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <com.baimeiyx.www.view.StepView
+                android:id="@+id/stepview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/water" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_weight_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_home_weight_record"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_16dp"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/text_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_round"
+            android:gravity="center"
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/icon_weight_record"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_xx_size" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_weight_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/text_weight_record"
+                android:textSize="@dimen/font_xx_size" />
+
+            <TextView
+                android:id="@+id/tv_weight_record_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_weight_record_en"
+                android:textSize="@dimen/font_m_size" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_icon_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:padding="@dimen/margin_2dp"
+            android:text="@string/icon_weight_next"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_x_size" />
+    </LinearLayout>
+
+
+</LinearLayout>

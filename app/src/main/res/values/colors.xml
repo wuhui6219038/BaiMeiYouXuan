@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#62CC74</color>
+    <color name="colorPrimaryTransparent">#6062CC74</color>
+    <color name="colorPrimaryDark">#62CC74</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colocCheckStep">#f39800</color>
+    <color name="colorBarHome">#060327</color>
+    <color name="colorBarWeightRecord">#1d9ef0</color>
+    <color name="colorTransparent">#f7f7f7</color>
+    <color name="colorBackgroundGray">#F8F8F8</color>
+    <color name="colorTransparentFont">#66ffffff</color>
+    <color name="colorOrder">#99CCCC</color>
+    <color name="colorShopCar">#FFA37E</color>
+    <color name="colorAddress">#ACC0FD</color>
+    <color name="colorCard">#AEE6B9</color>
+    <color name="colorErWeiMa">#A7DBFF</color>
+    <color name="colorFriends">#AEE6B7</color>
+
+</resources>

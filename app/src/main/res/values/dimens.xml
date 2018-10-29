@@ -1,0 +1,53 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="icon_s_width">12dp</dimen>
+    <dimen name="size_s_circleprogress">50dp</dimen>
+    <dimen name="size_m_circleprogress">150dp</dimen>
+    <dimen name="size_l_circleprogress">180dp</dimen>
+    <dimen name="size_1dp">1dp</dimen>
+    <dimen name="size_2dp">2dp</dimen>
+    <dimen name="size_3dp">3dp</dimen>
+    <dimen name="size_4dp">4dp</dimen>
+    <dimen name="size_5dp">5dp</dimen>
+    <dimen name="size_6dp">6dp</dimen>
+    <dimen name="size_7dp">7dp</dimen>
+    <dimen name="size_8dp">8dp</dimen>
+    <dimen name="size_18dp">18dp</dimen>
+    <dimen name="size_64dp">64dp</dimen>
+    <dimen name="size_32dp">32dp</dimen>
+    <!--个人中心里面图标的大小-->
+    <dimen name="size_icon">32dp</dimen>
+    <!--radius-->
+    <dimen name="radius_2dp">2dp</dimen>
+    <dimen name="radius_5dp">5dp</dimen>
+    <dimen name="radius_8dp">8dp</dimen>
+    <!--padding-->
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_64dp">64dp</dimen>
+    <!--margin-->
+    <dimen name="margin_2dp">2dp</dimen>
+    <dimen name="margin_4dp">4dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_12dp">12dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+    <dimen name="margin_64dp">64dp</dimen>
+
+    <!--字体大小-->
+    <dimen name="font_s_size">12sp</dimen>
+    <dimen name="font_m_size">14sp</dimen>
+    <dimen name="font_h_size">16sp</dimen>
+    <dimen name="font_x_size">20sp</dimen>
+    <dimen name="font_24dp">22sp</dimen>
+    <dimen name="font_xx_size">24sp</dimen>
+    <dimen name="font_xxx_size">34sp</dimen>
+    <dimen name="font_xxxx_size">64sp</dimen>
+</resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_32dp"
+        android:text="@string/text_user_declaration"
+        android:textSize="@dimen/font_xx_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_16dp"
+        android:text="@string/hint_desc_words"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/font_m_size" />
+
+
+    <EditText
+        android:id="@+id/et_desc"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_64dp"
+        android:background="@drawable/bg_corners_white_gray"
+        android:gravity="left"
+        android:maxLength="25"
+        android:maxLines="2"
+        android:padding="@dimen/padding_8dp"
+        style="@style/UserInfo"
+        android:hint="@string/hint_input_desc"
+         />
+
+    <TextView
+        android:id="@+id/tv_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="@drawable/bg_login_btn"
+        android:gravity="center"
+        android:padding="@dimen/padding_8dp"
+        android:text="@string/btn_update"
+        android:textSize="@dimen/font_h_size" />
+</LinearLayout>

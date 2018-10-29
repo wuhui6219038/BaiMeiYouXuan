@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTransparent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_32dp"
+        android:text="@string/text_username_nickname"
+        android:textSize="@dimen/font_xx_size" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_16dp"
+        android:text="@string/hint_nickname_words"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/font_m_size" />
+
+    <LinearLayout
+        style="@style/UserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_8dp">
+
+        <TextView
+            style="@style/UserInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_16dp"
+            android:text="@string/text_username" />
+
+        <EditText
+            android:id="@+id/et_username"
+            style="@style/UserInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/hint_input_username"
+            android:maxLength="25"
+            android:textSize="@dimen/font_m_size" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_8dp"
+        android:background="@drawable/bg_login_btn"
+        android:gravity="center"
+        android:padding="@dimen/padding_8dp"
+        android:text="@string/btn_update"
+        android:textSize="@dimen/font_h_size" />
+</LinearLayout>

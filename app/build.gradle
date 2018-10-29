@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.baimeiyx.www"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layout/activity',
+                            'src/main/res/layout/fragment',
+                            'src/main/res/layout/item',
+                            'src/main/res/layout',
+                            'src/main/res'
+                    ]
+
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation rootProject.ext.dependencies['appcompat-v7']
+    implementation rootProject.ext.dependencies['design']
+    implementation rootProject.ext.dependencies['extensions']
+    implementation rootProject.ext.dependencies['butterknife']
+    annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+    implementation rootProject.ext.dependencies['glide']
+    annotationProcessor rootProject.ext.dependencies['glide-compiler']
+    //沉浸式状态栏
+    implementation rootProject.ext.dependencies['systembartint']
+    //企鹅UI框架
+    implementation rootProject.ext.dependencies['qmui']
+    //折线图
+    implementation rootProject.ext.dependencies['hellocharts-library']
+    implementation rootProject.ext.dependencies['rxjava']
+    implementation rootProject.ext.dependencies['rxpermissions']
+    implementation rootProject.ext.dependencies['adapter-rxjava']
+    implementation rootProject.ext.dependencies['rxandroid']
+    implementation rootProject.ext.dependencies['okhttp']
+    implementation rootProject.ext.dependencies['retrofit']
+    implementation rootProject.ext.dependencies['gson']
+    implementation rootProject.ext.dependencies['converter-gson']
+    implementation rootProject.ext.dependencies['logging-interceptor']
+    //侧滑返回 暂时不用
+    implementation rootProject.ext.dependencies['swipebacklayout']
+    //RecyclerView adater
+    implementation rootProject.ext.dependencies['brvah']
+    //RecyclerView 分割线
+    implementation rootProject.ext.dependencies['decoration']
+    //仿ios选择器
+    implementation rootProject.ext.dependencies['pickerview']
+    //下拉刷新
+    implementation rootProject.ext.dependencies['pullrefresh']
+
+
+}

@@ -1,0 +1,135 @@
+<resources>
+    <string name="app_name">BaiMeiYouXuan</string>
+    <string name="title_home">首页</string>
+    <string name="title_shop">商城</string>
+    <string name="title_account">个人中心</string>
+    <string name="title_home_health">健康首页</string>
+    <string name="title_weight_record">记录体重</string>
+    <string name="title_weight_log">体重日志</string>
+    <string name="title_user_setting">用户设置</string>
+    <string name="title_money_detail">资金明细</string>
+    <string name="title_update_nickname">修改昵称</string>
+    <string name="title_update_desc">修改个人宣言</string>
+    <string name="title_update_login_psw">修改登录密码</string>
+    <string name="title_update_pay_psw">修改支付密码</string>
+    <string name="title_update_phone">修改手机号</string>
+
+    <string name="text_weight_record">体   重   记   录</string>
+    <string name="text_weight_record_en">WEIGHT RECORD</string>
+    <string name="text_target">目标(KG)</string>
+    <string name="text_progress">进度</string>
+    <string name="text_has_reduce">已减少(公斤)</string>
+    <string name="text_target_weight">目标 %s</string>
+    <string name="text_intelligent_scale">智能秤</string>
+    <string name="text_search_scale">点击搜索智能秤</string>
+    <string name="text_other">其他</string>
+    <string name="text_input_weight">直接输入体重</string>
+    <string name="text_no_more_weight_sacle">当前没有可用的智能秤</string>
+    <string name="text_lastest_weight">最新体重</string>
+    <string name="text_original_weight">初始体重</string>
+    <string name="text_target_weight_2">目标体重</string>
+    <string name="text_weight">体重</string>
+    <string name="text_fat">脂肪</string>
+    <string name="text_water">水分</string>
+    <string name="text_muscle">骨骼</string>
+    <string name="text_calories">卡路里</string>
+    <string name="text_login_regist">登陆/注册</string>
+    <string name="text_default_member_level">达人</string>
+    <string name="text_member_level">会员级别</string>
+    <string name="text_default_num">0.000</string>
+    <string name="text_gold">金币(个)</string>
+    <string name="text_has_cost">已消费(元)</string>
+    <string name="text_available_gold">可消费金币</string>
+    <string name="text_order">订单</string>
+    <string name="text_shop_car">购物车</string>
+    <string name="text_address">收货地址</string>
+    <string name="text_card">资金说明</string>
+    <string name="text_erweima">二维码</string>
+    <string name="text_friends">我的好友</string>
+    <string name="text_login">登录</string>
+    <string name="text_wx_login">微信登录</string>
+    <string name="text_regiset">注册</string>
+    <string name="text_phone">手机号</string>
+    <string name="text_password">密码</string>
+    <string name="text_record_date">记录时间</string>
+    <string name="text_setting_date">设置时间</string>
+    <string name="text_target_date">目标时间</string>
+    <string name="text_unit_weight">公斤</string>
+    <string name="text_unit_weight_en">kg</string>
+    <string name="text_unit">单位：</string>
+    <string name="text_user_info">用户资料</string>
+    <string name="text_user_avatar">头像</string>
+    <string name="text_user_nickname">昵称</string>
+    <string name="text_user_declaration">我的宣言</string>
+    <string name="text_safe_setting">安全设置</string>
+    <string name="text_user_login_psd">登录密码</string>
+    <string name="text_user_pay_psd">支付密码</string>
+    <string name="text_user_phone">手机号码</string>
+    <string name="text_user_system_settion">系统设置</string>
+    <string name="text_user_version">当前版本</string>
+    <string name="text_user_logout">退出登录</string>
+    <string name="text_current_assets">当前资产(枚)</string>
+    <string name="text_freeze_count">冻结数量(枚)</string>
+    <string name="text_useful_money">可用余额(枚)</string>
+    <string name="text_user_classification">分类</string>
+    <string name="text_username_nickname">用户名/昵称</string>
+    <string name="text_username" translatable="false">用户名</string>
+    <string name="text_original_psw" translatable="false">原密码</string>
+    <string name="text_new_psw" translatable="false">新密码</string>
+    <string name="text_check_code" translatable="false">验证码</string>
+    <string name="text_old_phone" translatable="false">原手机号</string>
+    <string name="text_new_phone" translatable="false">新手机号</string>
+
+
+    <string name="text_empty_info">哼，一个能打都没有</string>
+    <!--btn-->
+    <string name="btn_cancel">取消</string>
+    <string name="btn_sure">确认</string>
+    <string name="btn_update">修改</string>
+    <string name="btn_checkcode">发送验证码</string>
+    <!--hint-->
+    <string name="hint_home_search">搜索食物营养和热量</string>
+    <string name="hint_nickname_words">最多不能超过25个字哦～</string>
+    <string name="hint_desc_words">不能超过50个字哦～</string>
+    <string name="hint_psw_words">微信注册用户默认密码为 88888888 (8个8)</string>
+    <string name="hint_original_psw">请输入当前密码</string>
+    <string name="hint_new_psw">请输入新密码 (6-16位字符)</string>
+    <string name="hint_input_phone">请输入手机号</string>
+    <string name="hint_input_checkcode">请输入短信验证码</string>
+    <string name="hint_input_new_pay_psw">请输入新支付密码 (6位字符)</string>
+    <string name="hint_input_pay_psw">支付密码为6位数字</string>
+    <string name="hint_input_old_phone">请输入原有手机号</string>
+    <string name="hint_input_new_phone">请输入新手机号</string>
+    <string name="hint_input_username">请输入用户名</string>
+    <string name="hint_input_desc">请输入宣言</string>
+
+    <!--toast-->
+    <string name="toast_pelase_open_ble">请开启蓝牙后再试</string>
+    <string name="toast_searching_ble">正在搜索。。。</string>
+    <string name="toast_connecting">正在连接该设备。。。</string>
+    <string name="toast_no_useable_ble">没有可用设备</string>
+    <string name="toast_no_device">设备不存在</string>
+    <string name="toast_connect_fail">设备已断开</string>
+    <string name="toast_connect_success">设备连接成功</string>
+    <string name="toast_search_complete">搜索完成</string>
+    <string name="toast_data_connneting">数据请求中。。。</string>
+    <string name="toast_data_connnet_success">数据请求成功</string>
+    <string name="toast_nickname_unrequire">昵称不符合要求</string>
+    <string name="toast_desc_unrequire">宣言不符合要求</string>
+    <string name="toast_psw_unrequire">密码不符合要求</string>
+    <string name="toast_pay_psw_unrequire">支付密码无效</string>
+    <string name="toast_phone_unrequire">手机号码无效</string>
+    <string name="toast_phone_same">手机号相同</string>
+    <string name="toast_check_code_unrequire">验证码不能为空</string>
+    <string name="toast_check_code_send_success">验证码已发送，请稍后再试</string>
+
+    <!--dialog-->
+    <string name="dialog_hint">提示</string>
+    <string name="dialog_logout">您确定要推出登录？</string>
+    <!--svg图标-->
+    <string name="icon_weight_record">&#xe600;</string>
+    <string name="icon_weight_next">&#xe8f1;</string>
+    <string name="icon_search">&#xe63d;</string>
+    <string name="icon_message">&#xe7a7;</string>
+    <string name="icon_back">&#xe625;</string>
+</resources>
