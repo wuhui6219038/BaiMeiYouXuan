@@ -100,14 +100,14 @@
                     android:textSize="@dimen/font_h_size" />
 
                 <com.baimeiyx.www.view.circleprogress.DonutProgress
-                    android:id="@+id/donut_progress"
+                    android:id="@+id/donut_target_progress"
                     android:layout_width="@dimen/size_s_circleprogress"
                     android:layout_height="@dimen/size_s_circleprogress"
                     custom:donut_finished_color="@android:color/darker_gray"
                     custom:donut_finished_stroke_width="2dp"
-                    custom:donut_progress="30"
                     custom:donut_text_color="@android:color/darker_gray"
                     custom:donut_text_size="@dimen/font_m_size"
+                    custom:donut_unfinished_color="@android:color/darker_gray"
                     custom:donut_unfinished_stroke_width="2dp" />
             </LinearLayout>
 
@@ -116,7 +116,7 @@
                 android:layout_width="@dimen/size_m_circleprogress"
                 android:layout_height="@dimen/size_m_circleprogress"
                 android:layout_centerInParent="true"
-                custom:arc_bottom_text="已减(公斤)"
+                custom:arc_bottom_text="@string/text_reduce_weight"
                 custom:arc_finished_color="@color/colorPrimary"
                 custom:arc_progress="55"
                 custom:arc_stroke_width="8dp"
@@ -144,15 +144,15 @@
                     android:textSize="@dimen/font_h_size" />
 
                 <com.baimeiyx.www.view.circleprogress.DonutProgress
-                    android:id="@+id/donut_target_progress"
+                    android:id="@+id/donut_progress"
+
                     android:layout_width="@dimen/size_s_circleprogress"
                     android:layout_height="@dimen/size_s_circleprogress"
-
                     custom:donut_finished_color="@android:color/darker_gray"
                     custom:donut_finished_stroke_width="2dp"
-                    custom:donut_progress="10"
                     custom:donut_text_color="@android:color/darker_gray"
                     custom:donut_text_size="@dimen/font_m_size"
+                    custom:donut_unfinished_color="@android:color/darker_gray"
                     custom:donut_unfinished_stroke_width="2dp"
 
                     />

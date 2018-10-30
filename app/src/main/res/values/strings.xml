@@ -79,6 +79,8 @@
     <string name="text_check_code" translatable="false">验证码</string>
     <string name="text_old_phone" translatable="false">原手机号</string>
     <string name="text_new_phone" translatable="false">新手机号</string>
+    <string name="text_reduce_weight" translatable="false">已减(公斤)</string>
+    <string name="text_plus_weight" translatable="false">已增重(公斤)</string>
 
 
     <string name="text_empty_info">哼，一个能打都没有</string>

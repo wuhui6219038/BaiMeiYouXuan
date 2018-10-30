@@ -11,7 +11,9 @@ import android.os.Parcelable;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.utils.SizeUtils;
@@ -38,6 +40,7 @@ public class ArcProgress extends View {
     private int finishedStrokeColor;
     private int unfinishedStrokeColor;
     private float arcAngle;
+    private String textValue;
     private String suffixText = "%";
     private float suffixTextPadding;
 
@@ -166,7 +169,7 @@ public class ArcProgress extends View {
     }
 
     public void setProgress(float progress) {
-        this.progress = Float.valueOf(new DecimalFormat("#.##").format(progress));
+        this.progress = Float.valueOf(new DecimalFormat("#.#").format(progress));
 
         if (this.progress > getMax()) {
             this.progress %= getMax();
@@ -257,6 +260,14 @@ public class ArcProgress extends View {
         this.invalidate();
     }
 
+    public String getTextValue() {
+        return textValue;
+    }
+
+    public void setTextValue(String textValue) {
+        this.textValue = textValue;
+    }
+
     @Override
     protected int getSuggestedMinimumHeight() {
         return min_size;
@@ -289,7 +300,8 @@ public class ArcProgress extends View {
         paint.setColor(finishedStrokeColor);
         canvas.drawArc(rectF, finishedStartAngle, finishedSweepAngle, false, paint);
 
-        String text = String.valueOf(getProgress());
+        String text = String.valueOf(TextUtils.isEmpty(getTextValue())?getProgress():getTextValue());
+        Log.e("sss", "onDraw: "+text );
         if (!TextUtils.isEmpty(text)) {
             textPaint.setColor(textColor);
             textPaint.setTextSize(textSize);

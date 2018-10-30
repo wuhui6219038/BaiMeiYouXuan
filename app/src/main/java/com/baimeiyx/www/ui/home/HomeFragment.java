@@ -3,25 +3,34 @@ package com.baimeiyx.www.ui.home;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.baimeiyx.www.view.StepView;
 import com.baimeiyx.www.base.ui.BaseUserFragment;
-import com.baimeiyx.www.view.circleprogress.ArcProgress;
-import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.module.http.result.CustomerExpectResult;
 import com.baimeiyx.www.utils.ActivityUtils;
 import com.baimeiyx.www.utils.BarUtils;
 import com.baimeiyx.www.utils.ImageUtils;
+import com.baimeiyx.www.utils.LogUtils;
+import com.baimeiyx.www.utils.myUtils.NumFormatterUtils;
 import com.baimeiyx.www.utils.myUtils.SvgUtils;
+import com.baimeiyx.www.view.StepView;
+import com.baimeiyx.www.view.circleprogress.ArcProgress;
+import com.baimeiyx.www.view.circleprogress.DonutProgress;
+import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
+import dalvik.annotation.TestTarget;
 
 
 public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
@@ -51,14 +60,18 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
     TextView tvIconSearch;
     @BindView(R.id.tv_icon_message)
     TextView tvIconMessage;
-
+    private static final String TAG = "HomeFragment";
+    @BindView(R.id.donut_target_progress)
+    DonutProgress donutTargetProgress;
+    @BindView(R.id.donut_progress)
+    DonutProgress donutProgress;
+    Unbinder unbinder;
     private HomeViewModel mViewModel;
     private static final String[] STEPTILTE = {"S", "A", "B", "C", "F"};
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
-
 
     @Override
     protected int getViewId() {
@@ -82,7 +95,6 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
 
     }
 
-    private static final String TAG = "HomeFragment";
 
     private void _initView() {
 
@@ -111,7 +123,37 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
 
     @Override
     protected void onDataSuccessChanged(CustomerExpectResult baseResult) {
+        double targetWeight = baseResult.getData().getData().getTargetWeight();
+        double newWeight = baseResult.getData().getData().getNewWeight();
+        double initialWeight = baseResult.getData().getData().getInitialWeight();
+//        double targetWeight = 70;
+//        double newWeight = 69;
+//        double initialWeight = 89;
+        //已经减肥的质量
+        double differenceWeight = newWeight - initialWeight;
+        //当前处于的level
+        double weightLevel = (initialWeight - newWeight) / (initialWeight - targetWeight) * 100;
+        if (weightLevel < 0) {
+            weightLevel = 0;
+        } else if (weightLevel > 100) {
+            weightLevel = 100;
+        }
 
+        LogUtils.e(TAG, "onDataSuccessChanged: " + targetWeight + " " + newWeight + "  " + initialWeight + "  " + differenceWeight + "  " + weightLevel);
+        donutTargetProgress.setText(targetWeight + "");
+        arcProgress.setTextValue(NumFormatterUtils.getFormatNum(Math.abs(differenceWeight)));
+        arcProgress.setProgress((float) weightLevel);
+        if (differenceWeight > 0) {
+            arcProgress.setBottomText(getResources().getString(R.string.text_plus_weight));
+        } else {
+            arcProgress.setBottomText(getResources().getString(R.string.text_reduce_weight));
+        }
+
+        //设置进度
+        donutProgress.setProgress((float) weightLevel);
+        //设置level
+        int level = 5 - (int) Math.round(weightLevel / 20);
+        stepview.setCheckPos(level >= 5 ? 4 : level);
     }
 
     @Override
@@ -119,6 +161,14 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorBarHome));
         BarUtils.setColor(mActivity, getResources().getColor(R.color.colorBarHome), 0);
         ivBack.setVisibility(View.GONE);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
     }
 
 

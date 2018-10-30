@@ -11,6 +11,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.example.mrw.baimeiyouxuan.R;
@@ -35,7 +36,9 @@ public class StepView extends View {
     private static final int DEFLUAT_RADIUS = 50;
     //字体大小
     private static final int DEFLUAT_FONT_SIZE = 18;
+    //几个levle ，选中的level
     private int steps, checkPos;
+    //level名称
     private String[] titles;
 
     public StepView(Context context, @Nullable AttributeSet attrs) {
@@ -167,6 +170,7 @@ public class StepView extends View {
 
     public void setCheckPos(int checkPos) {
         this.checkPos = checkPos;
+        invalidate();
     }
 
     /**

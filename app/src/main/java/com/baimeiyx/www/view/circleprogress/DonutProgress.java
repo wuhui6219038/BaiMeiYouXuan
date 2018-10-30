@@ -18,6 +18,8 @@ import android.view.View;
 import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.utils.SizeUtils;
 
+import java.text.DecimalFormat;
+
 
 /**
  * Created by bruce on 14-10-30.
@@ -235,7 +237,7 @@ public class DonutProgress extends View {
     }
 
     public void setProgress(float progress) {
-        this.progress = progress;
+        this.progress = Float.valueOf(new DecimalFormat("#.#").format(progress));
         if (this.progress > getMax()) {
             this.progress %= getMax();
         }
