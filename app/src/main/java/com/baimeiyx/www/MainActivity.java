@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
     BottomNavigationView navigation;
     private MenuItem menuItem;
     private String strSession;
+    private boolean clickHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,10 @@ public class MainActivity extends BaseActivity {
             navigation.setSelectedItemId(itemId);
         } else {
             //登录了 可以直接显示页面
-            menuItem = navigation.getMenu().getItem(0);
-            FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
+            if (clickHome) {
+                clickHome = false;
+                navigation.setSelectedItemId(R.id.navigation_home);
+            }
         }
 
     }
@@ -76,6 +79,7 @@ public class MainActivity extends BaseActivity {
                             Bundle bundle = new Bundle();
                             bundle.putString(UserInfoActivity.FRAGMENT_TYPE, LoginFragment.class.getName());
                             ActivityUtils.launchActivity(MainActivity.this, getPackageName(), getPackageName() + ".ui.user.UserInfoActivity", bundle);
+                            clickHome = true;
                         } else {
                             menuItem = item;
                             FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
