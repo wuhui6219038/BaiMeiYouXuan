@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/text_current_assets"
-            android:textColor="@color/colorTransparent"
+            android:textColor="@color/colorMainGray"
             android:textSize="@dimen/font_s_size" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/text_freeze_count"
-            android:textColor="@color/colorTransparent"
+            android:textColor="@color/colorMainGray"
             android:textSize="@dimen/font_s_size" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/text_useful_money"
-            android:textColor="@color/colorTransparent"
+            android:textColor="@color/colorMainGray"
             android:textSize="@dimen/font_s_size" />
     </LinearLayout>
 
@@ -89,7 +89,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorTransparent"
+        android:background="@color/colorMainGray"
         android:orientation="horizontal"
 
         android:padding="@dimen/padding_8dp">

@@ -2,7 +2,6 @@ package com.baimeiyx.www.utils;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.net.Socket;
 
 /**
  * <pre>

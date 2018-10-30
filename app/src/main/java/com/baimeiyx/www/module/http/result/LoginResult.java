@@ -1,6 +1,6 @@
-package com.baimeiyx.www.http.result;
+package com.baimeiyx.www.module.http.result;
 
-public class LoginResult extends BaseResult{
+public class LoginResult extends BaseResult {
 
     /**
      * stateCode : 100

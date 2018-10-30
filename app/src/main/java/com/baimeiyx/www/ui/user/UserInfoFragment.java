@@ -5,15 +5,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
+
 import com.baimeiyx.www.base.ui.BaseSimpleFragment;
-import com.baimeiyx.www.http.result.LoginResult;
+import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.module.http.result.LoginResult;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 import com.baimeiyx.www.utils.AppUtils;
 import com.baimeiyx.www.utils.ImageUtils;
 import com.baimeiyx.www.utils.ToastUtils;
 import com.baimeiyx.www.utils.myUtils.FragmentUtils;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
-import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
 
 import butterknife.BindView;
 import butterknife.OnClick;

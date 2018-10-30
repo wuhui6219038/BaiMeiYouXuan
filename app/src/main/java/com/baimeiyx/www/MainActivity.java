@@ -3,47 +3,64 @@ package com.baimeiyx.www;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.MenuItem;
 
-import com.baimeiyx.www.ui.user.AccountFragment;
+
 import com.baimeiyx.www.base.ui.BaseActivity;
-import com.baimeiyx.www.ui.home.HomeFragment;
-import com.baimeiyx.www.utils.BarUtils;
-import com.baimeiyx.www.utils.myUtils.FragmentUtils;
+import com.baimeiyx.www.constant.Constant;
+import com.baimeiyx.www.ui.user.LoginFragment;
+import com.baimeiyx.www.ui.user.UserInfoActivity;
+import com.baimeiyx.www.utils.ActivityUtils;
 import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.ui.home.HomeFragment;
+import com.baimeiyx.www.ui.shop.ShopMainFragment;
+import com.baimeiyx.www.ui.user.AccountFragment;
+import com.baimeiyx.www.utils.EmptyUtils;
+import com.baimeiyx.www.utils.SPUtils;
+import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
-
+    private static final String TAG = "MainActivity";
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
     private MenuItem menuItem;
+    private String strSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         unbinder = ButterKnife.bind(this);
-        if (savedInstanceState == null) {
-
-            FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
-            setBar(R.color.colorBarHome, 0);
-        }
-        _init();
-
     }
+
 
     private void _init() {
+        Log.e(TAG, "_init: ");
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        strSession = new SPUtils(Constant.SP_PRESONAL).getString(Constant.SP_SESSION_ID);
+        int itemId = menuItem == null ? 0 : menuItem.getItemId();
+        //进入或者点击首页但没有登录
+        if (menuItem == null) {
+            navigation.setSelectedItemId(R.id.navigation_shop);
+        } else if (strSession == null) {
+            navigation.setSelectedItemId(itemId);
+        } else {
+            //登录了 可以直接显示页面
+            menuItem = navigation.getMenu().getItem(0);
+            FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
+        }
 
     }
 
-    private void setBar(int color, int alpha) {
-        BarUtils.setColor(this, getResources().getColor(color), alpha);
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        _init();
     }
 
 
@@ -53,21 +70,28 @@ public class MainActivity extends BaseActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             if (menuItem != item) {
-                menuItem = item;
-
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                        FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
-                        return true;
+                        if (EmptyUtils.isEmpty(strSession)) {
+                            Bundle bundle = new Bundle();
+                            bundle.putString(UserInfoActivity.FRAGMENT_TYPE, LoginFragment.class.getName());
+                            ActivityUtils.launchActivity(MainActivity.this, getPackageName(), getPackageName() + ".ui.user.UserInfoActivity", bundle);
+                        } else {
+                            menuItem = item;
+                            FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, HomeFragment.newInstance());
+                        }
+                        break;
                     case R.id.navigation_shop:
-                        return true;
+                        FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, ShopMainFragment.newInstance());
+                        menuItem = item;
+                        break;
                     case R.id.navigation_account:
+                        menuItem = item;
                         FragmentUtils.showFragmentReplace(getSupportFragmentManager(), R.id.container, AccountFragment.newInstance());
-                        return true;
+                        break;
                 }
-                return false;
             }
-            return false;
+            return true;
         }
     };
 

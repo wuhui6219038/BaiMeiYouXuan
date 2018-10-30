@@ -14,28 +14,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
+
 import com.baimeiyx.www.base.adapter.BleGattCallbackAdapter;
 import com.baimeiyx.www.base.callback.FragmentInteraction;
 import com.baimeiyx.www.base.callback.ItemOnClickListener;
-import com.baimeiyx.www.base.ui.BaseFragment;
 import com.baimeiyx.www.base.ui.BaseSimpleFragment;
+import com.example.mrw.baimeiyouxuan.R;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.baimeiyx.www.utils.ConvertUtils;
-import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 import com.baimeiyx.www.utils.LogUtils;
 import com.baimeiyx.www.utils.ToastUtils;
 import com.baimeiyx.www.utils.myUtils.DialogUtils;
+import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 import com.baimeiyx.www.utils.myUtils.NumFormatterUtils;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +39,6 @@ import java.util.List;
 import java.util.UUID;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.functions.Consumer;

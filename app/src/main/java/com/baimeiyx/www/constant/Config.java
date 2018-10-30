@@ -4,7 +4,7 @@ package com.baimeiyx.www.constant;
  * @author mr.w
  * 程序常用的key
  */
-public interface Config extends KeyConstant{
+public interface Config extends KeyConstant {
     /**
      * 蓝牙通信读信息
      */
@@ -15,6 +15,9 @@ public interface Config extends KeyConstant{
      */
     String YUNCHEN_WRITE_SERVICE_UUID = "0000fff0-0000-1000-8000-00805f9b34fb";
     String YUNCHEN_WRITE_CHARACTERISTIC_UUID = "0000FFF4-0000-1000-8000-00805F9B34FB";
-    //秤的名称
+    /**
+     * 秤的名称
+     */
     String[] DEVICE_NAME = {"YunChen"};
+
 }

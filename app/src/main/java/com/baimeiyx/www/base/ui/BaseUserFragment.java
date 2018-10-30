@@ -5,9 +5,8 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.baimeiyx.www.base.ui.BaseFragment;
-import com.baimeiyx.www.http.DataRepository;
-import com.baimeiyx.www.http.result.BaseResult;
+import com.baimeiyx.www.module.DataRepository;
+import com.baimeiyx.www.module.http.result.BaseResult;
 import com.baimeiyx.www.ui.user.UserViewModel;
 import com.baimeiyx.www.utils.ToastUtils;
 

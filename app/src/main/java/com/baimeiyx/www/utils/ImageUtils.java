@@ -37,10 +37,6 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.baimeiyx.www.utils.CloseUtils;
-import com.baimeiyx.www.utils.FileUtils;
-import com.baimeiyx.www.utils.StringUtils;
-import com.baimeiyx.www.utils.Utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -3,9 +3,9 @@ package com.baimeiyx.www.ui.user;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.base.ui.BaseActivity;
 import com.baimeiyx.www.base.ui.BaseFragment;
+import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 
 public class UserInfoActivity extends BaseActivity {

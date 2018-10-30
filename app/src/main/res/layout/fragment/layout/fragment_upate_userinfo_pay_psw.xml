@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorTransparent"
+    android:background="@color/colorMainGray"
     android:orientation="vertical">
 
     <include layout="@layout/view_app_title" />
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_1dp"
             android:layout_marginLeft="@dimen/margin_8dp"
-            android:background="@color/colorTransparent" />
+            android:background="@color/colorMainGray" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_1dp"
             android:layout_marginLeft="@dimen/margin_8dp"
-            android:background="@color/colorTransparent" />
+            android:background="@color/colorMainGray" />
 
         <LinearLayout
             android:layout_width="match_parent"

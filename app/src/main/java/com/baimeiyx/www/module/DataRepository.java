@@ -1,21 +1,23 @@
-package com.baimeiyx.www.http;
+package com.baimeiyx.www.module;
 
 import android.arch.lifecycle.MutableLiveData;
-import android.util.Log;
 
 import com.baimeiyx.www.constant.Constant;
-import com.baimeiyx.www.http.DataManager;
-import com.baimeiyx.www.http.api.BaiMeiApiService;
-import com.baimeiyx.www.http.result.BaseResult;
-import com.baimeiyx.www.http.result.LoginResult;
-import com.baimeiyx.www.http.result.RevenceDetailResult;
-import com.baimeiyx.www.http.result.UserInfoResult;
+import com.baimeiyx.www.module.http.DataManager;
+import com.baimeiyx.www.module.http.api.BaiMeiApiService;
+import com.baimeiyx.www.module.http.result.BaseResult;
+import com.baimeiyx.www.module.http.result.CustomerExpectResult;
+import com.baimeiyx.www.module.http.result.LoginResult;
+import com.baimeiyx.www.module.http.result.RevenceDetailResult;
+import com.baimeiyx.www.module.http.result.UserInfoResult;
+import com.baimeiyx.www.utils.SPUtils;
 
 import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class DataRepository {
     private static final String TAG = "DataRepository";
@@ -24,13 +26,17 @@ public class DataRepository {
     private MutableLiveData<UserInfoResult> userInfo;
     private MutableLiveData<BaseResult> revenceDetailResultMutableLiveData;
     private MutableLiveData<BaseResult> baseResultMutableLiveData;
+    private MutableLiveData<CustomerExpectResult> customerExpectResultMutableLiveData;
+    private SPUtils spUtils;
 
     public DataRepository() {
+        spUtils = new SPUtils(Constant.SP_PRESONAL);
         loginInfo = new MutableLiveData<>();
         userInfo = new MutableLiveData<>();
         baiMeiApiManager = DataManager.getBaiMeiApiService();
         revenceDetailResultMutableLiveData = new MutableLiveData<>();
         baseResultMutableLiveData = new MutableLiveData<>();
+        customerExpectResultMutableLiveData = new MutableLiveData<>();
     }
 
     public MutableLiveData<LoginResult> doLogin(String username, String psd) {
@@ -96,6 +102,22 @@ public class DataRepository {
                     }
                 });
         return baseResultMutableLiveData;
+    }
+
+    public MutableLiveData<CustomerExpectResult> getCustomerExpect() {
+        baiMeiApiManager.getCustomerExpect(spUtils.getString(Constant.SP_SESSION_ID))
+                .enqueue(new Callback<CustomerExpectResult>() {
+                    @Override
+                    public void onResponse(Call<CustomerExpectResult> call, Response<CustomerExpectResult> response) {
+                        customerExpectResultMutableLiveData.setValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<CustomerExpectResult> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
+        return customerExpectResultMutableLiveData;
     }
 
 

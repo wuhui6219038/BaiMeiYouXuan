@@ -313,7 +313,7 @@ public class TimeUtils {
      *                <li>{@link ConstUtils.TimeUnit#YEAR }:年</li>
      * @return 获取当前时间的之前的某一个时间段
      */
-    public static String getPreDate(String pattern, ConstUtils.TimeUnit unit,int span) {
+    public static String getPreDate(String pattern, ConstUtils.TimeUnit unit, int span) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(getNowTimeDate()); // 设置为当前时间
         if (unit.equals(ConstUtils.TimeUnit.MONTH))

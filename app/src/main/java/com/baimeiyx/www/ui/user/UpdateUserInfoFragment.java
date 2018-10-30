@@ -5,10 +5,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
+
 import com.baimeiyx.www.base.ui.BaseUserFragment;
-import com.baimeiyx.www.http.result.BaseResult;
-import com.baimeiyx.www.http.result.LoginResult;
+import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.module.http.result.BaseResult;
+import com.baimeiyx.www.module.http.result.LoginResult;
 import com.baimeiyx.www.utils.EmptyUtils;
 import com.baimeiyx.www.utils.ToastUtils;
 import com.baimeiyx.www.utils.myUtils.TimerCountUtils;

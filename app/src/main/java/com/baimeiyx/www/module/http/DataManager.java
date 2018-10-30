@@ -1,6 +1,7 @@
-package com.baimeiyx.www.http;
+package com.baimeiyx.www.module.http;
 
-import com.baimeiyx.www.http.api.BaiMeiApiService;
+import com.baimeiyx.www.module.http.api.BaiMeiApiService;
+import com.baimeiyx.www.module.http.interceptor.InterceptorUrl;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DataManager {
     private static Retrofit retrofit = null;
 
-    private DataManager() {
+    public DataManager() {
 
     }
 
@@ -26,6 +27,7 @@ public class DataManager {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(logging)
+                .addInterceptor(new InterceptorUrl())
                 .connectTimeout(5, TimeUnit.SECONDS)
                 .build();
         return okHttpClient;
@@ -35,15 +37,19 @@ public class DataManager {
     //初始化
     private static void _initRetrofit() {
         retrofit = new Retrofit.Builder()
-                .client(_initOkhttp())
-                .baseUrl(BaiMeiApiService.HOST)
+                .baseUrl(BaiMeiApiService.HOST_MAIN)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(_initOkhttp())
                 .build();
     }
 
     public static BaiMeiApiService getBaiMeiApiService() {
         return retrofit.create(BaiMeiApiService.class);
 
+    }
+
+    public BaiMeiApiService getApiService() {
+        return retrofit.create(BaiMeiApiService.class);
     }
 }

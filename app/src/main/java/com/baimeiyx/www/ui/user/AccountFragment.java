@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.base.ui.BaseUserFragment;
-import com.baimeiyx.www.http.result.LoginResult;
-import com.baimeiyx.www.http.result.UserInfoResult;
+import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.module.http.result.LoginResult;
+import com.baimeiyx.www.module.http.result.UserInfoResult;
 import com.baimeiyx.www.utils.ActivityUtils;
 import com.baimeiyx.www.utils.BarUtils;
 import com.baimeiyx.www.utils.ConstUtils;
@@ -18,10 +18,12 @@ import com.baimeiyx.www.utils.ImageUtils;
 import com.baimeiyx.www.utils.myUtils.NumFormatterUtils;
 import com.baimeiyx.www.utils.myUtils.SvgUtils;
 
-import java.text.DecimalFormat;
-
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static com.baimeiyx.www.constant.Constant.LEVEL;
+import static com.baimeiyx.www.constant.KeyConstant.SP_CACHE_USERINFO;
+import static com.baimeiyx.www.constant.KeyConstant.SP_SESSION_ID;
 
 /**
  * 个人中心

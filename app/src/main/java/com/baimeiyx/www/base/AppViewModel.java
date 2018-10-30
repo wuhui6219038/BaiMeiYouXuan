@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.baimeiyx.www.utils.LogUtils;
 
+
 public class AppViewModel extends ViewModel {
     private MutableLiveData<Bundle> mData;
     private static final String TAG = "AppViewModel";

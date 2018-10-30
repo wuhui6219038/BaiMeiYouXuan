@@ -1,23 +1,17 @@
 package com.baimeiyx.www.ui.user;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.base.ui.BaseUserFragment;
-import com.baimeiyx.www.http.result.BaseResult;
-import com.baimeiyx.www.http.result.LoginResult;
-import com.baimeiyx.www.utils.myUtils.DialogUtils;
+import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.module.http.result.LoginResult;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
+import com.baimeiyx.www.utils.myUtils.DialogUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoginFragment extends BaseUserFragment<LoginResult> {

@@ -31,7 +31,7 @@
             android:layout_marginLeft="@dimen/margin_8dp"
             android:text="@string/text_unit_weight_en"
 
-            android:textColor="@color/colorTransparent"
+            android:textColor="@color/colorMainGray"
             android:textSize="@dimen/font_h_size" />
     </LinearLayout>
 
@@ -78,7 +78,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorTransparent" />
+        android:background="@color/colorMainGray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -123,7 +123,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorTransparent" />
+        android:background="@color/colorMainGray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -168,7 +168,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorTransparent" />
+        android:background="@color/colorMainGray" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -213,7 +213,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorTransparent" />
+        android:background="@color/colorMainGray" />
 
     <Button
         android:layout_width="wrap_content"

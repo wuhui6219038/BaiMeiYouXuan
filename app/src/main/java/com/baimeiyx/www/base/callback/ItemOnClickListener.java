@@ -13,5 +13,5 @@ public interface ItemOnClickListener<T> {
      * @param data 数据
      * @param poistion 点击的位置
      */
-   void onItemClick(View view, T data,int poistion);
+   void onItemClick(View view, T data, int poistion);
 }

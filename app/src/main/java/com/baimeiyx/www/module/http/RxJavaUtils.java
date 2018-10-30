@@ -1,4 +1,4 @@
-package com.baimeiyx.www.http;
+package com.baimeiyx.www.module.http;
 
 import org.reactivestreams.Publisher;
 
@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers;
 public class RxJavaUtils {
     /**
      * @param <T>
-     * @return 封装线程之间的切换
+     * @return 封装线程之间的切换, 只用在联网时候
      */
     public static <T> FlowableTransformer<T, T> rxSchedulerHelper() {
         return new FlowableTransformer<T, T>() {

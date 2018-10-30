@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
+
 import com.baimeiyx.www.base.callback.ItemOnClickListener;
 import com.baimeiyx.www.base.ui.BaseAdapter;
-
+import com.example.mrw.baimeiyouxuan.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class AdapterBlueToothDevices extends BaseAdapter<AdapterBlueToothDevices
         notifyDataSetChanged();
     }
 
-    public void setItemOnClickListener(ItemOnClickListener listener) {
+    public void setItemOnClickListener(ItemOnClickListener<BluetoothDevice> listener) {
         this.itemOnClickListener = listener;
     }
 

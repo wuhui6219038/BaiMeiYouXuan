@@ -2,45 +2,29 @@ package com.baimeiyx.www.ui.home;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.baimeiyx.www.view.StepView;
+import com.baimeiyx.www.base.ui.BaseUserFragment;
+import com.baimeiyx.www.view.circleprogress.ArcProgress;
 import com.example.mrw.baimeiyouxuan.R;
-import com.baimeiyx.www.base.ui.BaseFragment;
-import com.baimeiyx.www.base.ui.BaseSimpleFragment;
+import com.baimeiyx.www.module.http.result.CustomerExpectResult;
 import com.baimeiyx.www.utils.ActivityUtils;
 import com.baimeiyx.www.utils.BarUtils;
 import com.baimeiyx.www.utils.ImageUtils;
-import com.baimeiyx.www.utils.ToastUtils;
 import com.baimeiyx.www.utils.myUtils.SvgUtils;
-import com.baimeiyx.www.view.StepView;
-import com.baimeiyx.www.view.circleprogress.ArcProgress;
-
-import org.reactivestreams.Publisher;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Flowable;
-import io.reactivex.FlowableTransformer;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 
-public class HomeFragment extends BaseSimpleFragment {
+public class HomeFragment extends BaseUserFragment<CustomerExpectResult> {
     @BindView(R.id.text_icon)
     TextView textIcon;
     @BindView(R.id.text_icon_next)
@@ -87,6 +71,7 @@ public class HomeFragment extends BaseSimpleFragment {
     }
 
     private void _init() {
+
         ImageUtils.loadImageByUrl(getActivity(), ivBg, "http://www.baimeiyx.com/wx-app/cover.png");
         SvgUtils.setIcon(mActivity, textIcon, "iconfont.ttf");
         SvgUtils.setIcon(mActivity, tvIconMessage, "iconfont.ttf");
@@ -100,11 +85,8 @@ public class HomeFragment extends BaseSimpleFragment {
     private static final String TAG = "HomeFragment";
 
     private void _initView() {
-        Observable<String> observable = Observable.just("I", "am", "RxJava");
-        Observable<Integer> observable2 = Observable.just(1, 2, 3);
-        Log.e(TAG, "_initView: ");
 
-
+//        test()
     }
 
 
@@ -123,7 +105,13 @@ public class HomeFragment extends BaseSimpleFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        // TODO: Use the ViewModel
+        mViewModel.setDataRepository(dataRepository);
+        mViewModel.getCustomerExpect().observe(this, this);
+    }
+
+    @Override
+    protected void onDataSuccessChanged(CustomerExpectResult baseResult) {
+
     }
 
     @Override
@@ -134,4 +122,146 @@ public class HomeFragment extends BaseSimpleFragment {
     }
 
 
+    ///////////
+//    private DataManager dataManager;
+//
+//    private void test() {
+    //new Consumer<Response<LoginResult>>() {
+    //                    @Override
+    //                    public void accept(Response<LoginResult> loginResultResponse) throws Exception {
+    //                        loginResultResponse.body()
+    //                    }
+    //                }
+//        dataManager = new DataManager();
+//        dataManager.getApiService()
+//                .doObservableLogin("", "")
+//                .compose(RxJavaUtils.rxSchedulerHelper())
+//                .retryWhen(new RetryExceptionObservable())
+//                .subscribe(new Consumer<Response<LoginResult>>() {
+//                    @Override
+//                    public void accept(Response<LoginResult> response) throws Exception {
+//                        appViewModel.getObserver().set
+//                        LogUtils.e(TAG, response.body());
+//                    }
+//                });
+
+
+//        Observable.create(new ObservableOnSubscribe<String>() {
+//            @Override
+//            public void subscribe(ObservableEmitter<String> e) throws Exception {
+//                e.onNext("hello world----");
+//                e.onError(new Throwable("always fails"));
+//
+//            }
+//        }).retryWhen(new Function<Observable<Throwable>, ObservableSource<Observable>>() {
+//            @Override
+//            public ObservableSource<Observable> apply(Observable<Throwable> throwableObservable) throws Exception {
+//                return throwableObservable.zipWith(Observable.range(1, 3), new BiFunction<Throwable, Integer, Observable>() {
+//                    @Override
+//                    public Observable apply(Throwable throwable, Integer integer) throws Exception {
+//                        Log.e(TAG, "delay retry by " + integer + " second(s)");
+//                        if (integer == 3) {
+//                            Log.e(TAG, "apply: 我尝试了3次还是扑街了");
+//                            return Observable.error(throwable);
+//                        } else
+//                            return Observable.timer(4, TimeUnit.SECONDS);
+//                    }
+//
+//                }).flatMap(new Function<Observable, ObservableSource<Observable>>() {
+//                    @Override
+//                    public ObservableSource<Observable> apply(Observable observable) throws Exception {
+//                        return observable;
+//                    }
+//                });
+//            }
+//        }).subscribe(new Consumer<String>() {
+//                         @Override
+//                         public void accept(String s) throws Exception {
+//                             Log.e(TAG, "accept: " + s);
+//                         }
+//                     }, new Consumer<Throwable>()
+//
+//                     {
+//                         @Override
+//                         public void accept(Throwable throwable) throws Exception {
+//                             Log.e(TAG, "Throwable: " + throwable.getMessage());
+//                         }
+//                     }, new
+//
+//                             Action() {
+//                                 @Override
+//                                 public void run() throws Exception {
+//                                     Log.e(TAG, "run: 完成");
+//                                 }
+//                             }
+//        );
+//        Observable.create((Subscriber<? super String> s) -> {
+//            System.out.println("subscribing");
+//            s.onError(new RuntimeException("always fails"));
+//        }).retryWhen(attempts -> {
+//            return attempts.zipWith(Observable.range(1, 3), (n, i) -> i).flatMap(i -> {
+//                System.out.println("delay retry by " + i + " second(s)");
+//                return Observable.timer(i, TimeUnit.SECONDS);
+//            });
+//        }).toBlocking().forEach(System.out::println);
+
+
+//        Flowable.create(new FlowableOnSubscribe<String>() {
+//            int count = 0;
+//
+//            @Override
+//            public void subscribe(FlowableEmitter<String> e) {
+//                count++;
+//                e.onError(new Throwable("always fails"));
+//                e.onNext("hello world----" + count);
+//
+//            }
+//        }, BackpressureStrategy.BUFFER)
+//                .compose(RxJavaUtils.rxSchedulerHelper())
+//                .retryWhen(new Function<Flowable<Throwable>, Publisher<Flowable>>() {
+//                    @Override
+//                    public Publisher<Flowable> apply(Flowable<Throwable> throwableFlowable) {
+//                        return throwableFlowable.zipWith(Flowable.range(1, 3), new BiFunction<Throwable, Integer, Flowable>() {
+//                            @Override
+//                            public Flowable apply(Throwable throwable, Integer integer) throws Exception {
+//                                Log.e(TAG, "delay retry by " + integer + " second(s)");
+//                                if (integer == 3) {
+//                                    Log.e(TAG, "apply: 我尝试了3次还是扑街了");
+//                                    return Flowable.error(throwable);
+//                                } else
+//                                    return Flowable.error(throwable);
+////                                    return Flowable.timer(1, TimeUnit.SECONDS);
+//                            }
+//
+//                            ;
+//                        });
+//                    }
+//
+//                    ;
+//                })
+//                .onErrorReturn(new Function<Throwable, String>() {
+//                    @Override
+//                    public String apply(Throwable throwable) throws Exception {
+//                        Log.e(TAG, "在onErrorReturn处理了: " + throwable.toString());
+//                        return throwable.getMessage();
+//                    }
+//                })
+//                .subscribe(new Consumer<String>() {
+//                               @Override
+//                               public void accept(String s) throws Exception {
+//                                   Log.e(TAG, "accept: " + s);
+//                               }
+//                           }, new Consumer<Throwable>() {
+//                               @Override
+//                               public void accept(Throwable throwable) throws Exception {
+//                                   Log.e(TAG, "Throwable: " + throwable.getMessage());
+//                               }
+//                           }, new Action() {
+//                               @Override
+//                               public void run() throws Exception {
+//                                   Log.e(TAG, "run: 完成");
+//                               }
+//                           }
+//                );
+//    }
 }

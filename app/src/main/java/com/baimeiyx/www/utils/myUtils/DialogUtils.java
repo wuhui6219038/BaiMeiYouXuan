@@ -3,9 +3,7 @@ package com.baimeiyx.www.utils.myUtils;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 
-import com.baimeiyx.www.utils.LogUtils;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 

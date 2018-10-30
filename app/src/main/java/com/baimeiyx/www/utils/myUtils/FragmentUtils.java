@@ -31,7 +31,7 @@ public class FragmentUtils {
 
             );
         }
-        transaction.replace(containId, fragment).commitNow();
+        transaction.replace(containId, fragment).commit();
     }
 
 

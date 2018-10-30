@@ -1,4 +1,4 @@
-package com.example.mrw.baimeiyouxuan;
+package www.example.mrw.baimeiyouxuan;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

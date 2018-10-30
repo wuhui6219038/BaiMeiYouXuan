@@ -46,7 +46,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/margin_8dp"
         android:layout_weight="0.8"
-        android:background="@color/colorTransparent"
+        android:background="@color/colorMainGray"
         android:paddingBottom="@dimen/padding_32dp"
         custom:fromValue="30"
         custom:interval="@dimen/size_8dp"

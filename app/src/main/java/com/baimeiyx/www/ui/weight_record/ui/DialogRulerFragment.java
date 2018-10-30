@@ -11,10 +11,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.example.mrw.baimeiyouxuan.R;
-import com.baimeiyx.www.base.callback.FragmentInteraction;
-import com.baimeiyx.www.utils.ScreenUtils;
+
 import com.baimeiyx.www.view.Ruler;
+import com.baimeiyx.www.base.callback.FragmentInteraction;
+import com.example.mrw.baimeiyouxuan.R;
+import com.baimeiyx.www.utils.ScreenUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

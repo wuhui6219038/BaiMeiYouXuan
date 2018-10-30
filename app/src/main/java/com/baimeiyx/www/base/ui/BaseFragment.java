@@ -1,8 +1,6 @@
 package com.baimeiyx.www.base.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,17 +15,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.baimeiyx.www.App;
-import com.example.mrw.baimeiyouxuan.R;
-import com.baimeiyx.www.constant.Config;
-import com.baimeiyx.www.constant.Constant;
+
 import com.baimeiyx.www.base.AppViewModel;
 import com.baimeiyx.www.base.callback.FragmentInteraction;
-import com.baimeiyx.www.http.DataRepository;
-import com.baimeiyx.www.utils.LogUtils;
-import com.baimeiyx.www.utils.SPUtils;
+import com.baimeiyx.www.constant.Config;
+import com.baimeiyx.www.constant.Constant;
+import com.example.mrw.baimeiyouxuan.R;
 import com.google.gson.Gson;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.baimeiyx.www.ui.user.LoginFragment;
+import com.baimeiyx.www.ui.user.UserInfoActivity;
+import com.baimeiyx.www.utils.ActivityUtils;
+import com.baimeiyx.www.utils.LogUtils;
+import com.baimeiyx.www.utils.SPUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -71,6 +71,7 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
             this.mActivity = (FragmentActivity) context;
             rxPermissions = new RxPermissions(mActivity);
             packageName = mActivity.getPackageName();
+            LogUtils.e(TAG, packageName);
             spUtils = new SPUtils(SP_PRESONAL);
         }
         if (context instanceof FragmentInteraction) {
@@ -110,6 +111,15 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
         super.onDestroyView();
         if (unbind != null)
             unbind.unbind();
+    }
+
+
+    protected void needLogin(boolean login) {
+        if (login) {
+            Bundle bundle = new Bundle();
+            bundle.putString(UserInfoActivity.FRAGMENT_TYPE, LoginFragment.class.getName());
+            ActivityUtils.launchActivity(mActivity, packageName, packageName + ".ui.user.UserInfoActivity", bundle);
+        }
     }
 
     /**

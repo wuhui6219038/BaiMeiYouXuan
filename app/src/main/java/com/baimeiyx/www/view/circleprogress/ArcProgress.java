@@ -16,7 +16,6 @@ import android.view.View;
 import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.utils.SizeUtils;
 
-
 import java.text.DecimalFormat;
 
 /**

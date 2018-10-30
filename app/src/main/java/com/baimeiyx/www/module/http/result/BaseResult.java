@@ -1,4 +1,4 @@
-package com.baimeiyx.www.http.result;
+package com.baimeiyx.www.module.http.result;
 
 import java.io.Serializable;
 
