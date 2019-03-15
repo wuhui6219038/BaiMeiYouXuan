@@ -19,10 +19,13 @@
     <dimen name="size_32dp">32dp</dimen>
     <!--个人中心里面图标的大小-->
     <dimen name="size_icon">32dp</dimen>
+    <!--收货管理图标-->
+    <dimen name="size_icon_shop_address">16dp</dimen>
     <!--radius-->
     <dimen name="radius_2dp">2dp</dimen>
     <dimen name="radius_5dp">5dp</dimen>
     <dimen name="radius_8dp">8dp</dimen>
+    <dimen name="radius_10dp">10dp</dimen>
     <!--padding-->
     <dimen name="padding_2dp">2dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>

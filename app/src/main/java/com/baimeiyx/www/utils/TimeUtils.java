@@ -182,6 +182,10 @@ public class TimeUtils {
     public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String DEFAULT_PATTERN2 = "yyyy/MM/dd HH:mm:ss";
     public static final String DEFAULT_PATTERN3 = "yyyy-MM";
+    public static final String DEFAULT_PATTERN4 = "yyyy年MM月dd月";
+    public static final String DEFAULT_PATTERN5 = "yyyy-MM-dd";
+    public static final String DEFAULT_PATTERN6 = "MM/dd";
+//    public static final String DEFAULT_PATTERN5—— = "yyyy-MM-dd";
 
     /**
      * 将时间戳转为时间字符串
@@ -317,7 +321,7 @@ public class TimeUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(getNowTimeDate()); // 设置为当前时间
         if (unit.equals(ConstUtils.TimeUnit.MONTH))
-            calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) - span); // 设置为上一个月
+            calendar.add(Calendar.MONTH, -span);
 
         return date2String(calendar.getTime(), pattern);
 

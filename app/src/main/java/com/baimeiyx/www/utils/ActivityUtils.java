@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 
+import com.baimeiyx.www.MainActivity;
 import com.example.mrw.baimeiyouxuan.R;
 
 import java.util.List;
@@ -52,6 +53,10 @@ public class ActivityUtils {
         launchActivity(context, packageName, className, null);
     }
 
+    public static void launchActivity(Context context, Class targetActivity) {
+        launchActivity(context, targetActivity, null);
+    }
+
     /**
      * 打开Activity
      *
@@ -63,6 +68,14 @@ public class ActivityUtils {
     public static void launchActivity(Context context, String packageName, String className, Bundle bundle) {
         context.startActivity(IntentUtils.getComponentIntent(packageName, className, bundle));
         ((Activity) context).overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    public static void launchActivity(Context context, Class targetActivity, Bundle bundle) {
+        Intent intent = new Intent();
+        if (bundle != null)
+            intent.putExtras(bundle);
+        intent.setClass(context, targetActivity);
+        context.startActivity(intent);
     }
 
     /**

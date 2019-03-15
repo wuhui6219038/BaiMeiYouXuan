@@ -64,15 +64,6 @@
                     android:textSize="@dimen/font_h_size" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_icon_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_8dp"
-                android:text="@string/icon_message"
-                android:textColor="@color/colorMainGray"
-                android:textSize="@dimen/font_xx_size" />
-
 
         </LinearLayout>
 
@@ -99,7 +90,7 @@
                     android:textColor="#ffffff"
                     android:textSize="@dimen/font_h_size" />
 
-                <com.baimeiyx.www.view.circleprogress.DonutProgress
+                <com.baimeiyx.www.widget.circleprogress.DonutProgress
                     android:id="@+id/donut_target_progress"
                     android:layout_width="@dimen/size_s_circleprogress"
                     android:layout_height="@dimen/size_s_circleprogress"
@@ -111,14 +102,14 @@
                     custom:donut_unfinished_stroke_width="2dp" />
             </LinearLayout>
 
-            <com.baimeiyx.www.view.circleprogress.ArcProgress
+            <com.baimeiyx.www.widget.circleprogress.ArcProgress
                 android:id="@+id/arc_progress"
                 android:layout_width="@dimen/size_m_circleprogress"
                 android:layout_height="@dimen/size_m_circleprogress"
                 android:layout_centerInParent="true"
                 custom:arc_bottom_text="@string/text_reduce_weight"
                 custom:arc_finished_color="@color/colorPrimary"
-                custom:arc_progress="55"
+                custom:arc_progress="0"
                 custom:arc_stroke_width="8dp"
                 custom:arc_suffix_text=" "
                 custom:arc_text_color="@android:color/white"
@@ -143,7 +134,7 @@
                     android:textColor="#ffffff"
                     android:textSize="@dimen/font_h_size" />
 
-                <com.baimeiyx.www.view.circleprogress.DonutProgress
+                <com.baimeiyx.www.widget.circleprogress.DonutProgress
                     android:id="@+id/donut_progress"
 
                     android:layout_width="@dimen/size_s_circleprogress"
@@ -165,7 +156,7 @@
             android:layout_gravity="bottom"
             android:orientation="vertical">
 
-            <com.baimeiyx.www.view.StepView
+            <com.baimeiyx.www.widget.StepView
                 android:id="@+id/stepview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -173,67 +164,96 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/water" />
         </LinearLayout>
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/ll_weight_record"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_home_weight_record"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding_16dp"
-        tools:layout_editor_absoluteX="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_8dp">
 
-        <TextView
-            android:id="@+id/text_icon"
-            android:layout_width="wrap_content"
+
+        <com.baimeiyx.www.widget.HealthPageCardView
+            android:id="@+id/health_1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_round"
-            android:gravity="center"
-            android:padding="@dimen/padding_8dp"
-            android:text="@string/icon_weight_record"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/font_xx_size" />
+            app:iv_1_bg="@drawable/gradient_calories"
+            app:iv_1_src="@drawable/ic_jilu"
+            app:iv_2_bg="@drawable/gradient_calories"
+            app:iv_2_src="@drawable/ic_weight"
+            app:tv_sub_title_1="@string/text_recode_weight_info"
+            app:tv_sub_title_2="@string/text_weight_loss_tool_info"
+            app:tv_title_1="@string/text_recode_weight"
+            app:tv_title_2="@string/text_weight_loss_tool"
+            app:subButtonType=""
+            app:subButtonType2=""
+            />
 
-        <LinearLayout
-            android:layout_width="0dp"
+        <com.baimeiyx.www.widget.HealthPageCardView
+            android:id="@+id/health_2"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_12dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            app:iv_1_bg="@drawable/gradient_calories"
+            app:iv_1_src="@drawable/ic_icon_test"
+            app:iv_2_bg="@drawable/gradient_calories"
+            app:iv_2_src="@drawable/ic_baobao"
+            app:tv_sub_title_1="@string/text_foods_info"
+            app:tv_sub_title_2="@string/text_baimei_shop_info"
+            app:tv_title_1="@string/text_baimei_shop"
+            app:tv_title_2="@string/text_weight_loss_tool" />
 
-            <TextView
-                android:id="@+id/tv_weight_record"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:text="@string/text_weight_record"
-                android:textSize="@dimen/font_xx_size" />
-
-            <TextView
-                android:id="@+id/tv_weight_record_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/text_weight_record_en"
-                android:textSize="@dimen/font_m_size" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/text_icon_next"
-            android:layout_width="wrap_content"
+        <com.baimeiyx.www.widget.HealthPageCardView
+            android:id="@+id/health_3"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
-            android:padding="@dimen/margin_2dp"
-            android:text="@string/icon_weight_next"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_x_size" />
+            app:iv_1_bg="@drawable/gradient_calories"
+            app:iv_1_src="@drawable/ic_pengyou"
+            app:iv_2_bg="@drawable/gradient_calories"
+            app:iv_2_src="@drawable/ic_naozhong1"
+            app:tv_sub_title_1="@string/text_super_fight_group_info"
+            app:tv_sub_title_2="@string/text_brand_flash_info"
+            app:tv_title_1="@string/text_super_fight_group"
+            app:tv_title_2="@string/text_brand_flash" />
+
+        <RadioGroup
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_record_weight_round_colorbarweightrecord"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/rb_man"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_corner_select_choose_sex_item"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/icon_man"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_woman"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_corner_select_choose_sex_item"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/icon_woman"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_24dp"
+                android:textStyle="bold" />
+        </RadioGroup>
     </LinearLayout>
-
 
 </LinearLayout>

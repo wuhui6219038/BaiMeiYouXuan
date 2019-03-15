@@ -9,13 +9,13 @@ import android.view.MenuItem;
 
 import com.baimeiyx.www.base.ui.BaseActivity;
 import com.baimeiyx.www.constant.Constant;
-import com.baimeiyx.www.ui.user.LoginFragment;
-import com.baimeiyx.www.ui.user.UserInfoActivity;
+import com.baimeiyx.www.view.fragment.LoginFragment;
+import com.baimeiyx.www.view.UserInfoActivity;
 import com.baimeiyx.www.utils.ActivityUtils;
 import com.example.mrw.baimeiyouxuan.R;
-import com.baimeiyx.www.ui.home.HomeFragment;
-import com.baimeiyx.www.ui.shop.ShopMainFragment;
-import com.baimeiyx.www.ui.user.AccountFragment;
+import com.baimeiyx.www.view.fragment.HomeFragment;
+import com.baimeiyx.www.view.fragment.ShopMainFragment;
+import com.baimeiyx.www.view.fragment.AccountFragment;
 import com.baimeiyx.www.utils.EmptyUtils;
 import com.baimeiyx.www.utils.SPUtils;
 import com.baimeiyx.www.utils.myUtils.FragmentUtils;
@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
         int itemId = menuItem == null ? 0 : menuItem.getItemId();
         //进入或者点击首页但没有登录
         if (menuItem == null) {
-            navigation.setSelectedItemId(R.id.navigation_shop);
+            navigation.setSelectedItemId(R.id.navigation_home);
         } else if (strSession == null) {
             navigation.setSelectedItemId(itemId);
         } else {
@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
                         if (EmptyUtils.isEmpty(strSession)) {
                             Bundle bundle = new Bundle();
                             bundle.putString(UserInfoActivity.FRAGMENT_TYPE, LoginFragment.class.getName());
-                            ActivityUtils.launchActivity(MainActivity.this, getPackageName(), getPackageName() + ".ui.user.UserInfoActivity", bundle);
+                            ActivityUtils.launchActivity(MainActivity.this,UserInfoActivity.class, bundle);
                             clickHome = true;
                         } else {
                             menuItem = item;

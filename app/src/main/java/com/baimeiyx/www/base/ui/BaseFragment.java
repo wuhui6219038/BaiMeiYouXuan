@@ -1,7 +1,6 @@
 package com.baimeiyx.www.base.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,19 +14,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.baimeiyx.www.base.AppViewModel;
-import com.baimeiyx.www.base.callback.FragmentInteraction;
+import com.baimeiyx.www.MainActivity;
 import com.baimeiyx.www.constant.Config;
 import com.baimeiyx.www.constant.Constant;
+import com.baimeiyx.www.utils.LogUtils;
+import com.baimeiyx.www.utils.SPUtils;
+import com.baimeiyx.www.view.dialog.DialogInputFragment;
+import com.baimeiyx.www.view.dialog.DialogRulerFragment;
 import com.example.mrw.baimeiyouxuan.R;
 import com.google.gson.Gson;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.baimeiyx.www.ui.user.LoginFragment;
-import com.baimeiyx.www.ui.user.UserInfoActivity;
-import com.baimeiyx.www.utils.ActivityUtils;
-import com.baimeiyx.www.utils.LogUtils;
-import com.baimeiyx.www.utils.SPUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,10 +44,8 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
     protected Unbinder unbind;
     protected FragmentActivity mActivity;
     protected RxPermissions rxPermissions;
-    protected FragmentInteraction fragmentInteraction;
-    //全局通知
-    protected AppViewModel appViewModel;
     protected View rootView;
+    protected DialogRulerFragment dialogRulerFragment;
 
     @Nullable
     @Override
@@ -63,7 +57,6 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
     }
 
     @Override
-
     public void onAttach(Context context) {
         super.onAttach(context);
         gson = new Gson();
@@ -73,9 +66,7 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
             packageName = mActivity.getPackageName();
             LogUtils.e(TAG, packageName);
             spUtils = new SPUtils(SP_PRESONAL);
-        }
-        if (context instanceof FragmentInteraction) {
-            fragmentInteraction = (FragmentInteraction) context;
+            dialogRulerFragment = new DialogRulerFragment();
         }
 
 
@@ -84,7 +75,6 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        appViewModel = ViewModelProviders.of(mActivity).get(AppViewModel.class);
     }
 
     @Override
@@ -98,6 +88,7 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
     public void onStop() {
         super.onStop();
         LogUtils.e(TAG, "onStop  " + getClass().getName());
+        MainActivity.appViewModel.removeAllObservers(this);
     }
 
     @Override
@@ -113,13 +104,18 @@ public abstract class BaseFragment extends Fragment implements Constant, Config 
             unbind.unbind();
     }
 
+    protected void showRulerDialog(String strValue) {
+        Bundle data = new Bundle();
+        data.putString(DialogRulerFragment.DEFVALUE, strValue);
+        dialogRulerFragment.setArguments(data);
+        dialogRulerFragment.show(getChildFragmentManager(), DialogRulerFragment.class.getName());
+    }
 
-    protected void needLogin(boolean login) {
-        if (login) {
-            Bundle bundle = new Bundle();
-            bundle.putString(UserInfoActivity.FRAGMENT_TYPE, LoginFragment.class.getName());
-            ActivityUtils.launchActivity(mActivity, packageName, packageName + ".ui.user.UserInfoActivity", bundle);
-        }
+    protected void showInputDiaLog(String strValue, String dialogTitle) {
+        Bundle data = new Bundle();
+        data.putString(DialogInputFragment.DEFAULT_VALUE, strValue);
+        data.putString(DialogInputFragment.TITLE_VALUE, dialogTitle);
+        DialogInputFragment.newInstance(data).show(getChildFragmentManager(), DialogInputFragment.class.getName());
     }
 
     /**

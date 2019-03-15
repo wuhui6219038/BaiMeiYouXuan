@@ -17,5 +17,8 @@
     <color name="colorCard">#AEE6B9</color>
     <color name="colorErWeiMa">#A7DBFF</color>
     <color name="colorFriends">#AEE6B7</color>
+    <color name="colorMainFont">@android:color/darker_gray</color>
+    <color name="colorMainBackgroud">@android:color/darker_gray</color>
+    <color name="colorOrderText">#f99191</color>
 
 </resources>

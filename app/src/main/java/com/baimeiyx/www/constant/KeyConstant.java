@@ -18,4 +18,9 @@ public interface KeyConstant {
      * 接口返回的手机号码
      */
     String STORE_PHONE = "phone";
+
+    /**
+     * 各户体重相关
+     */
+    String SP_CUSTOMEREXPECT = "customerExpect";
 }

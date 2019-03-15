@@ -915,6 +915,37 @@ public class FileUtils {
     }
 
     /**
+     * 指定编码按行读取文件到字符串中
+     *
+     * @param inputStream        输入流
+     * @param charsetName 编码格式
+     * @return 字符串
+     */
+    public static String readFile2String(InputStream inputStream, String charsetName) {
+        if (inputStream == null) return null;
+        BufferedReader reader = null;
+        try {
+            StringBuilder sb = new StringBuilder();
+            if (StringUtils.isSpace(charsetName)) {
+                reader = new BufferedReader(new InputStreamReader(inputStream));
+            } else {
+                reader = new BufferedReader(new InputStreamReader(inputStream, charsetName));
+            }
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append("\r\n");// windows系统换行为\r\n，Linux为\n
+            }
+            // 要去除最后的换行符
+            return sb.delete(sb.length() - 2, sb.length()).toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            CloseUtils.closeIO(reader);
+        }
+    }
+
+    /**
      * 读取文件到字符数组中
      *
      * @param filePath 文件路径

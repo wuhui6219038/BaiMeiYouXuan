@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_8dp"
+                    android:background="@drawable/ripple_touch_top"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_sex"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_sex" />
+
+                    <TextView
+                        android:id="@+id/tv_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="女"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touch_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_stature"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_height" />
+
+                    <TextView
+                        android:id="@+id/tv_height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="160"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="cm"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_touch_buttom"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_age"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_age" />
+
+
+                    <TextView
+                        android:id="@+id/tv_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="岁"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_12dp"
+                android:layout_marginTop="@dimen/margin_32dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_init_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_touch_top"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_init_weight"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_original_weight" />
+
+                    <TextView
+                        android:id="@+id/tv_init_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="kg"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_target_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touch_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_target_weight"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_target_weight_2" />
+
+                    <TextView
+                        android:id="@+id/tv_target_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="kg"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_target_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touch_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_target_date"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_target_date" />
+
+                    <TextView
+                        android:id="@+id/tv_target_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2018-11-1"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:id="@+id/ll_waistline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/touch_bg"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_waistline"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_waistline" />
+
+                    <TextView
+                        android:id="@+id/tv_waistline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="cm"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_hip_circumference"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_touch_buttom"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_hip_circumference"
+                        android:drawablePadding="@dimen/padding_12dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/text_hip_circumference" />
+
+                    <TextView
+                        android:id="@+id/tv_hip_circumference"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/colorMainFont" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="cm"
+                        android:textColor="@color/colorMainFont" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_64dp"
+                android:layout_marginRight="@dimen/margin_64dp"
+                android:background="@drawable/btn_ripple_green"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_8dp"
+                android:text="@string/btn_save"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom"
+        android:paddingBottom="@dimen/padding_4dp"
+        android:text="@string/hint_1"
+        android:textColor="@color/colorMainFont"
+        android:textSize="@dimen/font_h_size" />
+</LinearLayout>

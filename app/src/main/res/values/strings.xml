@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BaiMeiYouXuan</string>
+    <string name="app_name" translatable="false">百媚健康</string>
     <string name="title_home">首页</string>
     <string name="title_shop">商城</string>
     <string name="title_account">个人中心</string>
@@ -13,6 +13,11 @@
     <string name="title_update_login_psw">修改登录密码</string>
     <string name="title_update_pay_psw">修改支付密码</string>
     <string name="title_update_phone">修改手机号</string>
+    <string name="title_complete_userinfo">完善您的信息</string>
+    <string name="title_order_list">订单列表</string>
+    <string name="title_shipping_address_manage">管理收货地址</string>
+    <string name="title_shipping_address">收货地址</string>
+
 
     <string name="text_weight_record">体   重   记   录</string>
     <string name="text_weight_record_en">WEIGHT RECORD</string>
@@ -33,6 +38,21 @@
     <string name="text_water">水分</string>
     <string name="text_muscle">骨骼</string>
     <string name="text_calories">卡路里</string>
+
+    <string name="text_recode_weight">体重记录</string>
+    <string name="text_recode_weight_info">关注每一天的变化</string>
+    <string name="text_weight_loss_tool">减肥工具</string>
+    <string name="text_weight_loss_tool_info">健康运动必备</string>
+    <string name="text_foods">食物库</string>
+    <string name="text_foods_info">饮食知识点</string>
+    <string name="text_baimei_shop">百媚优选商城</string>
+    <string name="text_baimei_shop_info">好物推荐 品质之选</string>
+    <string name="text_super_fight_group">超值拼团</string>
+    <string name="text_super_fight_group_info">邀请好友一起拼</string>
+    <string name="text_brand_flash">品牌闪购</string>
+    <string name="text_brand_flash_info">大品牌 低价格</string>
+
+
     <string name="text_login_regist">登陆/注册</string>
     <string name="text_default_member_level">达人</string>
     <string name="text_member_level">会员级别</string>
@@ -81,6 +101,18 @@
     <string name="text_new_phone" translatable="false">新手机号</string>
     <string name="text_reduce_weight" translatable="false">已减(公斤)</string>
     <string name="text_plus_weight" translatable="false">已增重(公斤)</string>
+    <string name="text_sex" translatable="false">性别</string>
+    <string name="text_height" translatable="false">身高</string>
+    <string name="text_age" translatable="false">年龄</string>
+    <string name="text_hip_circumference" translatable="false">臀围</string>
+    <string name="text_waistline" translatable="false">腰围</string>
+    <string name="text_please" translatable="false">请输入%s</string>
+    <string name="text_price" translatable="false">¥%d</string>
+    <string name="text_pay" translatable="false">实付：¥%d</string>
+    <string name="text_set_default" translatable="false">设为默认</string>
+    <string name="text_receiver" translatable="false">收货人</string>
+    <string name="text_area" translatable="false">省/市/区</string>
+    <string name="text_address_detail" translatable="false">详细地址</string>
 
 
     <string name="text_empty_info">哼，一个能打都没有</string>
@@ -89,6 +121,11 @@
     <string name="btn_sure">确认</string>
     <string name="btn_update">修改</string>
     <string name="btn_checkcode">发送验证码</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_pay">付款</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_add_address">新增收货地址</string>
+    <string name="btn_complete">完成</string>
     <!--hint-->
     <string name="hint_home_search">搜索食物营养和热量</string>
     <string name="hint_nickname_words">最多不能超过25个字哦～</string>
@@ -96,7 +133,7 @@
     <string name="hint_psw_words">微信注册用户默认密码为 88888888 (8个8)</string>
     <string name="hint_original_psw">请输入当前密码</string>
     <string name="hint_new_psw">请输入新密码 (6-16位字符)</string>
-    <string name="hint_input_phone">请输入手机号</string>
+    <string name="hint_input_phone" translatable="false">请输入手机号</string>
     <string name="hint_input_checkcode">请输入短信验证码</string>
     <string name="hint_input_new_pay_psw">请输入新支付密码 (6位字符)</string>
     <string name="hint_input_pay_psw">支付密码为6位数字</string>
@@ -104,6 +141,9 @@
     <string name="hint_input_new_phone">请输入新手机号</string>
     <string name="hint_input_username">请输入用户名</string>
     <string name="hint_input_desc">请输入宣言</string>
+    <string name="hint_1">告诉我们您的信息,为您定制专属健康计划</string>
+    <string name="hint_input_receiver">请输入收货人</string>
+    <string name="hint_input_address">请输入详细地址</string>
 
     <!--toast-->
     <string name="toast_pelase_open_ble">请开启蓝牙后再试</string>
@@ -124,14 +164,25 @@
     <string name="toast_phone_same">手机号相同</string>
     <string name="toast_check_code_unrequire">验证码不能为空</string>
     <string name="toast_check_code_send_success">验证码已发送，请稍后再试</string>
+    <string name="toast_login_connneting">正在登录。。。</string>
+    <string name="toast_no_network">没有网络</string>
 
     <!--dialog-->
     <string name="dialog_hint">提示</string>
     <string name="dialog_logout">您确定要推出登录？</string>
+    <string name="dialog_hint_del">删除提示</string>
+    <string name="dialog_hint_del_info">你确认删除该地址吗？</string>
+
+
     <!--svg图标-->
-    <string name="icon_weight_record">&#xe600;</string>
-    <string name="icon_weight_next">&#xe8f1;</string>
-    <string name="icon_search">&#xe63d;</string>
-    <string name="icon_message">&#xe7a7;</string>
-    <string name="icon_back">&#xe625;</string>
+    <!--<string name="icon_weight_record">&#xe600;</string>-->
+    <string name="icon_weight_next">&#xe603;</string>
+
+    <!--<string name="icon_message">&#xe7a7;</string>-->
+    <!--<string name="icon_back">&#xe625;</string>-->
+    <string name="icon_search">&#xe696;</string>
+    <string name="icon_man">&#xe62f;</string>
+    <string name="icon_woman">&#xe6c7;</string>
+
+
 </resources>

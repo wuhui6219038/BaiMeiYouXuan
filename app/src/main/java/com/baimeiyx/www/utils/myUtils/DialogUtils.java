@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.baimeiyx.www.constant.Constant;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 
 
@@ -29,6 +30,21 @@ public class DialogUtils {
                 .setTipWord(msg)
                 .create();
         return loadDialog;
+    }
+
+    public static void showSuccessDialog(Context context, String msg) {
+        _initQMUITipDialog(context, msg, QMUITipDialog.Builder.ICON_TYPE_SUCCESS, Constant.DIALOG_DELAY);
+
+    }
+
+    public static void showFailDialog(Context context, String msg) {
+        _initQMUITipDialog(context, msg, QMUITipDialog.Builder.ICON_TYPE_FAIL, Constant.DIALOG_DELAY);
+
+    }
+
+    public static void showInfoDialog(Context context, String msg) {
+        _initQMUITipDialog(context, msg, QMUITipDialog.Builder.ICON_TYPE_INFO, Constant.DIALOG_DELAY);
+
     }
 
     public static void showSuccessDialog(int delay, Context context, String msg) {

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBarWeightRecord"
+        android:gravity="center"
+        android:padding="@dimen/padding_8dp">
+
+        <com.baimeiyx.www.widget.circleprogress.DonutProgress
+            android:id="@+id/donut_progress"
+            android:layout_width="@dimen/size_l_circleprogress"
+            android:layout_height="@dimen/size_l_circleprogress"
+            custom:donut_inner_bottom_text="@string/text_target_weight"
+            custom:donut_inner_bottom_text_color="@color/colorMainGray"
+            custom:donut_inner_bottom_text_size="@dimen/font_h_size"
+            custom:donut_inner_top_text="@string/text_has_reduce"
+            custom:donut_inner_top_text_color="@color/colorMainGray"
+            custom:donut_inner_top_text_size="@dimen/font_h_size"
+            custom:donut_text="--"
+            custom:donut_text_color="@android:color/white"
+            custom:donut_text_size="@dimen/font_xxx_size"
+            custom:donut_unfinished_color="#60ffffff"
+            custom:donut_unfinished_stroke_width="3dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_weight_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin_64dp"
+        android:layout_marginTop="@dimen/margin_32dp"
+        android:layout_marginRight="@dimen/margin_64dp"
+        android:layout_marginBottom="@dimen/margin_32dp"
+        android:background="@drawable/btn_ripple_weight_record"
+        android:text="@string/title_weight_record"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/font_h_size" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_lastest_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_lastest_weight"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_m_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5dp">
+
+                    <TextView
+                        android:id="@+id/tv_new_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/colorBarWeightRecord"
+                        android:textSize="@dimen/font_xx_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/text_unit_weight"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/font_s_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/text_record_date"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+
+                <TextView
+                    android:id="@+id/tv_new_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018年10月23日"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_init_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_original_weight"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_m_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5dp">
+
+                    <TextView
+                        android:id="@+id/tv_init_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/colorBarWeightRecord"
+                        android:textSize="@dimen/font_xx_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/text_unit_weight"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/font_s_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/text_setting_date"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+
+                <TextView
+                    android:id="@+id/tv_date_init"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018年10月23日"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_target_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_target_weight_2"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_m_size" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5dp">
+
+                    <TextView
+                        android:id="@+id/tv_target_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/colorBarWeightRecord"
+                        android:textSize="@dimen/font_xx_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="@string/text_unit_weight"
+                        android:textColor="@android:color/darker_gray"
+                        android:textSize="@dimen/font_s_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="@string/text_target_date"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+
+                <TextView
+                    android:id="@+id/tv_target_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018年10月23日"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/font_s_size" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

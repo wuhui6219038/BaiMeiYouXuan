@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="recode_weight"/>
+    <item type="id" name="weight_loss_tool"/>
+    <item type="id" name="foods"/>
+    <item type="id" name="baimei_shop"/>
+    <item type="id" name="super_fight_group"/>
+    <item type="id" name="brand_flash"/>
+
+</resources>

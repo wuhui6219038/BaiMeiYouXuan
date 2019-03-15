@@ -1,23 +1,36 @@
 package com.baimeiyx.www.base.ui;
 
+import android.arch.lifecycle.ViewModelProviders;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.baimeiyx.www.viewmodel.AppViewModel;
 import com.example.mrw.baimeiyouxuan.R;
 import com.baimeiyx.www.utils.LogUtils;
 
 import butterknife.Unbinder;
 
 public class BaseActivity extends AppCompatActivity {
+
+    public static AppViewModel appViewModel;
     private static final String TAG = "BaseActivity";
     //标题
     public static final String KEY_TITLE = "title";
     protected Unbinder unbinder;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        appViewModel = ViewModelProviders.of(this).get(AppViewModel.class);
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        appViewModel.removeAllObservers(this);
         if (unbinder != null) {
             unbinder.unbind();
         }
