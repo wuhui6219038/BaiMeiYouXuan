@@ -74,6 +74,7 @@ dependencies {
     implementation rootProject.ext.dependencies['pickerview']
     //下拉刷新
     implementation rootProject.ext.dependencies['pullrefresh']
+    implementation 'org.jetbrains:annotations:15.0'
 
 
 }

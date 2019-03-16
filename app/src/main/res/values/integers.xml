@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="recode_weight" type="integer">10001</item>
+    <item name="weight_loss_tool" type="integer">10002</item>
+    <item name="foods" type="integer">10003</item>
+    <item name="baimei_shop" type="integer">10004</item>
+    <item name="super_fight_group" type="integer">10005</item>
+    <item name="brand_flash" type="integer">10006</item>
+</resources>

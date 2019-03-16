@@ -28,8 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.baimeiyx.www.view.WeightRecordActivity" />
-        <activity android:name="com.baimeiyx.www.view.UserInfoActivity" />
+        <activity android:name="com.baimeiyx.www.ui.WeightRecordActivity" />
+        <activity android:name="com.baimeiyx.www.ui.UserInfoActivity" />
+        <activity android:name="com.baimeiyx.www.ui.LossToolActivity" />
     </application>
 
 </manifest>

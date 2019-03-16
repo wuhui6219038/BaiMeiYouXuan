@@ -3,6 +3,12 @@
     <string name="title_home">首页</string>
     <string name="title_shop">商城</string>
     <string name="title_account">个人中心</string>
+    <string name="title_loss_tool">健康减肥工具大全</string>
+
+    <string name="navigation_health">健康</string>
+    <string name="navigation_sports">运动</string>
+    <string name="navigation_daily">汗水日记</string>
+    <string name="navigation_my">我的</string>
     <string name="title_home_health">健康首页</string>
     <string name="title_weight_record">记录体重</string>
     <string name="title_weight_log">体重日志</string>
@@ -114,8 +120,23 @@
     <string name="text_area" translatable="false">省/市/区</string>
     <string name="text_address_detail" translatable="false">详细地址</string>
 
-
     <string name="text_empty_info">哼，一个能打都没有</string>
+
+
+    <string name="text_loss_tool_1_title">1分钟了解自己</string>
+    <string name="text_loss_tool_1_detail">1分钟了解自己的标准体重，BMI和基础代谢率</string>
+    <string name="text_loss_tool_2_title">身体质量指数(BMI)</string>
+    <string name="text_loss_tool_2_detail">BMI指数，也叫身体质量指数，衡量是否肥胖重要指标</string>
+    <string name="text_loss_tool_3_title">标准体重计算</string>
+    <string name="text_loss_tool_3_detail">使用标准体重计算器，轻松算出您的标准体重</string>
+    <string name="text_loss_tool_4_title">基础代谢计算</string>
+    <string name="text_loss_tool_4_detail">基础代谢率对减肥有非常大的影响，先测算一下吧</string>
+    <string name="text_loss_tool_5_title">健康体重范围</string>
+    <string name="text_loss_tool_5_detail">健康的体重有助于你保持健康状态先计算一下吧</string>
+    <string name="text_loss_tool_6_title">燃脂运动计算</string>
+    <string name="text_loss_tool_6_detail">燃脂运动就是燃烧脂肪的运动，怎样才算燃脂运动呢</string>
+
+
     <!--btn-->
     <string name="btn_cancel">取消</string>
     <string name="btn_sure">确认</string>

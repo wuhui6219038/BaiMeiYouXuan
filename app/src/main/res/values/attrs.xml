@@ -11,14 +11,20 @@
         <attr name="iv_1_src" format="reference" />
         <attr name="tv_title_1" format="string" />
         <attr name="tv_sub_title_1" format="string" />
-        <attr name="subButtonType" format="string" />
+        <attr name="subButtonType" format="integer" />
         <attr name="iv_2_bg" format="reference" />
         <attr name="iv_2_src" format="reference" />
         <attr name="tv_title_2" format="string" />
         <attr name="tv_sub_title_2" format="integer" />
         <attr name="subButtonType2" format="integer" />
     </declare-styleable>
-
+    <!--减肥工具里面item的自定义属性-->
+    <declare-styleable name="LossTool">
+        <attr name="loss_tool_title" format="string" />
+        <attr name="loss_tool_detail" format="string" />
+        <attr name="loss_tool_image" format="reference" />
+        <attr name="loss_tool_bg" format="reference" />
+    </declare-styleable>
     <!--游标尺-->
     <declare-styleable name="Ruler">
         <attr name="interval" format="dimension" />
