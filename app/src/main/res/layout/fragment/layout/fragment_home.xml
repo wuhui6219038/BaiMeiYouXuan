@@ -227,39 +227,7 @@
             app:tv_title_1="@string/text_super_fight_group"
             app:tv_title_2="@string/text_brand_flash" />
 
-        <RadioGroup
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:background="@drawable/btn_record_weight_round_colorbarweightrecord"
-            android:orientation="horizontal"
-            android:visibility="gone">
 
-            <RadioButton
-                android:id="@+id/rb_man"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bg_corner_select_choose_sex_item"
-                android:button="@null"
-                android:checked="true"
-                android:gravity="center"
-                android:text="@string/icon_man"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/rb_woman"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bg_corner_select_choose_sex_item"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/icon_woman"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/font_24dp"
-                android:textStyle="bold" />
-        </RadioGroup>
     </LinearLayout>
 
 </LinearLayout>

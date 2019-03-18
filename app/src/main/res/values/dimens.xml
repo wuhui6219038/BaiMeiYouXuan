@@ -26,12 +26,14 @@
     <dimen name="radius_5dp">5dp</dimen>
     <dimen name="radius_8dp">8dp</dimen>
     <dimen name="radius_10dp">10dp</dimen>
+    <dimen name="radius_25dp">25dp</dimen>
     <!--padding-->
     <dimen name="padding_2dp">2dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_12dp">12dp</dimen>
     <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_64dp">64dp</dimen>
     <!--margin-->
@@ -49,7 +51,7 @@
     <dimen name="font_m_size">14sp</dimen>
     <dimen name="font_h_size">16sp</dimen>
     <dimen name="font_x_size">20sp</dimen>
-    <dimen name="font_24dp">22sp</dimen>
+    <dimen name="font_22dp">22sp</dimen>
     <dimen name="font_xx_size">24sp</dimen>
     <dimen name="font_xxx_size">34sp</dimen>
     <dimen name="font_xxxx_size">64sp</dimen>

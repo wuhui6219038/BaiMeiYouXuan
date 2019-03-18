@@ -162,6 +162,10 @@
     <string name="text_loss_tool_subTitle_5">健康体重范围</string>
     <string name="text_loss_tool_introduce_5">健康体重不同于标准体重，它是一个范围值，其原理是通过BMI身体质量指数反向推算。</string>
     <string name="text_loss_tool_detail_5">健康范围的身体质量指数(BMI)在18.5到24之间，结合身高，就可以计算出健康体重范围。</string>
+    <string name="text_loss_tool_button">开始计算</string>
+    <string name="text_personal_data_setting">个人资料设定</string>
+    <string name="text_personal_data_setting_detail">根据你的资料计算你的基础代谢值</string>
+
 
     <string name="text_loss_tool_subTitle_6">燃脂运动计算</string>
     <string name="text_loss_tool_introduce_6">燃脂运动就是燃烧脂肪的运动，需要满足下面三个必要条件: \n 1、该运动要达到中低强度的运动心率;
@@ -178,6 +182,7 @@
     <string name="btn_delete">删除</string>
     <string name="btn_add_address">新增收货地址</string>
     <string name="btn_complete">完成</string>
+    <string name="btn_next">下一步</string>
     <!--hint-->
     <string name="hint_home_search">搜索食物营养和热量</string>
     <string name="hint_nickname_words">最多不能超过25个字哦～</string>

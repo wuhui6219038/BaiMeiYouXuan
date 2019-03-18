@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/text_personal_data_setting"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_x_size" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_16dp"
+            android:text="@string/text_personal_data_setting_detail"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_m_size" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_sex"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_m_size" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@drawable/btn_record_weight_round_colorbarweightrecord"
+            android:orientation="horizontal"
+
+            android:visibility="visible">
+
+            <RadioButton
+                android:id="@+id/rb_man"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_corner_select_choose_sex_item"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_32dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/icon_man"
+                android:textColor="@android:color/white"
+
+                android:textSize="@dimen/font_xxx_size"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_woman"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_corner_select_choose_sex_item"
+                android:button="@null"
+                android:gravity="center"
+                android:paddingLeft="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_32dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/icon_woman"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_xxx_size"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_32dp"
+            android:gravity="center"
+            android:text="@string/text_height"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_m_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_16dp"
+            android:text="@string/text_height"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_h_size" />
+
+        <com.baimeiyx.www.widget.Ruler
+            android:id="@+id/rv_height"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_weight="0.1"
+            app:chooseCololr="#fff"
+            app:currentValue="160"
+            app:fromValue="30"
+            app:interval="@dimen/size_8dp"
+            app:intervalsBetweenValues="10"
+            app:linesColor="#fff"
+            app:linesWidth="@dimen/size_1dp"
+            app:toValue="220"
+            app:valuesInterval="1"
+            app:valuesTextColor="@android:color/white"
+            app:valuesTextSize="12sp" />
+
+        <TextView
+            android:id="@+id/text_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/padding_16dp"
+            android:text="@string/text_age"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_m_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/text_age"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_h_size" />
+
+        <com.baimeiyx.www.widget.Ruler
+            android:id="@+id/rv_age"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:layout_weight="0.1"
+            app:chooseCololr="@android:color/white"
+            app:currentValue="20"
+            app:fromValue="1"
+            app:interval="@dimen/size_8dp"
+            app:intervalsBetweenValues="10"
+            app:linesColor="#fff"
+            app:linesWidth="@dimen/size_1dp"
+            app:toValue="100"
+            app:valuesInterval="10"
+            app:valuesTextColor="@android:color/white"
+            app:valuesTextSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:padding="@dimen/padding_24dp"
+        android:text="@string/btn_next"
+        android:textSize="@dimen/font_x_size"
+        android:textStyle="bold" />
+</LinearLayout>

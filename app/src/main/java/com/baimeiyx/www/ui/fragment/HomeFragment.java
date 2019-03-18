@@ -25,10 +25,7 @@ import com.example.mrw.baimeiyouxuan.R;
 import butterknife.BindView;
 
 public class HomeFragment extends BaseUserFragment<CustomerExpectResult> implements HealthPageCardView.ItemClickListener {
-    @BindView(R.id.rb_man)
-    RadioButton rbMan;
-    @BindView(R.id.rb_woman)
-    RadioButton rbWoman;
+
     @BindView(R.id.fl_content)
     FrameLayout flContent;
     @BindView(R.id.iv_bg)
@@ -73,8 +70,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
 
         ImageUtils.loadImageByUrl(getActivity(), ivBg, "http://www.baimeiyx.com/wx-app/cover.png");
         SvgUtils.setIcon(mActivity, tvIconSearch, "iconfont.ttf");
-        SvgUtils.setIcon(mActivity, rbMan, "iconfont.ttf");
-        SvgUtils.setIcon(mActivity, rbWoman, "iconfont.ttf");
+
         stepview.setStepsTitle(STEPTILTE);
         _initView();
 

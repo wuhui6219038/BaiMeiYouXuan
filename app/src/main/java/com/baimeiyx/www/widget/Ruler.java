@@ -43,11 +43,14 @@ public class Ruler extends View {
     private int linesWidth;
     //刻度的颜色
     private int linesColor;
+    //中间刻度的宽度
+    private int centerlineWidth;
+
     //刻度尺是vertical还是horizontal,上面第一张图的就是horizontal
     private int orientation;
 
     private Paint paint;
-
+    private Paint centerPaint;
     private OnValueChangeListener listener;
 
     private int currentPosition;
@@ -55,7 +58,6 @@ public class Ruler extends View {
     private int offset;
     private int oldX;
     private int oldY;
-
     public Ruler(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         // TODO Auto-generated constructor stub
@@ -71,6 +73,8 @@ public class Ruler extends View {
         valuesTextColor = array.getColor(R.styleable.Ruler_valuesTextColor, Color.BLACK);
         chooseColor = array.getColor(R.styleable.Ruler_valuesTextColor, context.getResources().getColor(R.color.colorPrimary));
         linesWidth = array.getDimensionPixelSize(R.styleable.Ruler_linesWidth, SizeUtils.dp2px(1));
+        centerlineWidth = array.getDimensionPixelSize(R.styleable.Ruler_centerLineWidth, SizeUtils.dp2px(2));
+
         linesColor = array.getColor(R.styleable.Ruler_linesColor, Color.BLACK);
         orientation = array.getInt(R.styleable.Ruler_orientation, HORIZONTAL);
 
@@ -78,6 +82,8 @@ public class Ruler extends View {
 
         paint = new Paint();
         paint.setAntiAlias(true);
+        centerPaint = new Paint();
+        centerPaint.setAntiAlias(true);
         paint.setTextSize(valuesTextSize);
 
         //文本高度
@@ -125,11 +131,11 @@ public class Ruler extends View {
                         canvas.drawText(valueString, getWidth() / 2 - paint.measureText(valueString) - SizeUtils.dp2px(5), height + textHeight / 3, paint);
                         paint.setColor(linesColor);
                     } else {
-                        canvas.drawLine(getWidth(), height, getWidth() * 3 / 5, height, paint);
+                        canvas.drawLine(getWidth(), height, getWidth() * 1 / 5, height, paint);
                     }
 
                 } else {
-                    canvas.drawLine(getWidth(), height, getWidth() * 4 / 5, height, paint);
+                    canvas.drawLine(getWidth(), height, getWidth() * 2 / 5, height, paint);
                 }
 
                 //每画完一条刻度则递减position和height,当position=起始值，或height低于0，即超出边界时，退出循环
@@ -168,28 +174,32 @@ public class Ruler extends View {
             //画中间的指针
             paint.setColor(chooseColor);
             paint.setStrokeWidth(SizeUtils.dp2px(2));
-            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight() * 4 / 5, paint);
-
+            int mHeiget = getHeight() / 6;
+            int mSubHeight= getHeight() / 7;
+            int sHeiget = getHeight() / 8;
+            int bHeiget = getHeight() / 5;
+            int textRealHeight = bHeiget + textHeight ;
             //画中间左边部分的刻度
             paint.setColor(linesColor);
             paint.setStrokeWidth(linesWidth);
             int width = getWidth() / 2 + offset;
             int position = currentPosition;
+
             while (true) {
                 if (position % (intervalsBetweenValues / 2) == 0) {
                     if (position % intervalsBetweenValues == 0) {
-                        canvas.drawLine(width, 0, width, getHeight() / 2, paint);
+                        canvas.drawLine(width, 0, width, mHeiget, paint);
 
                         String valueString = Integer.toString(position / intervalsBetweenValues * valuesInterval);
                         paint.setColor(valuesTextColor);
-                        canvas.drawText(valueString, width - paint.measureText(valueString) / 2, getHeight() / 2 + textHeight / 2, paint);
+                        canvas.drawText(valueString, width - paint.measureText(valueString) / 2, textRealHeight, paint);
                         paint.setColor(linesColor);
                     } else {
-                        canvas.drawLine(width, 0, width, getHeight() * 2 / 5, paint);
+                        canvas.drawLine(width, 0, width, mSubHeight, paint);
                     }
 
                 } else {
-                    canvas.drawLine(width, 0, width, getHeight() / 5, paint);
+                    canvas.drawLine(width, 0, width, sHeiget, paint);
                 }
                 position--;
                 if (position < fromValue / valuesInterval * intervalsBetweenValues) break;
@@ -208,20 +218,23 @@ public class Ruler extends View {
                 if (width > getWidth() + paint.measureText("10000")) break;
                 if (position % (intervalsBetweenValues / 2) == 0) {
                     if (position % intervalsBetweenValues == 0) {
-                        canvas.drawLine(width, 0, width, getHeight() / 2, paint);
-
+                        canvas.drawLine(width, 0, width, mHeiget, paint);
                         String valueString = Integer.toString(position / intervalsBetweenValues * valuesInterval);
                         paint.setColor(valuesTextColor);
-                        canvas.drawText(valueString, width - paint.measureText(valueString) / 2, getHeight() / 2 + textHeight / 2, paint);
+                        canvas.drawText(valueString, width - paint.measureText(valueString) / 2, textRealHeight, paint);
                         paint.setColor(linesColor);
                     } else {
-                        canvas.drawLine(width, 0, width, getHeight() * 2 / 5, paint);
+                        canvas.drawLine(width, 0, width, mSubHeight, paint);
                     }
 
                 } else {
-                    canvas.drawLine(width, 0, width, getHeight() / 5, paint);
+                    canvas.drawLine(width, 0, width, sHeiget, paint);
                 }
             }
+            //绘制最中间的刻度
+            centerPaint.setColor(chooseColor);
+            centerPaint.setStrokeWidth(centerlineWidth);
+            canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, bHeiget, centerPaint);
         }
 
     }
@@ -326,5 +339,8 @@ public class Ruler extends View {
 
     public interface OnValueChangeListener {
         void onValueChange(double size);
+    }
+    public double getDefaultChooseValue(){
+        return currentPosition * valuesInterval / (double) intervalsBetweenValues;
     }
 }

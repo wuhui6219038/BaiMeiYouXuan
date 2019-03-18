@@ -36,6 +36,7 @@
         <attr name="valuesTextSize" format="dimension" />
         <attr name="valuesTextColor" format="color" />
         <attr name="linesWidth" format="dimension" />
+        <attr name="centerLineWidth" format="color" />
         <attr name="linesColor" format="color" />
         <attr name="isShowPointer" format="boolean" />
         <attr name="chooseCololr" format="color" />
