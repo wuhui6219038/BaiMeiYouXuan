@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baimeiyx.www.base.ui.BaseUserFragment;
+import com.baimeiyx.www.ui.dialog.DialogInputFragment;
+import com.baimeiyx.www.ui.dialog.DialogRecodeWidget;
 import com.baimeiyx.www.widget.circleprogress.DonutProgress;
 import com.baimeiyx.www.service.model.CustomerExpectResult;
 import com.baimeiyx.www.utils.BarUtils;
@@ -111,15 +113,16 @@ public class WeightMainFragment extends BaseUserFragment<CustomerExpectResult> {
         int id = view.getId();
         switch (id) {
             case R.id.btn_weight_record:
+                DialogRecodeWidget.newInstance(new Bundle()).show(getChildFragmentManager(), DialogRecodeWidget.class.getName());
 
-                FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.container, WeightRecordDetailFragment.newInstance());
+                //FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightRecordDetailFragment.newInstance());
                 break;
             case R.id.ll_lastest_weight:
-                FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.container, WeightLogFragment.newInstance());
+                FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightLogFragment.newInstance());
                 break;
             case R.id.ll_init_weight:
             case R.id.ll_target_weight:
-                FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.container, WeightSettingFragment.newInstance());
+                FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightSettingFragment.newInstance());
                 break;
         }
     }

@@ -2,15 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
     android:orientation="horizontal"
     android:padding="@dimen/padding_8dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:orientation="vertical">
 
         <TextView
@@ -39,11 +37,17 @@
             android:src="@drawable/ic_next_gray" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_loss_tool"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|right"
-        android:layout_margin="@dimen/margin_12dp"
-        android:src="@drawable/ic_loss_tool_6" />
+        android:layout_weight="0.7">
+
+        <ImageView
+            android:id="@+id/iv_loss_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_margin="@dimen/margin_12dp"
+            android:src="@drawable/ic_loss_tool_6" />
+    </FrameLayout>
 </LinearLayout>

@@ -14,14 +14,14 @@ import com.example.mrw.baimeiyouxuan.R;
 /**
  * 减肥工具item
  */
-public class LossToolItemView extends FrameLayout {
+public class LossToolItemView extends FrameLayout implements View.OnClickListener {
 
     private String title, detail;
     private TextView tvTitle, tvDetail;
     private ImageView imageView;
     private Context mContext;
     private int backgroudId, imageId;
-
+    private OnItemClickListenser listenser;
 
     public LossToolItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -57,5 +57,20 @@ public class LossToolItemView extends FrameLayout {
         tvDetail.setText(detail);
         imageView.setImageDrawable(getResources().getDrawable(imageId));
         addView(subView);
+        setOnClickListener(this);
     }
+
+    @Override
+    public void onClick(View v) {
+        listenser.onItemClick(v, imageId);
+    }
+
+    public void setOnItemClickListenser(OnItemClickListenser listenser) {
+        this.listenser = listenser;
+    }
+
+    public interface OnItemClickListenser {
+        void onItemClick(View view, int type);
+    }
+
 }

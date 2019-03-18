@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colocCheckStep"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_16dp">
+
+        <ImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="@dimen/size_64dp"
+            android:layout_height="@dimen/size_64dp"
+            android:src="@drawable/ic_loss_tool_6" />
+
+        <TextView
+            android:id="@+id/tv_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:gravity="center_vertical"
+            android:text="@string/title_loss_tool_introduce_1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_xx_size" />
+
+        <TextView
+            android:id="@+id/tv_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:gravity="center_vertical"
+            android:text="@string/text_loss_tool_introduce_3"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_h_size" />
+
+        <TextView
+            android:id="@+id/tv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:gravity="center_vertical"
+            android:text="@string/text_loss_tool_detail_3"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_h_size" />
+    </LinearLayout>
+
+</LinearLayout>
