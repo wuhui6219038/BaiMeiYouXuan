@@ -5,6 +5,7 @@ package com.baimeiyx.www.constant;
  * 程序常用的key
  */
 public interface Config extends KeyConstant {
+
     /**
      * 蓝牙通信读信息
      */
@@ -19,6 +20,8 @@ public interface Config extends KeyConstant {
      * 秤的名称
      */
     String[] DEVICE_NAME = {"YunChen"};
-
-
+    /**
+     * 千牛称的appId
+     */
+    String QIANNIU_APPID = "amw20190318";
 }

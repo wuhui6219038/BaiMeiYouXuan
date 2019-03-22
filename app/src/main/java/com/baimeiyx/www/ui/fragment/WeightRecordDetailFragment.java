@@ -47,7 +47,7 @@ import java.util.UUID;
 import butterknife.BindView;
 import butterknife.OnClick;
 import io.reactivex.functions.Consumer;
-
+@Deprecated
 public class WeightRecordDetailFragment extends BaseUserFragment<BaseResult> {
     @BindView(R.id.rv_bluetooth)
     RecyclerView rvBluetooth;

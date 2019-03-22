@@ -176,11 +176,21 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_8dp">
 
-        <com.baimeiyx.www.widget.BMILevelVIew
-            android:layout_width="200dp"
+        <com.baimeiyx.www.widget.CiecleLoading
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:visibility="gone" />
 
+        <com.baimeiyx.www.widget.BMILevelVIew
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            android:visibility="gone" />
+
+        <com.baimeiyx.www.widget.Sun
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
 
 
         <com.baimeiyx.www.widget.HealthPageCardView
@@ -191,13 +201,12 @@
             app:iv_1_src="@drawable/ic_jilu"
             app:iv_2_bg="@drawable/gradient_loss_tool"
             app:iv_2_src="@drawable/ic_weight"
+            app:subButtonType="@integer/recode_weight"
+            app:subButtonType2="@integer/weight_loss_tool"
             app:tv_sub_title_1="@string/text_recode_weight_info"
             app:tv_sub_title_2="@string/text_weight_loss_tool_info"
             app:tv_title_1="@string/text_recode_weight"
-            app:tv_title_2="@string/text_weight_loss_tool"
-            app:subButtonType="@integer/recode_weight"
-            app:subButtonType2="@integer/weight_loss_tool"
-            />
+            app:tv_title_2="@string/text_weight_loss_tool" />
 
         <com.baimeiyx.www.widget.HealthPageCardView
             android:id="@+id/health_2"

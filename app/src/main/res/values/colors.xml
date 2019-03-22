@@ -20,5 +20,17 @@
     <color name="colorMainFont">@android:color/darker_gray</color>
     <color name="colorMainBackgroud">@android:color/darker_gray</color>
     <color name="colorOrderText">#f99191</color>
+    <color name="colorLower">#A58FDE</color>
+    <color name="colorLow">#57BEE0</color>
+    <color name="colorEnough">#5CA23F</color>
+    <color name="colorHigh">#F2C357</color>
+    <color name="colorHigher">#E5514B</color>
 
+
+    <color name='levelLower'>#A58FDE</color>
+    <color name='levelLow'>#57BEE0</color>
+    <color name='levelStandard'>#ADCA57</color>
+    <color name='levelHigh'>#F2C357</color>
+    <color name='levelHigher'>#E5514B</color>
+    <color name='levelFull'>#5CA23F</color>
 </resources>

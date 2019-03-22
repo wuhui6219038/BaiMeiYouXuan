@@ -41,6 +41,10 @@ public class BMILevelVIew extends View {
      */
     private float mOutRadius, mSecRadius, mInnerRadius = 10;
     /**
+     * 旋转角度
+     */
+    private float rotateDegress = 30;
+    /**
      * 是否需要在每个区域块中插入颜色
      */
     private boolean isNeedInsertColor;
@@ -71,7 +75,6 @@ public class BMILevelVIew extends View {
         outPaint.setStyle(Paint.Style.STROKE);
         innerPaint = new Paint();
         innerPaint.setAntiAlias(true);
-        innerPaint.setStrokeWidth(DEFAULT_STROKEWIDTH);
         innerPaint.setStyle(Paint.Style.STROKE);
         fontPaint = new Paint();
         fontPaint.setAntiAlias(true);
@@ -122,10 +125,7 @@ public class BMILevelVIew extends View {
             canvas.drawText("我是测试字体" + i, textX, textY, fontPaint);
 
         }
-        _drawPointer(canvas, -120 * Math.PI / 180);
-//        _drawPointer(canvas, -90 * Math.PI / 180);
-//        _drawPointer(canvas, -60 * Math.PI / 180);
-//        _drawPointer(canvas, -30 * Math.PI / 180);
+        _drawPointer(canvas, -90 * Math.PI / 180);
 
     }
 
@@ -135,41 +135,34 @@ public class BMILevelVIew extends View {
      * @param canvas
      */
     private void _drawPointer(Canvas canvas, double angle) {
+
         mSecRadius = mHeigth / 5;
         Paint pointPaint = new Paint();
         pointPaint.setStyle(Paint.Style.FILL);
         pointPaint.setColor(Color.BLACK);
         pointPaint.setStrokeWidth(10);
+        canvas.rotate(rotateDegress - 90, mWidth / 2, mHeigth / 2);
         //顶点
         float startX = mWidth / 2 + mSecRadius * (float) Math.cos(angle);
         float startY = mHeigth / 2 + mSecRadius * (float) Math.sin(angle);
         LogUtils.e(Math.cos(angle) + " " + Math.sin(angle));
 //        canvas.drawPoint(startX, startY, pointPaint);
-//        //切点
-//        float cutPointX = mWidth / 2 -mInnerRadius * (float) Math.sin(angle);
-//        float cutPointY = mHeigth / 2 - mInnerRadius * (float) Math.cos(angle);
-//        canvas.drawPoint(cutPointX, cutPointY, pointPaint);
-//        //第二切点
-//        float cutPointX2 = mWidth / 2 +mInnerRadius * (float) Math.sin(angle);
-//        float cutPointY2 = mHeigth / 2 + mInnerRadius * (float) Math.cos(angle);
-
+        //切点
         float cutPointX = mWidth / 2 - mInnerRadius * (float) Math.sin(angle);
-        float cutPointY = mHeigth / 2 + mInnerRadius * (float) Math.cos(angle);
+        float cutPointY = mHeigth / 2 - mInnerRadius * (float) Math.cos(angle);
 //        canvas.drawPoint(cutPointX, cutPointY, pointPaint);
         //第二切点
-        float cutPointX2 = mWidth / 2 + mInnerRadius * (float) Math.cos(angle);
-        float cutPointY2 = mHeigth / 2 - mInnerRadius * (float) Math.sin(angle);
-        pointPaint.setColor(Color.GRAY);
-//        canvas.drawPoint(cutPointX2, cutPointY2, pointPaint);
+        float cutPointX2 = mWidth / 2 + mInnerRadius * (float) Math.sin(angle);
+        float cutPointY2 = mHeigth / 2 + mInnerRadius * (float) Math.cos(angle);
+
         Path path = new Path();
         path.moveTo(startX, startY);
         path.lineTo(cutPointX, cutPointY);
-//        path.addArc(mWidth / 2 - 10, mHeigth / 2 - 10, mWidth / 2 + 10, mHeigth / 2 + 10, 0, 180);
+        innerPaint.setStyle(Paint.Style.FILL);
         innerPaint.setColor(Color.RED);
         canvas.drawCircle(mWidth / 2, mHeigth / 2, 10, innerPaint);
         path.lineTo(cutPointX2, cutPointY2);
         path.lineTo(startX, startY);
-        innerPaint.setStyle(Paint.Style.FILL);
         canvas.drawPath(path, innerPaint);
 
     }

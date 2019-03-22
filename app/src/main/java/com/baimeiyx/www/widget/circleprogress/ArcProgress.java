@@ -300,7 +300,7 @@ public class ArcProgress extends View {
         canvas.drawArc(rectF, finishedStartAngle, finishedSweepAngle, false, paint);
 
         String text = String.valueOf(TextUtils.isEmpty(getTextValue())?getProgress():getTextValue());
-        Log.e("sss", "onDraw: "+text );
+//        Log.e("sss", "onDraw: "+text );
         if (!TextUtils.isEmpty(text)) {
             textPaint.setColor(textColor);
             textPaint.setTextSize(textSize);

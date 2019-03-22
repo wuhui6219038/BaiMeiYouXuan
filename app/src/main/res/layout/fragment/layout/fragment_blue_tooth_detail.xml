@@ -1,225 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <include layout="@layout/view_app_title" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBarWeightRecord"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            android:paddingLeft="@dimen/padding_32dp"
-            android:paddingTop="@dimen/padding_64dp"
-            android:paddingBottom="@dimen/padding_64dp"
-            android:text="22"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/font_xxxx_size" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBarWeightRecord"
+                android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_8dp"
-            android:text="@string/text_unit_weight_en"
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_8dp">
 
-            android:textColor="@color/colorMainGray"
-            android:textSize="@dimen/font_h_size" />
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|bottom"
+                        android:text="@string/text_please_go_cheng"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/font_s_size" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_1dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/margin_16dp">
+                    <ImageView
+                        android:id="@+id/iv_refresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:padding="@dimen/padding_8dp"
+                        android:src="@drawable/ic_refresh" />
+                </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_fat"
-            android:padding="@dimen/padding_8dp"
-            android:src="@drawable/vector_drawable_fat" />
+                <LinearLayout
+                    android:id="@+id/ll_score"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/padding_8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp"
-            android:text="@string/text_fat"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/font_s_size" />
+                    <TextView
+                        android:id="@+id/tv_health_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="232"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/font_x_size"
+                        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_fat_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_health_score2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=".2 分"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_fat_level"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="标准"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_m_size" />
-    </LinearLayout>
+                <com.baimeiyx.www.widget.CiecleLoading
+                    android:id="@+id/cl_load"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:visibility="gone"
+                    app:locusRadius="80dp"
+                    app:smallCircleColor="@android:color/white"
+                    app:textColor="@android:color/white"
+                    app:textSize="@dimen/font_xxx_size"
+                    app:unitTextSize="@dimen/font_m_size" />
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorMainGray" />
+            <LinearLayout
+                android:id="@+id/ll_ble_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_1dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/margin_16dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_water"
-            android:padding="@dimen/padding_8dp"
-            android:src="@drawable/vector_drawable_water" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp"
-            android:text="@string/text_water"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/font_s_size" />
-
-        <TextView
-            android:id="@+id/tv_water_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tv_water_level"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="标准"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_m_size" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorMainGray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_1dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/margin_16dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_muscle"
-            android:padding="@dimen/padding_8dp"
-            android:src="@drawable/vector_drawable_muscle" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp"
-            android:text="@string/text_muscle"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/font_s_size" />
-
-        <TextView
-            android:id="@+id/tv_muscle_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tv_muscle_level"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="标准"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_m_size" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorMainGray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/size_1dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="@dimen/margin_16dp">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/gradient_calories"
-            android:padding="@dimen/padding_8dp"
-            android:src="@drawable/vector_drawable_calories" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp"
-            android:text="@string/text_calories"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="@dimen/font_s_size" />
-
-        <TextView
-            android:id="@+id/tv_calories_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/tv_calories_level"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="标准"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/font_m_size" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/size_1dp"
-        android:background="@color/colorMainGray" />
-
-    <Button
-        android:id="@+id/btn_record"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_32dp"
-        android:background="@drawable/btn_ripple_weight_record"
-        android:paddingLeft="@dimen/padding_64dp"
-        android:paddingRight="@dimen/padding_64dp"
-        android:text="@string/title_weight_record"
-        android:textColor="@android:color/white" />
+                <Button
+                    android:id="@+id/btn_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:background="@drawable/btn_ripple_weight_record"
+                    android:paddingLeft="@dimen/padding_64dp"
+                    android:paddingRight="@dimen/padding_64dp"
+                    android:text="@string/title_weight_record"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_x_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

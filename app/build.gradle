@@ -23,7 +23,9 @@ android {
                             'src/main/res/layout/activity',
                             'src/main/res/layout/dialog',
                             'src/main/res/layout/fragment',
+                            'src/main/res/layout/item/qingniu',
                             'src/main/res/layout/item',
+
                             'src/main/res/layout',
                             'src/main/res'
                     ]
@@ -74,6 +76,8 @@ dependencies {
     implementation rootProject.ext.dependencies['pickerview']
     //下拉刷新
     implementation rootProject.ext.dependencies['pullrefresh']
+    //千牛称
+    implementation rootProject.ext.dependencies['qianniu']
     implementation 'org.jetbrains:annotations:15.0'
 
 

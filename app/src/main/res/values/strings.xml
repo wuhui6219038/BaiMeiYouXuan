@@ -145,7 +145,7 @@
     <string name="text_recode_weight_hint2">百媚健康</string>
     <string name="text_recode_weight_hint3">智能体脂称</string>
     <string name="text_recode_weight_buy">立即购买</string>
-    <string name="text_recode_weight_btn">一分钟彻底了解自己</string>
+    <string name="text_recode_weight_btn">上称</string>
     <string name="text_loss_tool_subTitle_1">一分钟彻底了解自己</string>
     <string name="text_loss_tool_introduce_1">1分钟彻底了解自己的标准体重、健康体重范围、BMI指数 (即身体质量指数)、基础代谢 率和燃脂运动中低强度运动心率，看看自己是 否需要减肥了。</string>
     <string name="text_loss_tool_detail_1">身体质量指数(BMI): 评估体重与身高比例的 常用工具，适用范围: 18至65岁的人士。儿童、发育中的青少年、孕妇、乳母、老人及身型健硕的运动员除外</string>
@@ -165,10 +165,11 @@
     <string name="text_loss_tool_button">开始计算</string>
     <string name="text_personal_data_setting">个人资料设定</string>
     <string name="text_personal_data_setting_detail">根据你的资料计算你的基础代谢值</string>
-
+    <string name="text_please_go_cheng">请赤脚轻踩上称</string>
+    <string name="text_connecting">正在连接</string>
 
     <string name="text_loss_tool_subTitle_6">燃脂运动计算</string>
-    <string name="text_loss_tool_introduce_6">燃脂运动就是燃烧脂肪的运动，需要满足下面三个必要条件: \n 1、该运动要达到中低强度的运动心率;
+    <string name="text_loss_tool_introduce_6" translatable="false"> 燃脂运动就是燃烧脂肪的运动，需要满足下面三个必要条件: \n 1、该运动要达到中低强度的运动心率;
     \n 2、这种中低强度运动心率的运动要持续20分钟以上;
     \n 3、这种运动必须是大肌肉群的运动，如慢跑、游泳、健身操等。</string>
     <string name="text_loss_tool_detail_6">用下面的计算器，马上得到适合你的中低强度运动心率，低于这个范围或者高于这个范围，都不是以燃烧脂肪供能为主，减脂效果略差。</string>
@@ -183,6 +184,7 @@
     <string name="btn_add_address">新增收货地址</string>
     <string name="btn_complete">完成</string>
     <string name="btn_next">下一步</string>
+    <string name="btn_submit">提交</string>
     <!--hint-->
     <string name="hint_home_search">搜索食物营养和热量</string>
     <string name="hint_nickname_words">最多不能超过25个字哦～</string>

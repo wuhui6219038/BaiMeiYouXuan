@@ -1,17 +1,20 @@
 package com.baimeiyx.www.ui.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.baimeiyx.www.base.ui.BaseFragment;
 import com.baimeiyx.www.utils.BarUtils;
+import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 import com.baimeiyx.www.utils.myUtils.SvgUtils;
 import com.baimeiyx.www.widget.Ruler;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class LossToolCalculateFragment extends BaseFragment {
     /**
@@ -72,7 +75,7 @@ public class LossToolCalculateFragment extends BaseFragment {
     }
 
     private void _initValue() {
-        tvAge.setText((int)rvAge.getDefaultChooseValue() + "岁");
+        tvAge.setText((int) rvAge.getDefaultChooseValue() + "岁");
         tvHeight.setText(rvHeight.getDefaultChooseValue() + "厘米");
         rvAge.setOnValueChangeListener(new Ruler.OnValueChangeListener() {
             @Override
@@ -86,6 +89,11 @@ public class LossToolCalculateFragment extends BaseFragment {
                 tvHeight.setText(size + "厘米");
             }
         });
+    }
+
+    @OnClick(R.id.tv_next)
+    public void doClick(View view) {
+        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, LossTooSettingWeightFragment.newInstance(getArguments()));
     }
 
 }

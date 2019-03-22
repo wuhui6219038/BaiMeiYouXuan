@@ -25,6 +25,49 @@
         <attr name="loss_tool_image" format="reference" />
         <attr name="loss_tool_bg" format="reference" />
     </declare-styleable>
+    <!--circleLoading-->
+    <declare-styleable name="CircleLoading">
+        <attr name="smallRadius" format="float" />
+        <attr name="locusRadius" format="dimension" />
+        <attr name="speed" format="integer" />
+        <attr name="textSize" format="dimension" />
+        <attr name="unitTextSize" format="dimension" />
+        <attr name="smallCircleColor" format="color" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+    <!--sun组件-->
+    <declare-styleable name="Sun">
+        <attr name="centerTextSize" format="dimension" />
+        <attr name="subTextSize" format="dimension" />
+        <attr name="centerTextColor" format="color" />
+        <attr name="subTextColor" format="color" />
+        <attr name="chooseColor" format="color" />
+        <attr name="unChooseColor" format="color" />
+        <attr name="startAngle" format="integer" />
+        <attr name="radius" format="dimension" />
+        <attr name="pointRadius" format="dimension" />
+        <attr name="subTextTopToCenter" format="dimension" />
+    </declare-styleable>
+    <!--linelevel组件-->
+    <declare-styleable name="LineLevelView">
+        <attr name="lowerColor" format="color" />
+        <attr name="lowColor" format="color" />
+        <attr name="standardColor" format="color" />
+        <attr name="highColor" format="color" />
+        <attr name="higherColor" format="color" />
+        <attr name="lowerLevelText" format="string" />
+        <attr name="lowLevelText" format="string" />
+        <attr name="standardLevelText" format="string" />
+        <attr name="highLevelText" format="string" />
+        <attr name="higherLevelText" format="string" />
+        <attr name="lineLevelTextSize" format="dimension" />
+        <attr name="chooseLineLevelTextSize" format="dimension" />
+        <attr name="lowerLeverMaxValue" format="float" />
+        <attr name="lowLeverMaxValue" format="float" />
+        <attr name="standardLevelMaxValue" format="float" />
+        <attr name="highLevelMaxValue" format="float" />
+
+    </declare-styleable>
     <!--游标尺-->
     <declare-styleable name="Ruler">
         <attr name="interval" format="dimension" />

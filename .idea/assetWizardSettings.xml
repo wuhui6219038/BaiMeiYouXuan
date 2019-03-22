@@ -19,11 +19,9 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="48" />
-                            <entry key="outputName" value="ic_loss_tool_2" />
+                            <entry key="outputName" value="ic_refresh" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="$USER_HOME$/Downloads/baimeisvg/icon_7l57ql9qlgf/yiyaoxiang.svg" />
-                            <entry key="width" value="48" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/baimeisvg/刷新.svg" />
                           </map>
                         </option>
                       </PersistentState>

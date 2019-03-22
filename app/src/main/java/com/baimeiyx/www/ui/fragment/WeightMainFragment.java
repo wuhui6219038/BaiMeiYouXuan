@@ -107,15 +107,23 @@ public class WeightMainFragment extends BaseUserFragment<CustomerExpectResult> {
         BarUtils.setColor(mActivity, getResources().getColor(R.color.colorBarWeightRecord), 0);
     }
 
+    private DialogRecodeWidget dialog;
 
     @OnClick({R.id.btn_weight_record, R.id.ll_lastest_weight, R.id.ll_init_weight, R.id.ll_target_weight})
     public void doClick(View view) {
         int id = view.getId();
         switch (id) {
             case R.id.btn_weight_record:
-                DialogRecodeWidget.newInstance(new Bundle()).show(getChildFragmentManager(), DialogRecodeWidget.class.getName());
+                dialog = DialogRecodeWidget.newInstance(new Bundle());
+                dialog.setOnCliclListenser(new DialogRecodeWidget.OnCliclListenser() {
+                    @Override
+                    public void onClick(int type) {
+                        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightBleFragment.newInstance());
 
-                //FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightRecordDetailFragment.newInstance());
+                    }
+                });
+                dialog.show(getChildFragmentManager(), DialogRecodeWidget.class.getName());
+
                 break;
             case R.id.ll_lastest_weight:
                 FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, WeightLogFragment.newInstance());

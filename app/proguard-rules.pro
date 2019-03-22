@@ -26,7 +26,8 @@
   **[] $VALUES;
   public *;
 }
-
+#千牛
+-keep class com.qingniu.scale.model.BleScaleData{*;}
 # for DexGuard only
 -keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 

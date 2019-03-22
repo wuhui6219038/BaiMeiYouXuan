@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_8dp">
+
+        <ImageView
+            android:id="@+id/iv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_report_bmi" />
+
+        <TextView
+            android:id="@+id/levelMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_8dp"
+            android:gravity="center_vertical"
+            android:text="BMI" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="25.9"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_value_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_4dp"
+                android:gravity="center"
+                android:text="%"
+                android:textSize="@dimen/font_s_size"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <CheckBox
+            android:id="@+id/btn_show_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_norm_show_hidden"
+            android:button="@null" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_4dp">
+
+        <TextView
+            android:id="@+id/tv_distance_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="比标准值多了11.21kg"
+            android:textColor="@color/colorMainFont" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_corner_lower"
+            android:paddingLeft="@dimen/padding_12dp"
+            android:paddingTop="@dimen/padding_4dp"
+            android:paddingRight="@dimen/padding_12dp"
+            android:paddingBottom="@dimen/padding_4dp"
+            android:text="严重偏低" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_level_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <com.baimeiyx.www.widget.LineLevelView
+            android:id="@+id/linelevelview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/tv_result_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_12dp"
+            android:text="BMI超标,建议选择比较健康的方法减重,如控制饮食、改变不良的生活习惯和参加跑步、跳绳、打篮球、踢足球等消耗体能的运动。BMI:是指身体质量指数,国际上常用的衡量人体胖瘦程度以及是否健康的一个标准"
+            android:textColor="#949494" />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -24,6 +24,7 @@ import butterknife.Unbinder;
 public class DialogRecodeWidget extends DialogFragment {
     private Unbinder unbinder;
 
+    private OnCliclListenser listenser;
 
     public static DialogRecodeWidget newInstance(Bundle data) {
         DialogRecodeWidget fragment = new DialogRecodeWidget();
@@ -68,11 +69,20 @@ public class DialogRecodeWidget extends DialogFragment {
                 ToastUtils.showShortToast("功能暂时开放");
                 break;
             case R.id.tv_recode_weight:
+                listenser.onClick(1);
                 break;
             case R.id.iv_close:
                 dismiss();
                 break;
         }
+    }
+
+    public void setOnCliclListenser(OnCliclListenser listenser) {
+        this.listenser = listenser;
+    }
+
+    public interface OnCliclListenser {
+        void onClick(int type);
     }
 
     @Override

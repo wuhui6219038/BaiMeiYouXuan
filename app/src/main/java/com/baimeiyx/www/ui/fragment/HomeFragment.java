@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.baimeiyx.www.base.ui.BaseUserFragment;
@@ -73,7 +72,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
 
         stepview.setStepsTitle(STEPTILTE);
         _initView();
-
+        getCustomerExpect();
     }
 
 
@@ -87,7 +86,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
     @Override
     public void onStart() {
         super.onStart();
-        getCustomerExpect();
+
     }
 
 
