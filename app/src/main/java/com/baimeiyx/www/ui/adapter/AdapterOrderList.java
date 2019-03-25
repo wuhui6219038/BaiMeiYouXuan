@@ -29,7 +29,7 @@ public class AdapterOrderList extends BaseQuickAdapter<OrderListResult.DataBean.
     protected void convert(OrderListViewHolder helper, OrderListResult.DataBean.ListBean item) {
         helper.tvOrderNum.setText(item.getOrderNo());
         if (item.getSkuImage() != null)
-            ImageUtils.loadImageByUrl(context, helper.ivGoodsPic, item.getSkuImage() + "");
+            ImageUtils.loadBackgroudByUrl(context, helper.ivGoodsPic, item.getSkuImage() + "");
         helper.tvGoodsInfo.setText(item.getGoodsName());
         helper.tvGoodsPrice.setText(App.INSTANCE.getResources().getString(R.string.text_price, item.getAmount()));
         helper.tvGoodsNum.setText("x");

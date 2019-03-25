@@ -220,7 +220,10 @@
             app:tv_sub_title_1="@string/text_foods_info"
             app:tv_sub_title_2="@string/text_baimei_shop_info"
             app:tv_title_1="@string/text_foods"
-            app:tv_title_2="@string/text_baimei_shop" />
+            app:tv_title_2="@string/text_baimei_shop"
+            app:subButtonType="@integer/foods"
+            app:subButtonType2="@integer/baimei_shop"
+            />
 
         <com.baimeiyx.www.widget.HealthPageCardView
             android:id="@+id/health_3"

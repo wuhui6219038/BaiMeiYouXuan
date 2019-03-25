@@ -1,7 +1,13 @@
 package com.baimeiyx.www.widget.qingniu;
 
+import com.baimeiyx.www.constant.Config;
+import com.baimeiyx.www.service.model.CustomerExpectResult;
 import com.baimeiyx.www.service.model.QingNiuBean;
+import com.baimeiyx.www.utils.SPUtils;
+import com.baimeiyx.www.utils.myUtils.NumFormatterUtils;
 import com.example.mrw.baimeiyouxuan.R;
+import com.google.gson.Gson;
+import com.yolanda.health.qnblesdk.constant.QNIndicator;
 
 /**
  * 轻牛健康工具类
@@ -30,9 +36,23 @@ public class QingNiuUtils {
     private int level_5_color = R.color.levelHigher;
     private int typeImg;
     private String typeName;
+    private int sex;
+    private int age;
+    private float height;
+
+    public QingNiuUtils() {
+
+    }
+
+    public QingNiuUtils(SPUtils spUtils) {
+        CustomerExpectResult.DataBeanX.DataBean userInfo = new Gson().fromJson(spUtils.getString(Config.SP_CUSTOMEREXPECT), CustomerExpectResult.class).getData().getData();
+        sex = userInfo.getSex().equals("1") ? 1 : 0;
+        age = userInfo.getAge();
+        height = userInfo.getStature();
+    }
 
     // 体重
-    public QingNiuBean getWeight(float height, float weight, int sex) {
+    public QingNiuBean getWeight(float value) {
         typeName = "体重";
         typeImg = R.drawable.ic_report_weight;
         if (sex == 1) {
@@ -44,18 +64,18 @@ public class QingNiuUtils {
         lowLeverMaxValue = 0.9f * sw;
         standardLevelMaxValue = 1.1f * sw;
         highLevelMaxValue = 1.2f * sw;
-        if (weight <= lowLeverMaxValue) {
+        if (value <= lowLeverMaxValue) {
             level = 1;
             info = "长期体重过轻会导致一系列的问题，如脱发，厌食症等，身体技能会下降，需要加强营养，多吃高蛋白食物，摄入更多的热量以增加体重。";
             levelMsg = "严重偏低";
-        } else if (lowerLeverMaxValue < weight && weight < lowLeverMaxValue) {
+        } else if (lowerLeverMaxValue < value && value < lowLeverMaxValue) {
             levelMsg = "偏低";
             level = 2;
             info = "体重偏轻，身体消瘦，建议坚强营养，平衡饮食，多吃高蛋白食物，摄入更多的热量以增加体重。";
-        } else if (lowLeverMaxValue <= weight && weight <= standardLevelMaxValue) {
+        } else if (lowLeverMaxValue <= value && value <= standardLevelMaxValue) {
             level = 3;
             info = "恭喜您拥有理想的身体，保持合理健康的生活方式，适量参加运动，您就可以维持标准体重了。";
-        } else if (standardLevelMaxValue < weight && weight <= highLevelMaxValue) {
+        } else if (standardLevelMaxValue < value && value <= highLevelMaxValue) {
             levelMsg = "偏高";
             level = 4;
             info = "体重偏重，略显肥胖，建议一周进行3-5次有氧运动，减少食物（米饭面食等）的摄入，增加高纤维粗粮比列。";
@@ -65,12 +85,12 @@ public class QingNiuUtils {
             info = "体重严重超标，建议低脂，低胆固醇，高纤维膳食，补充多种维生素，增加运动量进行体重控制。";
         }
 
-        offset = weight - sw;
+        offset = value - sw;
         return setQingNiuBean(info, levelMsg, offset, "kg", level);
     }
 
     //获取bmi
-    public QingNiuBean getBMI(float value, int sex) {
+    public QingNiuBean getBMI(float value) {
         typeName = "BMI";
         typeImg = R.drawable.ic_report_bmi;
         lowLeverMaxValue = 18.5f;
@@ -99,7 +119,7 @@ public class QingNiuUtils {
     }
 
     // 体脂率
-    public QingNiuBean getBodyFat(float value, int sex) {
+    public QingNiuBean getBodyFat(float value) {
         typeName = "体脂率";
         typeImg = R.drawable.ic_report_bodyfat;
         if (sex == 1) {
@@ -138,7 +158,7 @@ public class QingNiuUtils {
     }
 
     // 体水分
-    public QingNiuBean getBodyWater(float value, int sex) {
+    public QingNiuBean getBodyWater(float value) {
         typeName = "体水分";
         typeImg = R.drawable.ic_report_water;
         level_4 = "充足";
@@ -170,7 +190,7 @@ public class QingNiuUtils {
     }
 
     // 骨骼肌率
-    public QingNiuBean getSkeletalMuscle(float value, int sex) {
+    public QingNiuBean getSkeletalMuscle(float value) {
         typeName = "骨骼肌率";
         typeImg = R.drawable.ic_report_muscle;
         if (sex == 1) {
@@ -200,7 +220,7 @@ public class QingNiuUtils {
     }
 
     // 肌肉量
-    public QingNiuBean getMuscle(int value, int height, int sex) {
+    public QingNiuBean getMuscle(float value) {
         typeName = "肌肉量";
         typeImg = R.drawable.ic_report_muscle_mass;
         level_4 = "充足";
@@ -247,7 +267,7 @@ public class QingNiuUtils {
     }
 
     // 骨量
-    public QingNiuBean getBoneMass(float weight, float value, int sex) {
+    public QingNiuBean getBoneMass(float weight, float value) {
         typeName = "骨量";
         typeImg = R.drawable.ic_report_bone;
         if (sex == 1) {
@@ -293,7 +313,7 @@ public class QingNiuUtils {
     }
 
     // 蛋白质
-    public QingNiuBean getProtein(float value, int sex) {
+    public QingNiuBean getProtein(float value) {
         typeName = "蛋白质";
         typeImg = R.drawable.ic_report_protein;
         level_4 = "充足";
@@ -350,7 +370,7 @@ public class QingNiuUtils {
     }
 
     // 体年龄
-    public QingNiuBean getBodyAge(int value, int age) {
+    public QingNiuBean getBodyAge(float value) {
         typeName = "体年龄";
         typeImg = R.drawable.ic_report_bodyage;
         int sw = age * 2 / 3;
@@ -363,7 +383,7 @@ public class QingNiuUtils {
     }
 
     // 基础代谢
-    public QingNiuBean getBMR(float weight, int age, int sex, int value) {
+    public QingNiuBean getBMR(float weight, float value) {
         typeName = "基础代谢";
         typeImg = R.drawable.ic_report_bmr;
         float sa;
@@ -403,13 +423,42 @@ public class QingNiuUtils {
 
     }
 
+    public QingNiuBean getDataByType(int type, float weight, float value) {
+        switch (type) {
+            case QNIndicator.TYPE_WEIGHT:
+                return getWeight(value);
+            case QNIndicator.TYPE_BMI:
+                return getBMI(value);
+            case QNIndicator.TYPE_BODYFAT:
+                return getBodyFat(value);
+            case QNIndicator.TYPE_WATER:
+                return getBodyWater(value);
+            case QNIndicator.TYPE_MUSCLE:
+                return getSkeletalMuscle(value);
+            case QNIndicator.TYPE_MUSCLE_MASS:
+                return getMuscle(value);
+            case QNIndicator.TYPE_BONE:
+                return getBoneMass(weight, value);
+            case QNIndicator.TYPE_PROTEIN:
+                return getProtein(value);
+            case QNIndicator.TYPE_VISFAT:
+                return getVisceralFat(value);
+            case QNIndicator.TYPE_BODY_AGE:
+                return getBodyAge(value);
+            case QNIndicator.TYPE_BMR:
+                return getBMR(weight, value);
+
+        }
+        return null;
+    }
+
     private QingNiuBean setQingNiuBean(String info, String title, double value, String unit, int level) {
         QingNiuBean bean = new QingNiuBean();
         String msg;
         if (value > 0) {
-            msg = "比标准值多了" + value + unit;
+            msg = "比标准值多了" + NumFormatterUtils.getFormatNum(value) + unit;
         } else {
-            msg = "比标准值少了" + Math.abs(value) + unit;
+            msg = "比标准值少了" + NumFormatterUtils.getFormatNum(Math.abs(value)) + unit;
         }
         bean.setInfo(info);
         bean.setLevelMsg(title);

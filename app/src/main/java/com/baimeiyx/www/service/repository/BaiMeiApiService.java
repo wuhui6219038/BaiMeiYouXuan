@@ -4,6 +4,8 @@ package com.baimeiyx.www.service.repository;
 import com.baimeiyx.www.service.model.BaseResult;
 import com.baimeiyx.www.service.model.CustomWeightLogResult;
 import com.baimeiyx.www.service.model.CustomerExpectResult;
+import com.baimeiyx.www.service.model.FoodsDetailResult;
+import com.baimeiyx.www.service.model.FoodsResult;
 import com.baimeiyx.www.service.model.LoginResult;
 import com.baimeiyx.www.service.model.OrderListResult;
 import com.baimeiyx.www.service.model.RevenceDetailResult;
@@ -33,7 +35,11 @@ public interface BaiMeiApiService {
      * 主url的名称
      */
     String URL_MAIN = "mainurl";
+
+    //测试
+//    String HOST_MAIN = "http://49.4.10.14:8080/gudao-parent-api/api/";
     String HOST_MAIN = "https://www.baimeiyx.com/gudao-parent-api/api/";
+
 
     /**
      * {@link com.baimeiyx.www.service.interceptor.InterceptorUrl}
@@ -93,6 +99,26 @@ public interface BaiMeiApiService {
     Observable<BaseResult> doUpdateWeight(@Field("MAYI_POS_API_MSID") String seesionId, @FieldMap Map<String, String> params);
 
     /**
+     * 获取食物列表
+     * http://49.4.10.14:8080/gudao-parent-api/api/tbfoodcategory/list?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&page=1&limit=1
+     *
+     * @param seesionId
+     * @return
+     */
+    @POST("tbfoodcategory/list")
+    @FormUrlEncoded
+    Observable<FoodsResult> getFoods(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page);
+
+    /**
+     * 获取食品类详情
+     * http://49.4.10.14:8080/gudao-parent-api/api/tbfood/categoryList?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&page=1&limit=1&foodCategoryId=78
+     */
+    @POST("tbfood/categoryList")
+    @FormUrlEncoded
+    Observable<FoodsDetailResult> getFoodsDetail(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page,@Field("foodCategoryId")int foodCategoryId);
+
+
+    /**
      * 修改每日体重
      *
      * @param seesionId
@@ -125,6 +151,7 @@ public interface BaiMeiApiService {
 
     /**
      * 删除地址
+     *
      * @param seesionId
      * @param id
      * @return
@@ -135,6 +162,7 @@ public interface BaiMeiApiService {
 
     /**
      * 设置默认地址
+     *
      * @param seesionId
      * @param id
      * @return
@@ -142,6 +170,7 @@ public interface BaiMeiApiService {
     @POST("tReceivingInfo/setDefaultAddress")
     @FormUrlEncoded
     Observable<BaseResult> setDefaultAddress(@Field("MAYI_POS_API_MSID") String seesionId, @Field("id") int id);
+
 
 //
 //    @GET("health/getCustomerExpectWList")

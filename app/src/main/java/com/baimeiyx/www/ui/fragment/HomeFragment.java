@@ -67,7 +67,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
 
     private void _init() {
 
-        ImageUtils.loadImageByUrl(getActivity(), ivBg, "http://www.baimeiyx.com/wx-app/cover.png");
+        ImageUtils.loadBackgroudByUrl(getActivity(), ivBg, "http://www.baimeiyx.com/wx-app/cover.png");
         SvgUtils.setIcon(mActivity, tvIconSearch, "iconfont.ttf");
 
         stepview.setStepsTitle(STEPTILTE);
@@ -141,6 +141,8 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
             ActivityUtils.launchActivity(mActivity, mActivity.getPackageName(), mActivity.getPackageName() + ".ui.LossToolActivity");
 
         } else if (subButtonType == getResources().getInteger(R.integer.foods)) {
+            ActivityUtils.launchActivity(mActivity, mActivity.getPackageName(), mActivity.getPackageName() + ".ui.HealthFoodsActivity");
+
         } else if (subButtonType == getResources().getInteger(R.integer.baimei_shop)) {
         } else if (subButtonType == getResources().getInteger(R.integer.super_fight_group)) {
 

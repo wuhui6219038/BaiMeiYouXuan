@@ -186,7 +186,7 @@
     <string name="btn_next">下一步</string>
     <string name="btn_submit">提交</string>
     <!--hint-->
-    <string name="hint_home_search">搜索食物营养和热量</string>
+    <string name="hint_home_search">请输入食品名称</string>
     <string name="hint_nickname_words">最多不能超过25个字哦～</string>
     <string name="hint_desc_words">不能超过50个字哦～</string>
     <string name="hint_psw_words">微信注册用户默认密码为 88888888 (8个8)</string>

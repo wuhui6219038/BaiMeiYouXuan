@@ -46,7 +46,7 @@ public class App extends Application {
 
     private void _initQianNiu() {
         String encryptPath = "file:///android_asset/amw20190318.qn";
-        QNLogUtils.setLogEnable(BuildConfig.DEBUG);//设置日志打印开关，默认关闭
+//        QNLogUtils.setLogEnable(BuildConfig.DEBUG);//设置日志打印开关，默认关闭
 //        QNLogUtils.setWriteEnable(true);//设置日志写入文件开关，默认关闭
         QNBleApi mQNBleApi = QNBleApi.getInstance(this);
         mQNBleApi.initSdk(Config.QIANNIU_APPID, encryptPath, new QNResultCallback() {

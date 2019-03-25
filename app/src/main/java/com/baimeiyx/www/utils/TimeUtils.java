@@ -1183,4 +1183,19 @@ public class TimeUtils {
                 ? month - 1
                 : (month + 10) % 12];
     }
+
+    public static String getNowOffset(int dateType, String format, int offset) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(dateType, calendar.get(dateType) + offset);//让日期加1
+        return new SimpleDateFormat(format, Locale.getDefault()).format(new Date(calendar.getTimeInMillis()));
+    }
+
+    public static Date getNowOffsetDate(int dateType, String format, int offset) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.set(dateType, calendar.get(dateType) + offset);//让日期加1
+        return new Date(calendar.getTimeInMillis());
+
+    }
 }

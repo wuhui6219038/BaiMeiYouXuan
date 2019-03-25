@@ -34,6 +34,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
@@ -1506,7 +1507,7 @@ public class ImageUtils {
      * @param view
      * @param url
      */
-    public static void loadImageByUrl(Context context, final View view, String url) {
+    public static void loadBackgroudByUrl(Context context, final View view, String url) {
         Glide.with(context).load(url)
                 .into(new SimpleTarget<Drawable>() {
                     @Override
@@ -1516,7 +1517,25 @@ public class ImageUtils {
                 });
     }
 
+    public static void loadImgSrcByUrl(Context context, final ImageView view, String url) {
+        Glide.with(context).load(url)
+                .into(new SimpleTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        view.setImageDrawable(resource);
+                    }
+                });
+    }
+
+    public static void loadImgSrcByUrlCorner(Context context, final ImageView view, String url) {
+
+        RoundedCorners roundedCorners = new RoundedCorners(10);
+        RequestOptions options = RequestOptions.bitmapTransform(roundedCorners).override(300, 300);
+        Glide.with(context).load(url).apply(options).into(view);
+    }
+
     public static void loadImageUrlRound(Context context, ImageView view, String url) {
         Glide.with(context).load(url).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(view);
     }
+
 }

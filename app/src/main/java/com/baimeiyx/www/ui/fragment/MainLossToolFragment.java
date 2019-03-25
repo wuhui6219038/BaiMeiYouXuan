@@ -1,9 +1,7 @@
 package com.baimeiyx.www.ui.fragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.baimeiyx.www.base.ui.BaseFragment;
@@ -14,8 +12,6 @@ import com.baimeiyx.www.widget.LossToolItemView;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 public class MainLossToolFragment extends BaseFragment implements LossToolItemView.OnItemClickListenser {
     private static final String BANNERURL = "https://obs-7bff.obs.cn-north-1.myhwclouds.com/11111_small_app/tools_index_banner.png";
@@ -57,7 +53,7 @@ public class MainLossToolFragment extends BaseFragment implements LossToolItemVi
 
     @Override
     protected void _init(Bundle savedInstanceState) {
-        ImageUtils.loadImageByUrl(getContext(), ivBanner, BANNERURL);
+        ImageUtils.loadBackgroudByUrl(getContext(), ivBanner, BANNERURL);
         losstoolview1.setOnItemClickListenser(this);
         losstoolview2.setOnItemClickListenser(this);
         losstoolview3.setOnItemClickListenser(this);

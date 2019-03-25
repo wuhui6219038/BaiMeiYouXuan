@@ -91,7 +91,7 @@
         android:id="@+id/ll_level_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         android:orientation="vertical">
 
         <com.baimeiyx.www.widget.LineLevelView
