@@ -2,66 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_4dp"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="@dimen/padding_8dp">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_foods_detail_img"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:clickable="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_2dp"
+        android:background="@color/colorBackgroundGray" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:padding="@dimen/padding_8dp">
 
-        <TextView
-            android:id="@+id/tv_foods_detail_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="基围虾"
-            android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/iv_foods_detail_img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_12dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_8dp">
 
             <TextView
-                android:id="@+id/tv_foods_detail_nutrientElement"
+                android:id="@+id/tv_foods_detail_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="111"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/font_m_size" />
+                android:text="基围虾"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_foods_detail_unit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_8dp"
-                android:text="千卡"
-                android:textSize="@dimen/font_s_size" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="/100g"
-                android:textSize="@dimen/font_m_size" />
+                android:layout_marginTop="@dimen/margin_12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_foods_detail_nutrientElement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="111"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/font_m_size" />
+
+                <TextView
+                    android:id="@+id/tv_foods_detail_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8dp"
+                    android:text="千卡"
+                    android:textSize="@dimen/font_s_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/100g"
+                    android:textSize="@dimen/font_m_size" />
+            </LinearLayout>
+
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_stars" />
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_stars" />
 </LinearLayout>

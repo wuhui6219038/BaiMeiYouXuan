@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding_8dp"
     android:background="@drawable/bg_corners_white_gray_5dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_12dp">
 
     <LinearLayout
         android:id="@+id/ll_item_1"
@@ -16,10 +16,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_marginRight="@dimen/margin_8dp"
             android:id="@+id/iv_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_8dp"
             android:padding="@dimen/padding_8dp" />
 
         <LinearLayout
@@ -32,12 +32,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="体重记录"
-                android:textSize="@dimen/font_m_size" />
+                android:textSize="@dimen/font_x_size" />
 
             <TextView
                 android:id="@+id/tv_sub_title_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:text="关注每一天的变化"
                 android:textColor="@color/colorMainFont"
                 android:textSize="@dimen/font_s_size" />
@@ -76,12 +77,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="体重记录"
-                android:textSize="@dimen/font_m_size" />
+                android:textSize="@dimen/font_x_size" />
 
             <TextView
                 android:id="@+id/tv_sub_title_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
                 android:text="关注每一天的变化"
                 android:textColor="@color/colorMainFont"
                 android:textSize="@dimen/font_s_size" />

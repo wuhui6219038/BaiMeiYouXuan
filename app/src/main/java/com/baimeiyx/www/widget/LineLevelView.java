@@ -62,7 +62,7 @@ public class LineLevelView extends View {
         lowColor = ta.getColor(R.styleable.LineLevelView_lowColor, getResources().getColor(R.color.levelLow));
         standardColor = ta.getColor(R.styleable.LineLevelView_standardColor, getResources().getColor(R.color.levelStandard));
         highColor = ta.getColor(R.styleable.LineLevelView_highColor, getResources().getColor(R.color.levelHigh));
-        higherColor = ta.getColor(R.styleable.LineLevelView_higherColor,getResources().getColor(R.color.levelHigher));
+        higherColor = ta.getColor(R.styleable.LineLevelView_higherColor, getResources().getColor(R.color.levelHigher));
         lowerValue = ta.getString(R.styleable.LineLevelView_lowerLevelText);
         lowValue = ta.getString(R.styleable.LineLevelView_lowLevelText);
         standardValue = ta.getString(R.styleable.LineLevelView_standardLevelText);
@@ -141,6 +141,8 @@ public class LineLevelView extends View {
         if (existHigher) {
             levelCount++;
         }
+        if (qingNiuBean != null)
+            Log.e(TAG, qingNiuBean.getTypeName() + " levelCount=" + levelCount);
 
     }
 
@@ -164,27 +166,28 @@ public class LineLevelView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        float startX = 0;
-        drawCount++;
-        levelWidth = getWidth() / levelCount;
-        Log.e(TAG, "onDraw: ");
-        canvas.translate(0, getHeight() / 2);
+        if (levelCount != 0) {
+            float startX = 0;
+            drawCount++;
+            levelWidth = getWidth() / levelCount;
+            canvas.translate(0, getHeight() / 2);
 
-        if (existLower) {
-            startX = drawLevel(canvas, lowerColor, lowerValue, lowerLeverMaxValue, 1, startX);
+            if (existLower) {
+                startX = drawLevel(canvas, lowerColor, lowerValue, lowerLeverMaxValue, 1, startX);
 
-        }
-        if (existLow) {
-            startX = drawLevel(canvas, lowColor, lowValue, lowLeverMaxValue, 2, startX);
-        }
-        if (existStandard) {
-            startX = drawLevel(canvas, standardColor, standardValue, standardLevelMaxValue, 3, startX);
-        }
-        if (existHigh) {
-            startX = drawLevel(canvas, highColor, highValue, highLevelMaxValue, 4, startX);
-        }
-        if (existHigher) {
-            startX = drawLevel(canvas, higherColor, higherValue, 0, 5, startX);
+            }
+            if (existLow) {
+                startX = drawLevel(canvas, lowColor, lowValue, lowLeverMaxValue, 2, startX);
+            }
+            if (existStandard) {
+                startX = drawLevel(canvas, standardColor, standardValue, standardLevelMaxValue, 3, startX);
+            }
+            if (existHigh) {
+                startX = drawLevel(canvas, highColor, highValue, highLevelMaxValue, 4, startX);
+            }
+            if (existHigher) {
+                startX = drawLevel(canvas, higherColor, higherValue, 0, 5, startX);
+            }
         }
     }
 

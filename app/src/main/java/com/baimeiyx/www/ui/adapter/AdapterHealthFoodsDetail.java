@@ -24,7 +24,6 @@ public class AdapterHealthFoodsDetail extends BaseQuickAdapter<FoodsDetailResult
 
     @Override
     protected void convert(HealthFoodsDetailViewHolder helper, FoodsDetailResult.PageBean.ListBean item) {
-        helper.addOnClickListener(R.id.iv_foods_detail_img);
         ImageUtils.loadImgSrcByUrlCorner(mContext, helper.ivFoodsDetailImg, item.getFoodImg());
         helper.tvFoodsDetailName.setText(item.getFoodName());
         helper.tvFoodsDetailnNtrientElement.setText(item.getNutrientElement());

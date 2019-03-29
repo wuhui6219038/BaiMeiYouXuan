@@ -63,7 +63,7 @@ public class Sun extends View {
         unChooseColor = ta.getColor(R.styleable.Sun_unChooseColor, Color.GRAY);
         radius = ta.getDimension(R.styleable.Sun_radius, 150);
         pointRadius = ta.getDimension(R.styleable.Sun_pointRadius, 10);
-        subTopToCenter = ta.getDimension(R.styleable.Sun_subTextTopToCenter, 30);
+        subTopToCenter = ta.getDimension(R.styleable.Sun_subTextTopToCenter, 50);
     }
 
     private void _initPaint() {
@@ -78,50 +78,60 @@ public class Sun extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        count++;
-        if (count == 2) {
-            super.onDraw(canvas);
-            Log.e(TAG, "onDraw: ");
-            //绘制文字
-            fontPaint.setColor(centerTextColor);
-            fontPaint.setTextSize(centerTextSize);
-            float baseline = (getMeasuredHeight() - (fontPaint.descent() - fontPaint.ascent())) / 2 - fontPaint.ascent();
-            float textWidth = fontPaint.measureText(text);
-            canvas.drawText(text, (getWidth() - textWidth) / 2, baseline, fontPaint);
 
-            fontPaint.setColor(subTextColor);
-            fontPaint.setTextSize(subTextSize);
-            float baseSubTextline = baseline + subTopToCenter;
-            float SubTextWidth = fontPaint.measureText(subText);
-            canvas.drawText(subText, (getWidth() - SubTextWidth) / 2, baseSubTextline, fontPaint);
+        super.onDraw(canvas);
+        Log.e(TAG, "onDraw: ");
+        //绘制文字
+        fontPaint.setColor(centerTextColor);
+        fontPaint.setTextSize(centerTextSize);
+        float baseline = (getMeasuredHeight() - (fontPaint.descent() - fontPaint.ascent())) / 2 - fontPaint.ascent();
+        float baseButtom = fontPaint.getFontMetrics().bottom;
+        Log.e(TAG, "onDraw: " + baseline + "  " + baseButtom);
+        float textWidth = fontPaint.measureText(text);
+        canvas.drawText(text, (getWidth() - textWidth) / 2, baseline, fontPaint);
+//绘制底部文字
+        fontPaint.setColor(subTextColor);
+        fontPaint.setTextSize(subTextSize);
+        float baseSubTextline = baseline * 5/ 4;
+        float SubTextWidth = fontPaint.measureText(subText);
+        canvas.drawText(subText, (getWidth() - SubTextWidth) / 2, baseSubTextline, fontPaint);
 
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.translate(getWidth() / 2, getHeight() / 2);
-            mPaint.setColor(unChooseColor);
-            canvas.drawCircle(0, 0, radius, mPaint);
-            mPaint.setStyle(Paint.Style.FILL);
-            mPaint.setColor(Color.RED);
-            canvas.drawCircle(radius * (float) Math.cos(startAngle * Math.PI / 180), radius * (float) Math.sin(startAngle * Math.PI / 180), pointRadius, mPaint);
-            mPaint.setStyle(Paint.Style.STROKE);
-            canvas.drawArc(new RectF(-radius, -radius, radius, radius), startAngle, sweepAngle, false, mPaint);
-            int realDegress;
-            //绘制外边的光芒
-            if (showOuter) {
-                for (int i = 0; i < 36; i++) {
-                    realDegress = startAngle + offsetDegress * i;
-                    float startX = (radius + 20) * (float) Math.cos(realDegress * Math.PI / 180);
-                    float startY = (radius + 20) * (float) Math.sin(realDegress * Math.PI / 180);
-                    float endX = (radius + 40) * (float) Math.cos(realDegress * Math.PI / 180);
-                    float endY = (radius + 40) * (float) Math.sin(realDegress * Math.PI / 180);
+        mPaint.setStyle(Paint.Style.STROKE);
+        canvas.translate(getWidth() / 2, getHeight() / 2);
+        mPaint.setColor(unChooseColor);
+        canvas.drawCircle(0, 0, radius, mPaint);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(chooseColor);
+        canvas.drawCircle(radius * (float) Math.cos(startAngle * Math.PI / 180), radius * (float) Math.sin(startAngle * Math.PI / 180), pointRadius, mPaint);
+        mPaint.setStyle(Paint.Style.STROKE);
 
-                    if (offsetDegress * i <= sweepAngle) {
-                        mPaint.setColor(chooseColor);
-                    } else {
-                        mPaint.setColor(unChooseColor);
-                    }
-                    canvas.drawLine(startX, startY, endX, endY, mPaint);
+        canvas.drawArc(new RectF(-radius, -radius, radius, radius), startAngle, sweepAngle, false, mPaint);
+        int realDegress;
+        //绘制外边的光芒
+        if (showOuter) {
+            for (int i = 0; i < 36; i++) {
+                realDegress = startAngle + offsetDegress * i;
+                float startX = (radius + 20) * (float) Math.cos(realDegress * Math.PI / 180);
+                float startY = (radius + 20) * (float) Math.sin(realDegress * Math.PI / 180);
+                float endX = (radius + 40) * (float) Math.cos(realDegress * Math.PI / 180);
+                float endY = (radius + 40) * (float) Math.sin(realDegress * Math.PI / 180);
+
+                if (offsetDegress * i <= sweepAngle) {
+                    mPaint.setColor(chooseColor);
+                } else {
+                    mPaint.setColor(unChooseColor);
                 }
+                canvas.drawLine(startX, startY, endX, endY, mPaint);
             }
         }
+
+    }
+
+    public void setText(String str) {
+        this.text = str;
+    }
+
+    public void setButtomText(String subText) {
+        this.subText = subText;
     }
 }

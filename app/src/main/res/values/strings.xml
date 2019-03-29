@@ -162,11 +162,25 @@
     <string name="text_loss_tool_subTitle_5">健康体重范围</string>
     <string name="text_loss_tool_introduce_5">健康体重不同于标准体重，它是一个范围值，其原理是通过BMI身体质量指数反向推算。</string>
     <string name="text_loss_tool_detail_5">健康范围的身体质量指数(BMI)在18.5到24之间，结合身高，就可以计算出健康体重范围。</string>
+    <string name="text_loss_tool_analyse_1">您的身体健康指数(BMI)为：%s</string>
+    <string name="text_loss_tool_analyse_sub_1">健康体重BMI</string>
+    <string name="text_loss_tool_analyse_2">您的年龄身高对应标准体重为</string>
+    <string name="text_loss_tool_analyse_3">您的基础代谢率为</string>
+    <string name="text_loss_tool_analyse_4">您的健康体重范围为</string>
+    <string name="text_loss_tool_analyse_5">您的中低强度运动心率是</string>
+    <string name="text_loss_tool_analyse_say">鲁迅说哒，世界上最好的东西有两样，美好的身体和有趣的灵魂。请保持！</string>
+    <string name="text_loss_tool_analyse_say2">警惕, 体重超标, 您处于肥胖范围, 急需减肥。</string>
+    <string name="text_loss_tool_analyse_say3">体重过轻</string>
+
     <string name="text_loss_tool_button">开始计算</string>
     <string name="text_personal_data_setting">个人资料设定</string>
     <string name="text_personal_data_setting_detail">根据你的资料计算你的基础代谢值</string>
     <string name="text_please_go_cheng">请赤脚轻踩上称</string>
     <string name="text_connecting">正在连接</string>
+    <string name="text_baiming_recommend">百媚健康评价：</string>
+    <string name="text_health_foods_element_detail_element">营养元素</string>
+    <string name="text_health_foods_element_detail_component">每100克</string>
+    <string name="text_health_foods_element_detail_remark">备注</string>
 
     <string name="text_loss_tool_subTitle_6">燃脂运动计算</string>
     <string name="text_loss_tool_introduce_6" translatable="false"> 燃脂运动就是燃烧脂肪的运动，需要满足下面三个必要条件: \n 1、该运动要达到中低强度的运动心率;
@@ -185,6 +199,8 @@
     <string name="btn_complete">完成</string>
     <string name="btn_next">下一步</string>
     <string name="btn_submit">提交</string>
+    <string name="btn_get_more">点击了解健康减肥</string>
+    <string name="btn_share"> &#58915; 给好友也测一下吧</string>
     <!--hint-->
     <string name="hint_home_search">请输入食品名称</string>
     <string name="hint_nickname_words">最多不能超过25个字哦～</string>
@@ -235,13 +251,14 @@
 
     <!--svg图标-->
     <!--<string name="icon_weight_record">&#xe600;</string>-->
-    <string name="icon_weight_next">&#xe603;</string>
+    <string name="icon_weight_next">&#58883;</string>
 
     <!--<string name="icon_message">&#xe7a7;</string>-->
     <!--<string name="icon_back">&#xe625;</string>-->
-    <string name="icon_search">&#xe696;</string>
-    <string name="icon_man">&#xe62f;</string>
-    <string name="icon_woman">&#xe6c7;</string>
+    <string name="icon_search">&#59030;</string>
+    <string name="icon_man">&#58927;</string>
+    <string name="icon_woman">&#59079;</string>
+    <string name="icon_share">&#58915;</string>
 
 
 </resources>

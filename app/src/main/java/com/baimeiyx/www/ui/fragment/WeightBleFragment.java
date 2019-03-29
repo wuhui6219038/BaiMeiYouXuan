@@ -2,8 +2,6 @@ package com.baimeiyx.www.ui.fragment;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +10,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.baimeiyx.www.base.ui.BaseFragment;
 import com.baimeiyx.www.service.model.BleConfig;
@@ -20,7 +17,7 @@ import com.baimeiyx.www.service.model.CustomerExpectResult;
 import com.baimeiyx.www.service.model.QingNiuBean;
 import com.baimeiyx.www.utils.BarUtils;
 import com.baimeiyx.www.utils.LogUtils;
-import com.baimeiyx.www.utils.StringUtils;
+import com.baimeiyx.www.utils.SPUtils;
 import com.baimeiyx.www.utils.TimeUtils;
 import com.baimeiyx.www.utils.ToastUtils;
 import com.baimeiyx.www.utils.myUtils.DialogUtils;
@@ -30,11 +27,10 @@ import com.baimeiyx.www.widget.LineLevelView;
 import com.baimeiyx.www.widget.qingniu.QingNiuUtils;
 import com.example.mrw.baimeiyouxuan.R;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.qingniu.qnble.utils.QNLogUtils;
-import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.yolanda.health.qnblesdk.constant.CheckStatus;
 import com.yolanda.health.qnblesdk.constant.QNIndicator;
-import com.yolanda.health.qnblesdk.constant.QNScaleStatus;
 import com.yolanda.health.qnblesdk.constant.UserGoal;
 import com.yolanda.health.qnblesdk.constant.UserShape;
 import com.yolanda.health.qnblesdk.listener.QNBleConnectionChangeListener;
@@ -54,10 +50,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 public class WeightBleFragment extends BaseFragment {
     private static final String TAG = "WeightBleFragment";
@@ -94,7 +87,7 @@ public class WeightBleFragment extends BaseFragment {
     TextView tvDistanceText;
     TextView tvResult;
     TextView tvResultInfo;
-    LinearLayout llLevelInfo;
+
     LineLevelView lineLevelView;
     private QingNiuUtils qingNiuUtils;
     //轻牛相关设置
@@ -133,7 +126,7 @@ public class WeightBleFragment extends BaseFragment {
     }
 
     private void addHealthItem(float value, QingNiuBean qingNiuBean) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_qingniu_result, null, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.item_qingniu_result, llBleResult, false);
         lineLevelView = view.findViewById(R.id.linelevelview);
         ivType = view.findViewById(R.id.iv_type);
         title = view.findViewById(R.id.levelMsg);
@@ -142,14 +135,14 @@ public class WeightBleFragment extends BaseFragment {
         tvDistanceText = view.findViewById(R.id.tv_distance_text);
         tvResult = view.findViewById(R.id.tv_result);
         tvResultInfo = view.findViewById(R.id.tv_result_info);
-        llLevelInfo = view.findViewById(R.id.ll_level_info);
+        LinearLayout  llLevelInfo = view.findViewById(R.id.ll_level_info);
         btnShowMore = view.findViewById(R.id.btn_show_more);
-        _initItemValue(value, qingNiuBean);
+        _initItemValue(llLevelInfo,value, qingNiuBean);
         llBleResult.addView(view, llBleResult.getChildCount());
 
     }
 
-    private void _initItemValue(float value, QingNiuBean qingNiuBean) {
+    private void _initItemValue(LinearLayout  llLevelInfo ,float value, QingNiuBean qingNiuBean) {
         lineLevelView.setValue(qingNiuBean);
         tvValue.setText(value + "");
         tvValueUnit.setText(qingNiuBean.getUnit());
@@ -163,6 +156,7 @@ public class WeightBleFragment extends BaseFragment {
             tvResult.setTextColor(getResources().getColor(qingNiuBean.getStatusTextColor()));
 
         }
+
         btnShowMore.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 llLevelInfo.setVisibility(View.VISIBLE);
@@ -255,7 +249,7 @@ public class WeightBleFragment extends BaseFragment {
                 Log.d("ConnectActivity", "蓝牙状态是:" + status);
             }
         });
-            mQNBleApi.setDataListener(new QNDataListener() {
+        mQNBleApi.setDataListener(new QNDataListener() {
             @Override
             public void onGetUnsteadyWeight(QNBleDevice device, double weight) {
                 Log.d("ConnectActivity", "体重是:" + weight);
@@ -343,6 +337,20 @@ public class WeightBleFragment extends BaseFragment {
     //测量结束分析结果
     private void onReceiveScaleData(QNScaleData md) {
         clLoad.stop();
+        Gson gson = new Gson();
+        String data = gson.toJson(md);
+        spUtils.putString("data", data);
+        Log.e(TAG, "onReceiveScaleData: " + data);
+        _initData(md);
+    }
+
+    private void test() {
+        Gson gson1 = new Gson();
+        QNScaleData md = gson1.fromJson(spUtils.getString("data"), QNScaleData.class);
+        _initData(md);
+    }
+
+    private void _initData(QNScaleData md) {
         QingNiuBean bean;
         List<QNScaleItemData> mDatas = md.getAllItem();
         for (QNScaleItemData qnScaleItemData : mDatas) {
@@ -369,6 +377,7 @@ public class WeightBleFragment extends BaseFragment {
                     }
                 });
 
+        test();
     }
 
     @Override
@@ -400,9 +409,9 @@ public class WeightBleFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.iv_refresh:
                 if (isScanning) {
-                    DialogUtils.showInfoDialog(getContext(), "客户别着急，正在搜索设备中。。。");
+                    DialogUtils.showInfoDialog(getContext(), "客官别着急，正在搜索设备中。。。");
                 } else {
-                    DialogUtils.showInfoDialog(getContext(), "客观请上称。。");
+                    DialogUtils.showInfoDialog(getContext(), "客官请上称。。");
                     startScan();
                 }
 

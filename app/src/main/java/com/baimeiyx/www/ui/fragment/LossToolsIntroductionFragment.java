@@ -92,7 +92,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_1);
                 detail = getString(R.string.text_loss_tool_detail_1);
                 bannerId = R.drawable.ic_loss_tool_1;
-                backgroudId = Color.parseColor("#f8ad6c");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_1_start);
                 break;
             case R.drawable.ic_loss_tool_2:
                 title = getString(R.string.title_loss_tool_introduce_2);
@@ -100,7 +100,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_2);
                 detail = getString(R.string.text_loss_tool_detail_2);
                 bannerId = R.drawable.ic_loss_tool_2;
-                backgroudId = Color.parseColor("#85b8fa");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_2_start);
                 break;
             case R.drawable.ic_loss_tool_3:
                 title = getString(R.string.title_loss_tool_introduce_3);
@@ -108,7 +108,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_3);
                 detail = getString(R.string.text_loss_tool_detail_3);
                 bannerId = R.drawable.ic_loss_tool_3;
-                backgroudId = Color.parseColor("#ff87bd");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_3_start);
 
                 break;
             case R.drawable.ic_loss_tool_4:
@@ -117,7 +117,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_4);
                 detail = getString(R.string.text_loss_tool_detail_4);
                 bannerId = R.drawable.ic_loss_tool_4;
-                backgroudId = Color.parseColor("#75ea88");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_4_start);
 
                 break;
             case R.drawable.ic_loss_tool_5:
@@ -126,7 +126,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_5);
                 detail = getString(R.string.text_loss_tool_detail_5);
                 bannerId = R.drawable.ic_loss_tool_5;
-                backgroudId = Color.parseColor("#9f8ae9");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_5_start);
                 break;
             case R.drawable.ic_loss_tool_6:
                 title = getString(R.string.title_loss_tool_introduce_6);
@@ -134,7 +134,7 @@ public class LossToolsIntroductionFragment extends BaseFragment {
                 introduce = getString(R.string.text_loss_tool_introduce_6);
                 detail = getString(R.string.text_loss_tool_detail_6);
                 bannerId = R.drawable.ic_loss_tool_6;
-                backgroudId = Color.parseColor("#6acbeb");
+                backgroudId = getResources().getColor(R.color.color_loss_weight_tool_6_start);
 
                 break;
 
@@ -149,9 +149,9 @@ public class LossToolsIntroductionFragment extends BaseFragment {
 
     @OnClick(R.id.btn_calculate)
     public void onViewClicked() {
-        Bundle data = new Bundle();
-        data.putInt(LossToolCalculateFragment.BGCOLOR,backgroudId);
-        data.putString(LossToolCalculateFragment.TITLE,subTitle);
+        Bundle data = getArguments();
+        data.putInt(LossToolCalculateFragment.BGCOLOR, backgroudId);
+        data.putString(LossToolCalculateFragment.TITLE, subTitle);
         FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, LossToolCalculateFragment.newInstance(data));
     }
 }

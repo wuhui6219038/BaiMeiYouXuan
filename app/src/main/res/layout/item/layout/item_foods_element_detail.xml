@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_16dp">
+
+    <TextView
+        android:id="@+id/tv_element"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/text_health_foods_element_detail_element"
+        android:textSize="@dimen/font_h_size" />
+
+    <TextView
+        android:id="@+id/tv_component"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/text_health_foods_element_detail_component"
+        android:textSize="@dimen/font_h_size" />
+
+    <TextView
+        android:id="@+id/tv_remark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="@string/text_health_foods_element_detail_remark"
+        android:textSize="@dimen/font_h_size" />
+</LinearLayout>

@@ -7,22 +7,25 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.baimeiyx.www.utils.LogUtils;
+import com.baimeiyx.www.utils.SizeUtils;
 
 /**
  * BMI 等级自定义图
  */
 public class BMILevelVIew extends View {
+    private static final String TAG = "BMILevelVIew";
     /**
      * 默认每个区域的颜色
      */
-    private static final int[] DEFAULT_COLORS = {Color.GRAY, Color.GREEN, Color.YELLOW, Color.RED};
+    private static final String[] DEFAULT_COLORS = {"#CBCCD0", "#6DC00A", "#F5C623", "#EC6416"};
     /**
      * 默认轨迹的宽度
      */
-    private static final float DEFAULT_STROKEWIDTH = 10.0f;
+    private static final float DEFAULT_STROKEWIDTH = 20.0f;
     /**
      * 外部paint
      */
@@ -39,7 +42,7 @@ public class BMILevelVIew extends View {
     /**
      * 外圆，指针所在圆的半径,内圆的半径
      */
-    private float mOutRadius, mSecRadius, mInnerRadius = 10;
+    private float mOutRadius, mSecRadius, mInnerRadius = 20;
     /**
      * 旋转角度
      */
@@ -48,6 +51,8 @@ public class BMILevelVIew extends View {
      * 是否需要在每个区域块中插入颜色
      */
     private boolean isNeedInsertColor;
+    private static final String[] titleText = {"BMI<18.5", "18.5≤BMI＜24", "24≤BMI＜28", "28≤BMI"};
+    private static final String[] subTitleText = {"轻体重", "健康体重", "超重", "肥胖"};
 
     public BMILevelVIew(Context context) {
         super(context);
@@ -78,51 +83,53 @@ public class BMILevelVIew extends View {
         innerPaint.setStyle(Paint.Style.STROKE);
         fontPaint = new Paint();
         fontPaint.setAntiAlias(true);
-        fontPaint.setStyle(Paint.Style.STROKE);
+        fontPaint.setStyle(Paint.Style.FILL);
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mHeigth = getHeight();
-        mWidth = getWidth();
+        mWidth = Math.min(getWidth(), getHeight());
+        mHeigth = mWidth;
+
         float x = mWidth / 4;
         float y = mHeigth / 4;
         RectF oval = new RectF(x, y, mWidth - x, mHeigth - y);
         int sweepAngle = 45;
-        int smallSweepAngle = 10;
+        int smallSweepAngle = 4;
         int startAngle;
-
-        fontPaint.setColor(Color.RED);
-        float textX, textY;
+        float offset = 40;
+        fontPaint.setColor(Color.WHITE);
+        fontPaint.setTextSize(SizeUtils.sp2px(12));
+        float textX, textY, subTextX;
         for (int i = 1; i < 5; i++) {
-            outPaint.setColor(DEFAULT_COLORS[i - 1]);
-            if (i != 1) {
-                startAngle = -180 + (i - 1) * sweepAngle + smallSweepAngle / 2;
-            } else {
-                startAngle = -180 + (i - 1) * sweepAngle;
-            }
-            canvas.drawArc(oval, startAngle, sweepAngle - smallSweepAngle / 2, false, outPaint);
-            if (i != 4) {
-                outPaint.setColor(Color.BLACK);
-                canvas.drawArc(oval, -180 + i * sweepAngle - smallSweepAngle / 2, smallSweepAngle, false, outPaint);
-            }
-            String text = "我是测试字体";
-            float strWidth = fontPaint.measureText(text);
+            outPaint.setColor(Color.parseColor(DEFAULT_COLORS[i - 1]));
+            startAngle = -180 + (i - 1) * sweepAngle;
+            canvas.drawArc(oval, startAngle, sweepAngle, false, outPaint);
+//            if (i != 4 ) {
+//                outPaint.setColor(Color.WHITE);
+//                Log.e(TAG, "onDraw: "+(-180 + i * sweepAngle + smallSweepAngle / 2) );
+//                canvas.drawArc(oval, -180 + i * sweepAngle + smallSweepAngle / 2, smallSweepAngle, false, outPaint);
+//            }
+
+
+            float strWidth = fontPaint.measureText(titleText[i - 1]);
+            float strWidth2 = fontPaint.measureText(subTitleText[i - 1]);
             double angle = 0;
             if (i < 3) {
-                angle = (-180 + sweepAngle * (i - 1)) * Math.PI / 180;
-                textX = mWidth / 2 + mWidth / 4 * (float) Math.cos(angle) - strWidth;
+                angle = (-160 + sweepAngle * (i - 1)) * Math.PI / 180;
+                textX = mWidth / 2 + mWidth / 4 * (float) Math.cos(angle) - strWidth - offset;
+                subTextX = textX + strWidth / 2 - strWidth2 / 2;
             } else {
-                angle = (-180 + sweepAngle * i) * Math.PI / 180;
-                textX = mWidth / 2 + mWidth / 4 * (float) Math.cos(angle);
+                angle = (-200 + sweepAngle * i) * Math.PI / 180;
+                textX = mWidth / 2 + mWidth / 4 * (float) Math.cos(angle) + offset;
+                subTextX = textX + strWidth / 2 - strWidth2 / 2;
             }
 
             textY = mHeigth / 2 + mHeigth / 4 * (float) Math.sin(angle);
-//            LogUtils.e("startAngle=" + startAngle + "  X=" + mWidth / 2 + "  Y=" + mHeigth / 2 + "  " + Math.cos(angle));
-//            LogUtils.e("textX=" + textX + "  textY=" + textY);
-            canvas.drawText("我是测试字体" + i, textX, textY, fontPaint);
+            canvas.drawText(titleText[i - 1], textX, textY, fontPaint);
+            canvas.drawText(subTitleText[i - 1], subTextX, textY + fontPaint.ascent() - 10, fontPaint);
 
         }
         _drawPointer(canvas, -90 * Math.PI / 180);
@@ -139,13 +146,11 @@ public class BMILevelVIew extends View {
         mSecRadius = mHeigth / 5;
         Paint pointPaint = new Paint();
         pointPaint.setStyle(Paint.Style.FILL);
-        pointPaint.setColor(Color.BLACK);
-        pointPaint.setStrokeWidth(10);
+        pointPaint.setColor(Color.WHITE);
         canvas.rotate(rotateDegress - 90, mWidth / 2, mHeigth / 2);
         //顶点
         float startX = mWidth / 2 + mSecRadius * (float) Math.cos(angle);
         float startY = mHeigth / 2 + mSecRadius * (float) Math.sin(angle);
-        LogUtils.e(Math.cos(angle) + " " + Math.sin(angle));
 //        canvas.drawPoint(startX, startY, pointPaint);
         //切点
         float cutPointX = mWidth / 2 - mInnerRadius * (float) Math.sin(angle);
@@ -159,11 +164,38 @@ public class BMILevelVIew extends View {
         path.moveTo(startX, startY);
         path.lineTo(cutPointX, cutPointY);
         innerPaint.setStyle(Paint.Style.FILL);
-        innerPaint.setColor(Color.RED);
-        canvas.drawCircle(mWidth / 2, mHeigth / 2, 10, innerPaint);
+        innerPaint.setColor(Color.WHITE);
+        canvas.drawCircle(mWidth / 2, mHeigth / 2, mInnerRadius, pointPaint);
         path.lineTo(cutPointX2, cutPointY2);
         path.lineTo(startX, startY);
         canvas.drawPath(path, innerPaint);
 
+    }
+
+    public void setRotateDegress(float degress) {
+        this.rotateDegress = degress;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        setMeasuredDimension(measure(widthMeasureSpec), measure(widthMeasureSpec));
+
+        //TODO calculate inner circle height and then position bottom text at the bottom (3/4)
+
+    }
+
+    private int measure(int measureSpec) {
+        int result;
+        int mode = MeasureSpec.getMode(measureSpec);
+        int size = MeasureSpec.getSize(measureSpec);
+        if (mode == MeasureSpec.EXACTLY) {
+            result = size;
+        } else {
+            result = SizeUtils.dp2px(200);
+            if (mode == MeasureSpec.AT_MOST) {
+                result = Math.min(result, size);
+            }
+        }
+        return result;
     }
 }

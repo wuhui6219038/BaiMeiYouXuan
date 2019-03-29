@@ -1537,5 +1537,17 @@ public class ImageUtils {
     public static void loadImageUrlRound(Context context, ImageView view, String url) {
         Glide.with(context).load(url).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(view);
     }
+//    public static void savaBitmap(Context context, String imgUrl){
+//        Glide.with(context).load(imgUrl).asBitmap().toBytes().into(new SimpleTarget<byte[]>() {
+//            @Override
+//            public void onResourceReady(byte[] bytes, GlideAnimation<? super byte[]> glideAnimation) {
+//                try {
+//                    savaBitmap(imgName, bytes);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
 }

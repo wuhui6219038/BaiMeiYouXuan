@@ -465,10 +465,10 @@ public class QingNiuUtils {
         bean.setOffsetInfo(msg);
         bean.setLevel(level);
         bean.setUnit(unit);
-        bean.setLowerLeverMaxValue(lowerLeverMaxValue);
-        bean.setLowLeverMaxValue(lowLeverMaxValue);
-        bean.setStandardLevelMaxValue(standardLevelMaxValue);
-        bean.setHighLevelMaxValue(highLevelMaxValue);
+        bean.setLowerLeverMaxValue(Float.parseFloat(NumFormatterUtils.getFormatNum(lowerLeverMaxValue)));
+        bean.setLowLeverMaxValue(Float.parseFloat(NumFormatterUtils.getFormatNum(lowLeverMaxValue)));
+        bean.setStandardLevelMaxValue(Float.parseFloat(NumFormatterUtils.getFormatNum(standardLevelMaxValue)));
+        bean.setHighLevelMaxValue(Float.parseFloat(NumFormatterUtils.getFormatNum(highLevelMaxValue)));
         bean.setLevel_1(level_1);
         bean.setLevel_2(level_2);
         bean.setLevel_3(level_3);
@@ -481,6 +481,10 @@ public class QingNiuUtils {
         bean.setLevel_5_color(level_5_color);
         bean.setTypeImg(typeImg);
         bean.setTypeName(typeName);
+        lowerLeverMaxValue = 0;
+        lowLeverMaxValue = 0;
+        standardLevelMaxValue = 0;
+        highLevelMaxValue = 0;
         return bean;
     }
 }

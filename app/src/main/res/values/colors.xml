@@ -33,4 +33,18 @@
     <color name='levelHigh'>#F2C357</color>
     <color name='levelHigher'>#E5514B</color>
     <color name='levelFull'>#5CA23F</color>
+    <!--loss_weight_tool-->
+    <color name='color_loss_weight_tool_1_start'>#ffc38d</color>
+    <color name='color_loss_weight_tool_1_end'>#f8ad6c</color>
+    <color name='color_loss_weight_tool_2_start'>#9ec7ff</color>
+    <color name='color_loss_weight_tool_2_end'>#85b8fa</color>
+    <color name='color_loss_weight_tool_3_start'>#feb1d4</color>
+    <color name='color_loss_weight_tool_3_end'>#ff87bd</color>
+    <color name='color_loss_weight_tool_4_start'>#a3ebaf</color>
+    <color name='color_loss_weight_tool_4_end'>#75ea88</color>
+    <color name='color_loss_weight_tool_5_start'>#bcabf7</color>
+    <color name='color_loss_weight_tool_5_end'>#9f8ae9</color>
+    <color name='color_loss_weight_tool_6_start'>#95def6</color>
+    <color name='color_loss_weight_tool_6_end'>#6acbeb</color>
+
 </resources>

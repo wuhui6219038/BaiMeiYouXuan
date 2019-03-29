@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -23,78 +24,71 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY" />
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_1"
-                app:loss_tool_detail="@string/text_loss_tool_1_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_1"
-                app:loss_tool_title="@string/text_loss_tool_1_title" />
+                android:orientation="vertical"
+                android:padding="@dimen/padding_16dp">
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_2"
-                app:loss_tool_detail="@string/text_loss_tool_2_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_2"
-                app:loss_tool_title="@string/text_loss_tool_2_title" />
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_1"
+                    app:loss_tool_detail="@string/text_loss_tool_1_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_1"
+                    app:loss_tool_title="@string/text_loss_tool_1_title" />
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_3"
-                app:loss_tool_detail="@string/text_loss_tool_3_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_3"
-                app:loss_tool_title="@string/text_loss_tool_3_title" />
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_2"
+                    app:loss_tool_detail="@string/text_loss_tool_2_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_2"
+                    app:loss_tool_title="@string/text_loss_tool_2_title" />
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_4"
-                app:loss_tool_detail="@string/text_loss_tool_4_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_4"
-                app:loss_tool_title="@string/text_loss_tool_4_title" />
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_3"
+                    app:loss_tool_detail="@string/text_loss_tool_3_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_3"
+                    app:loss_tool_title="@string/text_loss_tool_3_title" />
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_5"
-                app:loss_tool_detail="@string/text_loss_tool_5_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_5"
-                app:loss_tool_title="@string/text_loss_tool_5_title" />
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_4"
+                    app:loss_tool_detail="@string/text_loss_tool_4_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_4"
+                    app:loss_tool_title="@string/text_loss_tool_4_title" />
 
-            <com.baimeiyx.www.widget.LossToolItemView
-                android:id="@+id/losstoolview_6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12dp"
-                android:layout_marginRight="@dimen/margin_12dp"
-                android:layout_marginLeft="@dimen/margin_12dp"
-                app:loss_tool_bg="@drawable/gradient_loss_tool_6"
-                app:loss_tool_detail="@string/text_loss_tool_6_detail"
-                app:loss_tool_image="@drawable/ic_loss_tool_6"
-                app:loss_tool_title="@string/text_loss_tool_6_title" />
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_5"
+                    app:loss_tool_detail="@string/text_loss_tool_5_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_5"
+                    app:loss_tool_title="@string/text_loss_tool_5_title" />
 
+                <com.baimeiyx.www.widget.LossToolItemView
+                    android:id="@+id/losstoolview_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    app:loss_tool_bg="@drawable/gradient_loss_tool_6"
+                    app:loss_tool_detail="@string/text_loss_tool_6_detail"
+                    app:loss_tool_image="@drawable/ic_loss_tool_6"
+                    app:loss_tool_title="@string/text_loss_tool_6_title" />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

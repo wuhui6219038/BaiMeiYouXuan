@@ -7,8 +7,8 @@
             android:useLevel="false">
             <corners android:radius="8dp" />
             <gradient
-                android:endColor="#f8ad6c"
-                android:startColor="#ffc38d"
+                android:endColor="@color/color_loss_weight_tool_1_end"
+                android:startColor="@color/color_loss_weight_tool_1_start"
                 android:type="linear" />
         </shape>
     </item>

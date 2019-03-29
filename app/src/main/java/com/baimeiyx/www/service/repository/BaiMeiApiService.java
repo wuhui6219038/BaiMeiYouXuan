@@ -4,7 +4,9 @@ package com.baimeiyx.www.service.repository;
 import com.baimeiyx.www.service.model.BaseResult;
 import com.baimeiyx.www.service.model.CustomWeightLogResult;
 import com.baimeiyx.www.service.model.CustomerExpectResult;
+import com.baimeiyx.www.service.model.FoodElementDetailResult;
 import com.baimeiyx.www.service.model.FoodsDetailResult;
+import com.baimeiyx.www.service.model.FoodsElementSortResult;
 import com.baimeiyx.www.service.model.FoodsResult;
 import com.baimeiyx.www.service.model.LoginResult;
 import com.baimeiyx.www.service.model.OrderListResult;
@@ -115,7 +117,31 @@ public interface BaiMeiApiService {
      */
     @POST("tbfood/categoryList")
     @FormUrlEncoded
-    Observable<FoodsDetailResult> getFoodsDetail(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page,@Field("foodCategoryId")int foodCategoryId);
+    Observable<FoodsDetailResult> getFoodsDetail(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page, @Field("foodCategoryId") int foodCategoryId);
+
+    /**
+     * 获取食品类排序
+     * http://49.4.10.14:8080/gudao-parent-api/api/tbfood/queryelement?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&mark=gudao-element
+     */
+    @POST("tbfood/queryelement")
+    @FormUrlEncoded
+    Observable<FoodsElementSortResult> getFoodsSort(@Field("MAYI_POS_API_MSID") String seesionId, @Field("mark") String mark);
+
+    /**
+     * 获取食品类获取食品
+     * ttp://49.4.10.14:8080/gudao-parent-api/api/tbfood/categoryByElementList?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&page=1&limit=19&name=%E9%93%9C&sysCodeId=10a213b305384b4da905c7bb99d055f7&foodCategoryId=78
+     */
+    @POST("tbfood/categoryByElementList")
+    @FormUrlEncoded
+    Observable<FoodsDetailResult> getCategoryByElementList(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page, @Field("name") String name, @Field("sysCodeId") String sysCodeId, @Field("foodCategoryId") int foodCategoryId);
+
+    /**
+     * 获取食品类获取食品
+     * http://49.4.10.14:8080/gudao-parent-api/api/tbfood/lists?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&id=1373
+     */
+    @POST("tbfood/lists")
+    @FormUrlEncoded
+    Observable<FoodElementDetailResult> getCategoryByElementDetail(@Field("MAYI_POS_API_MSID") String seesionId, @Field("id") int id);
 
 
     /**

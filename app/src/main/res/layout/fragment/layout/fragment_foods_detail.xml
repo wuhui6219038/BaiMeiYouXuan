@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:background="@drawable/gradient_card_foods_element_detail"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/iv_foods_detail_img"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:clickable="true" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:padding="@dimen/padding_8dp">
+
+                <TextView
+                    android:id="@+id/tv_foods_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="基围虾"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/font_h_size"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_foods_detail_nutrientElement"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="111"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/font_h_size" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/每100g"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/font_h_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_white_stars" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_element"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/colorMainGray" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding_8dp"
+        android:paddingBottom="@dimen/padding_16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热量"
+                android:textColor="#62cc74" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1111"
+                    android:textColor="#000"
+                    android:textSize="@dimen/font_h_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="千卡" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cb_change_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_helf_corners_green_25dp"
+            android:button="@null"
+            android:paddingLeft="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_4dp"
+            android:paddingRight="@dimen/padding_8dp"
+            android:paddingBottom="@dimen/padding_4dp"
+            android:text="切换为千焦"
+            android:textColor="@android:color/white" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <com.baimeiyx.www.widget.circleprogress.DonutProgress
+            android:id="@+id/dp_pr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:layout_weight="1"
+            app:donut_circle_starting_degree="-90"
+            app:donut_finished_color="#57BEE0"
+            app:donut_finished_stroke_width="4dp"
+            app:donut_inner_bottom_text="19%"
+            app:donut_text="蛋白质"
+            app:donut_text_color="#000"
+            app:donut_text_size="@dimen/font_m_size"
+            app:donut_unfinished_color="#e9e9e9"
+            app:donut_unfinished_stroke_width="4dp" />
+
+        <com.baimeiyx.www.widget.circleprogress.DonutProgress
+            android:id="@+id/dp_fat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:layout_weight="1"
+            app:donut_circle_starting_degree="-90"
+            app:donut_finished_color="#f39800"
+            app:donut_finished_stroke_width="4dp"
+            app:donut_inner_bottom_text="19%"
+            app:donut_text="脂肪"
+            app:donut_text_color="#000"
+            app:donut_text_size="@dimen/font_m_size"
+            app:donut_unfinished_color="#e9e9e9"
+            app:donut_unfinished_stroke_width="4dp" />
+
+        <com.baimeiyx.www.widget.circleprogress.DonutProgress
+            android:id="@+id/dp_water"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:layout_weight="1"
+            app:donut_circle_starting_degree="-90"
+            app:donut_finished_color="#ffa695"
+            app:donut_finished_stroke_width="4dp"
+            app:donut_inner_bottom_text="19%"
+            app:donut_text="碳水化合物"
+            app:donut_text_color="#000"
+            app:donut_text_size="@dimen/font_m_size"
+            app:donut_unfinished_color="#e9e9e9"
+            app:donut_unfinished_stroke_width="4dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_pr_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18.2克"
+                android:textSize="@dimen/font_m_size" />
+
+            <TextView
+                android:id="@+id/tv_pr_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4dp"
+                android:text="18.2克"
+                android:textColor="#b2ddff"
+                android:textSize="@dimen/font_s_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_fat_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18.2克"
+                android:textSize="@dimen/font_m_size" />
+
+            <TextView
+                android:id="@+id/tv_fat_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4dp"
+                android:text="18.2克"
+                android:textColor="#b2ddff"
+                android:textSize="@dimen/font_s_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_water_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18.2克"
+                android:textSize="@dimen/font_m_size" />
+
+            <TextView
+                android:id="@+id/tv_water_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_4dp"
+                android:textColor="#b2ddff"
+                android:textSize="@dimen/font_s_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="更多营养素"
+        android:textColor="#ffa695" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/colorMainGray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_16dp"
+        android:paddingRight="@dimen/padding_8dp"
+        android:paddingLeft="@dimen/padding_8dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_baiming_recommend"
+            android:textColor="@color/colorMainFont" />
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:id="@+id/tv_baiming_recommend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

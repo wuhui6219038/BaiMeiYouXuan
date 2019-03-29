@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_app_title" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:id="@+id/ll_analyse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_analyse_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/padding_16dp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_h_size" />
+
+            <TextView
+                android:id="@+id/tv_analyse_sub_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/padding_16dp"
+                android:text="健康指数（BMI）"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_x_size" />
+
+            <com.baimeiyx.www.widget.BMILevelVIew
+                android:id="@+id/BMI"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <com.baimeiyx.www.widget.circleprogress.DonutProgress
+                android:id="@+id/donut_progress"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:donut_circle_starting_degree="-90"
+                app:donut_finished_color="@android:color/white"
+                app:donut_inner_bottom_text_color="@android:color/white"
+                app:donut_text_color="@android:color/white"
+                app:donut_text_size="@dimen/font_xx_size"
+                app:donut_unfinished_color="@color/colorMainGrayTransparent" />
+
+            <com.baimeiyx.www.widget.Sun
+                android:id="@+id/sun"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:centerTextColor="@android:color/white"
+                app:centerTextSize="@dimen/font_xx_size"
+                app:chooseColor="@android:color/white"
+                app:radius="100dp"
+                app:subTextColor="@android:color/white"
+                app:subTextSize="@dimen/font_h_size"
+                app:subTextTopToCenter="@dimen/size_8dp"
+                app:unChooseColor="@color/colorMainBackgroud" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:scaleType="fitXY"
+            android:src="@drawable/water" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_manyi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_say"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_32dp"
+            android:textSize="@dimen/font_x_size" />
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:id="@+id/btn_more"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_zuanshi"
+            android:paddingLeft="@dimen/padding_32dp"
+            android:paddingTop="10dp"
+            android:paddingRight="@dimen/padding_32dp"
+            android:paddingBottom="10dp"
+            android:text="@string/btn_get_more"
+            android:textColor="#fff"
+            android:textSize="@dimen/font_h_size"
+            app:qmui_isRadiusAdjustBounds="true" />
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+            android:id="@+id/btn_share"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:paddingLeft="@dimen/padding_32dp"
+            android:paddingTop="10dp"
+            android:paddingRight="@dimen/padding_32dp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/font_h_size"
+            app:qmui_isRadiusAdjustBounds="true" />
+    </LinearLayout>
+</LinearLayout>

@@ -384,7 +384,7 @@ public class DonutProgress extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        setMeasuredDimension(measure(widthMeasureSpec), measure(heightMeasureSpec));
+        setMeasuredDimension(measure(widthMeasureSpec), measure(widthMeasureSpec));
 
         //TODO calculate inner circle height and then position bottom text at the bottom (3/4)
 
@@ -408,19 +408,20 @@ public class DonutProgress extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        int width = Math.max(getWidth(), getHeight());
+        int height = width;
         float delta = Math.max(finishedStrokeWidth, unfinishedStrokeWidth);
         finishedOuterRect.set(delta,
                 delta,
-                getWidth() - delta,
-                getHeight() - delta);
+                width - delta,
+                height - delta);
         unfinishedOuterRect.set(delta,
                 delta,
-                getWidth() - delta,
-                getHeight() - delta);
+                width - delta,
+                height - delta);
 
-        float innerCircleRadius = (getWidth() - Math.min(finishedStrokeWidth, unfinishedStrokeWidth) + Math.abs(finishedStrokeWidth - unfinishedStrokeWidth)) / 2f;
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, innerCircleRadius, innerCirclePaint);
+        float innerCircleRadius = (width - Math.min(finishedStrokeWidth, unfinishedStrokeWidth) + Math.abs(finishedStrokeWidth - unfinishedStrokeWidth)) / 2f;
+        canvas.drawCircle(width / 2.0f, height / 2.0f, innerCircleRadius, innerCirclePaint);
         canvas.drawArc(finishedOuterRect, getStartingDegree(), getProgressAngle(), false, finishedPaint);
         canvas.drawArc(unfinishedOuterRect, getStartingDegree() + getProgressAngle(), 360 - getProgressAngle(), false, unfinishedPaint);
 
@@ -430,27 +431,27 @@ public class DonutProgress extends View {
             if (!TextUtils.isEmpty(text)) {
 
                 float textHeight = textPaint.descent() + textPaint.ascent();
-                canvas.drawText(text, (getWidth() - textPaint.measureText(text)) / 2.0f, (getWidth() - textHeight) / 2.0f, textPaint);
+                canvas.drawText(text, (width - textPaint.measureText(text)) / 2.0f, (width - textHeight) / 2.0f, textPaint);
             }
 
             if (!TextUtils.isEmpty(getInnerBottomText())) {
-                innerBottomTextHeight = getHeight() - (getHeight() * 3) / 4;
+                innerBottomTextHeight = height - (height * 3) / 4;
                 innerBottomTextPaint.setTextSize(innerBottomTextSize);
-                float bottomTextBaseline = getHeight() - innerBottomTextHeight - (textPaint.descent() + textPaint.ascent()) / 2;
-                canvas.drawText(getInnerBottomText(), (getWidth() - innerBottomTextPaint.measureText(getInnerBottomText())) / 2.0f, bottomTextBaseline, innerBottomTextPaint);
+                float bottomTextBaseline = height - innerBottomTextHeight - (textPaint.descent() + textPaint.ascent()) / 2;
+                canvas.drawText(getInnerBottomText(), (width - innerBottomTextPaint.measureText(getInnerBottomText())) / 2.0f, bottomTextBaseline, innerBottomTextPaint);
             }
             if (!TextUtils.isEmpty(getInnerTopText())) {
-                innerTopTextHeight = getHeight() - getHeight() / 4;
+                innerTopTextHeight = height - height / 4;
                 innerTopTextPaint.setTextSize(innerTopTextSize);
-                float topTextBaseline = getHeight() - innerTopTextHeight - (textPaint.descent() + textPaint.ascent()) / 2;
-                canvas.drawText(getInnerTopText(), (getWidth() - innerTopTextPaint.measureText(getInnerTopText())) / 2.0f, topTextBaseline, innerTopTextPaint);
+                float topTextBaseline = height - innerTopTextHeight - (textPaint.descent() + textPaint.ascent()) / 2;
+                canvas.drawText(getInnerTopText(), (width - innerTopTextPaint.measureText(getInnerTopText())) / 2.0f, topTextBaseline, innerTopTextPaint);
 
             }
         }
 
         if (attributeResourceId != 0) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), attributeResourceId);
-            canvas.drawBitmap(bitmap, (getWidth() - bitmap.getWidth()) / 2.0f, (getHeight() - bitmap.getHeight()) / 2.0f, null);
+            canvas.drawBitmap(bitmap, (width - bitmap.getWidth()) / 2.0f, (height - bitmap.getHeight()) / 2.0f, null);
         }
     }
 
@@ -511,7 +512,7 @@ public class DonutProgress extends View {
 
     public void setDonut_progress(String percent) {
         if (!TextUtils.isEmpty(percent)) {
-            setProgress(Integer.parseInt(percent));
+            setProgress(Float.parseFloat(percent));
         }
     }
 }

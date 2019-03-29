@@ -78,6 +78,11 @@ dependencies {
     implementation rootProject.ext.dependencies['pullrefresh']
     //千牛称
     implementation rootProject.ext.dependencies['qianniu']
+    //tag选择
+    implementation rootProject.ext.dependencies['flowlayout']
+    //图片选择
+    implementation rootProject.ext.dependencies['photeView']
+
     implementation 'org.jetbrains:annotations:15.0'
 
 

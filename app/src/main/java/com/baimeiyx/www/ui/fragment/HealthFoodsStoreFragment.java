@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.baimeiyx.www.base.ui.BaseUserFragment;
 import com.baimeiyx.www.constant.Constant;
-import com.baimeiyx.www.service.model.BaseResult;
 import com.baimeiyx.www.service.model.FoodsResult;
 import com.baimeiyx.www.service.repository.DataManager;
 import com.baimeiyx.www.service.rxjava.DialogSubscribe;
@@ -21,15 +19,14 @@ import com.baimeiyx.www.ui.adapter.AdapterHealthFoods;
 import com.baimeiyx.www.utils.BarUtils;
 import com.baimeiyx.www.utils.ImageUtils;
 import com.baimeiyx.www.utils.myUtils.FragmentUtils;
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
 
-import static com.baimeiyx.www.ui.fragment.HealthFoodsDetailFragment.FOODID;
+import static com.baimeiyx.www.ui.fragment.HealthFoodsTypeSearchFragment.FOODID;
 
-public class HealthFoodsFragment extends BaseUserFragment<FoodsResult> {
-    private static final String TAG = "HealthFoodsFragment";
+public class HealthFoodsStoreFragment extends BaseUserFragment<FoodsResult> {
+    private static final String TAG = "HealthFoodsStoreFragment";
     @BindView(R.id.iv_bg)
     ImageView ivBg;
     @BindView(R.id.et_search_info)
@@ -42,9 +39,9 @@ public class HealthFoodsFragment extends BaseUserFragment<FoodsResult> {
     private AdapterHealthFoods adapterHealthFoods;
     private int currentPage = 1;
 
-    public static HealthFoodsFragment newInstance() {
+    public static HealthFoodsStoreFragment newInstance() {
 
-        HealthFoodsFragment fragment = new HealthFoodsFragment();
+        HealthFoodsStoreFragment fragment = new HealthFoodsStoreFragment();
         return fragment;
     }
 
@@ -59,7 +56,7 @@ public class HealthFoodsFragment extends BaseUserFragment<FoodsResult> {
 
     @Override
     protected int getViewId() {
-        return R.layout.fragment_health_foods;
+        return R.layout.fragment_health_foods_store;
     }
 
     @Override
@@ -75,7 +72,7 @@ public class HealthFoodsFragment extends BaseUserFragment<FoodsResult> {
             FoodsResult.PageBean.ListBean foodBean = (FoodsResult.PageBean.ListBean) adapter.getData().get(position);
             Bundle data = new Bundle();
             data.putInt(FOODID, foodBean.getId());
-            FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, HealthFoodsDetailFragment.newInstance(data));
+            FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, HealthFoodsTypeSearchFragment.newInstance(data));
         });
         adapterHealthFoods.setOnLoadMoreListener(() ->
         {

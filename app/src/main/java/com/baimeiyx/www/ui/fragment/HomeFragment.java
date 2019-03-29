@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.baimeiyx.www.base.ui.BaseUserFragment;
@@ -22,21 +23,20 @@ import com.baimeiyx.www.widget.circleprogress.DonutProgress;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class HomeFragment extends BaseUserFragment<CustomerExpectResult> implements HealthPageCardView.ItemClickListener {
 
     @BindView(R.id.fl_content)
     FrameLayout flContent;
-    @BindView(R.id.iv_bg)
-    ImageView ivBg;
+    @BindView(R.id.ll_target_weight)
+    LinearLayout llTargetWeight;
     @BindView(R.id.arc_progress)
     ArcProgress arcProgress;
     @BindView(R.id.stepview)
     StepView stepview;
-    @BindView(R.id.et_search_info)
-    EditText etSearchInfo;
-    @BindView(R.id.tv_icon_search)
-    TextView tvIconSearch;
+    @BindView(R.id.tv_search_info)
+    TextView tvSearchInfo;
     @BindView(R.id.donut_target_progress)
     DonutProgress donutTargetProgress;
     @BindView(R.id.donut_progress)
@@ -67,8 +67,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
 
     private void _init() {
 
-        ImageUtils.loadBackgroudByUrl(getActivity(), ivBg, "http://www.baimeiyx.com/wx-app/cover.png");
-        SvgUtils.setIcon(mActivity, tvIconSearch, "iconfont.ttf");
+        ImageUtils.loadBackgroudByUrl(getActivity(), llTargetWeight, "https://www.baimeiyx.com/wx-app/cover.png");
 
         stepview.setStepsTitle(STEPTILTE);
         _initView();
@@ -149,5 +148,11 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
         } else if (subButtonType == getResources().getInteger(R.integer.brand_flash)) {
 
         }
+    }
+
+    @OnClick(R.id.tv_search_info)
+    public void doClick(View view) {
+        ActivityUtils.launchActivity(mActivity, mActivity.getPackageName(), mActivity.getPackageName() + ".ui.HealthFoodsActivity");
+
     }
 }

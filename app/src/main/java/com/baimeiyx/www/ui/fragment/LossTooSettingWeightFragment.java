@@ -1,24 +1,32 @@
 package com.baimeiyx.www.ui.fragment;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.baimeiyx.www.base.ui.BaseFragment;
 import com.baimeiyx.www.utils.BarUtils;
+import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 import com.baimeiyx.www.utils.myUtils.SvgUtils;
 import com.baimeiyx.www.widget.Ruler;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
+
+import static com.baimeiyx.www.ui.fragment.LossToolCalculateFragment.TITLE;
 
 public class LossTooSettingWeightFragment extends BaseFragment {
     /**
      * 背景色
      */
     public static final String BGCOLOR = "bgColor";
-    public static final String TITLE = "title";
+    public static final String SEX = "sex";
+    public static final String HEIGHT = "height";
+    public static final String AGE = "age";
+    public static final String WEIGHT = "weight";
     @BindView(R.id.ll_content)
     LinearLayout llContent;
     @BindView(R.id.tv_submit)
@@ -57,6 +65,7 @@ public class LossTooSettingWeightFragment extends BaseFragment {
         title = getArguments().getString(TITLE);
         _initValue();
 
+
     }
 
     private void _initValue() {
@@ -70,4 +79,9 @@ public class LossTooSettingWeightFragment extends BaseFragment {
 
     }
 
+    @OnClick(R.id.tv_submit)
+    public void doClick(View view) {
+        getArguments().putFloat(WEIGHT, rvWeight.getDefaultChooseValue());
+        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, LossToolsAnalyseFragment.newInstance(getArguments()));
+    }
 }

@@ -360,7 +360,7 @@ public class Ruler extends View {
 
     }
 
-    public double getDefaultChooseValue() {
-        return currentPosition * valuesInterval / (double) intervalsBetweenValues;
+    public float getDefaultChooseValue() {
+        return currentPosition * valuesInterval / (float) intervalsBetweenValues;
     }
 }

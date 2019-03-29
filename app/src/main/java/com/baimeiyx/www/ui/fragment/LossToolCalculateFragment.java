@@ -16,6 +16,10 @@ import com.example.mrw.baimeiyouxuan.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.baimeiyx.www.ui.fragment.LossTooSettingWeightFragment.AGE;
+import static com.baimeiyx.www.ui.fragment.LossTooSettingWeightFragment.HEIGHT;
+import static com.baimeiyx.www.ui.fragment.LossTooSettingWeightFragment.SEX;
+
 public class LossToolCalculateFragment extends BaseFragment {
     /**
      * 背景色
@@ -42,6 +46,10 @@ public class LossToolCalculateFragment extends BaseFragment {
     Ruler rvAge;
     private int backgroudId;
     private String title;
+    private int sex;
+    private float height;
+    private int age;
+    private Bundle data;
 
     public static LossToolCalculateFragment newInstance(Bundle args) {
 
@@ -68,8 +76,9 @@ public class LossToolCalculateFragment extends BaseFragment {
     protected void _init(Bundle savedInstanceState) {
         SvgUtils.setIcon(mActivity, rbMan, "iconfont.ttf");
         SvgUtils.setIcon(mActivity, rbWoman, "iconfont.ttf");
-        backgroudId = getArguments().getInt(BGCOLOR);
-        title = getArguments().getString(TITLE);
+        data = getArguments();
+        backgroudId = data.getInt(BGCOLOR);
+        title = data.getString(TITLE);
         _initValue();
 
     }
@@ -93,7 +102,13 @@ public class LossToolCalculateFragment extends BaseFragment {
 
     @OnClick(R.id.tv_next)
     public void doClick(View view) {
-        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, LossTooSettingWeightFragment.newInstance(getArguments()));
+        sex = rbWoman.isChecked() ? 0 : 1;
+        age = (int) rvAge.getDefaultChooseValue();
+        height = rvHeight.getDefaultChooseValue();
+        data.putInt(SEX, sex);
+        data.putFloat(HEIGHT, height);
+        data.putInt(AGE, age);
+        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, LossTooSettingWeightFragment.newInstance(data));
     }
 
 }

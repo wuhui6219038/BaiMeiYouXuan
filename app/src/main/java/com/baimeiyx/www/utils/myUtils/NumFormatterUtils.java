@@ -11,7 +11,10 @@ public class NumFormatterUtils {
         DecimalFormat df = new DecimalFormat(ConstUtils.NUM_FORMAT_1);
         return df.format(data);
     }
-
+    public static String getFormatNum(float data) {
+        DecimalFormat df = new DecimalFormat(ConstUtils.NUM_FORMAT_1);
+        return df.format(data);
+    }
     /**
      * @param data
      * @param format {@link ConstUtils#NUM_FORMAT_1}
