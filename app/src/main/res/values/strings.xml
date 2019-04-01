@@ -50,6 +50,10 @@
     <string name="text_water">水分</string>
     <string name="text_muscle">骨骼</string>
     <string name="text_calories">卡路里</string>
+    <string name="text_search">搜索</string>
+    <string name="text_search_history">搜索历史</string>
+    <string name="text_clear">清空</string>
+    <string name="text_no_history">暂时没有历史记录</string>
 
     <string name="text_recode_weight">体重记录</string>
     <string name="text_recode_weight_info">关注每一天的变化</string>
@@ -126,7 +130,7 @@
     <string name="text_area" translatable="false">省/市/区</string>
     <string name="text_address_detail" translatable="false">详细地址</string>
 
-    <string name="text_empty_info">哼，一个能打都没有</string>
+    <string name="text_empty_info">守着你离开后的世界，空空如也</string>
 
 
     <string name="text_loss_tool_1_title">1分钟了解自己</string>

@@ -54,6 +54,8 @@ public class LossToolsAnalyseFragment extends BaseFragment {
     DonutProgress donutProgress;
     @BindView(R.id.sun)
     Sun sun;
+    @BindView(R.id.iv_water)
+    ImageView ivWater;
     private int backgroudId;
     private float weight, stature;
     private int type, age, sex;
@@ -120,17 +122,21 @@ public class LossToolsAnalyseFragment extends BaseFragment {
             case R.drawable.ic_loss_tool_3:
                 _initWeight();
                 title = getResources().getString(R.string.text_loss_tool_analyse_2);
+                ivWater.setVisibility(View.VISIBLE);
                 break;
             case R.drawable.ic_loss_tool_4:
                 _initBMR();
                 title = getResources().getString(R.string.text_loss_tool_analyse_3);
+                ivWater.setVisibility(View.VISIBLE);
                 break;
             case R.drawable.ic_loss_tool_5:
                 _initHealthWeight();
                 title = getResources().getString(R.string.text_loss_tool_analyse_4);
+                ivWater.setVisibility(View.VISIBLE);
                 break;
             case R.drawable.ic_loss_tool_6:
                 _initHeartBeat();
+                ivWater.setVisibility(View.VISIBLE);
                 title = getResources().getString(R.string.text_loss_tool_analyse_5);
                 break;
         }

@@ -30,6 +30,7 @@ public class HealthFoodsElementDetailFragment extends BaseFragment {
 
     @Override
     protected void setToolbar() {
+        ivBack.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_blcak));
         tvTitle.setText(getResources().getString(R.string.app_name));
         tvTitle.setTextColor(Color.BLACK);
         toolbar.setBackgroundColor(Color.WHITE);

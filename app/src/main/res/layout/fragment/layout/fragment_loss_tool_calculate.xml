@@ -21,7 +21,7 @@
             android:padding="@dimen/padding_8dp"
             android:text="@string/text_personal_data_setting"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/font_x_size" />
+            android:textSize="@dimen/font_xx_size" />
 
         <TextView
             android:layout_width="match_parent"
@@ -175,7 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:padding="@dimen/padding_24dp"
+        android:padding="@dimen/padding_16dp"
         android:text="@string/btn_next"
         android:textSize="@dimen/font_x_size"
         android:textStyle="bold" />

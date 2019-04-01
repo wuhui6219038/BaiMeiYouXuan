@@ -23,4 +23,8 @@ public interface KeyConstant {
      * 各户体重相关
      */
     String SP_CUSTOMEREXPECT = "customerExpect";
+    /**
+     * 食品库搜索历史
+     */
+    String SP_FOOD_SEARCH_HISTORY = "foodSearchHistoty";
 }

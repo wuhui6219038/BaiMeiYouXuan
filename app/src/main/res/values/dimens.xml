@@ -3,9 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="icon_s_width">12dp</dimen>
-    <dimen name="size_s_circleprogress">50dp</dimen>
+    <dimen name="size_s_circleprogress">80dp</dimen>
     <dimen name="size_m_circleprogress">150dp</dimen>
-    <dimen name="size_l_circleprogress">180dp</dimen>
+    <dimen name="size_l_circleprogress">200dp</dimen>
     <dimen name="size_1dp">1dp</dimen>
     <dimen name="size_2dp">2dp</dimen>
     <dimen name="size_3dp">3dp</dimen>
@@ -17,6 +17,7 @@
     <dimen name="size_18dp">18dp</dimen>
     <dimen name="size_64dp">64dp</dimen>
     <dimen name="size_32dp">32dp</dimen>
+    <dimen name="size_80dp">80dp</dimen>
     <!--个人中心里面图标的大小-->
     <dimen name="size_icon">32dp</dimen>
     <!--收货管理图标-->
@@ -36,6 +37,7 @@
     <dimen name="padding_24dp">24dp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_64dp">64dp</dimen>
+    <dimen name="padding_80dp">80dp</dimen>
     <!--margin-->
     <dimen name="margin_2dp">2dp</dimen>
     <dimen name="margin_4dp">4dp</dimen>
@@ -45,6 +47,7 @@
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="margin_64dp">64dp</dimen>
+    <dimen name="margin_80dp">80dp</dimen>
 
     <!--字体大小-->
     <dimen name="font_s_size">12sp</dimen>

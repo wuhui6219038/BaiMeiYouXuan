@@ -112,6 +112,7 @@ public class WeightBleFragment extends BaseFragment {
 
     @Override
     protected void setToolbar() {
+        tvTitle.setText(getResources().getString(R.string.text_recode_weight));
         toolbar.setBackgroundColor(getResources().getColor(R.color.colorBarWeightRecord));
         BarUtils.setColor(mActivity, getResources().getColor(R.color.colorBarWeightRecord), 0);
     }
@@ -135,14 +136,14 @@ public class WeightBleFragment extends BaseFragment {
         tvDistanceText = view.findViewById(R.id.tv_distance_text);
         tvResult = view.findViewById(R.id.tv_result);
         tvResultInfo = view.findViewById(R.id.tv_result_info);
-        LinearLayout  llLevelInfo = view.findViewById(R.id.ll_level_info);
+        LinearLayout llLevelInfo = view.findViewById(R.id.ll_level_info);
         btnShowMore = view.findViewById(R.id.btn_show_more);
-        _initItemValue(llLevelInfo,value, qingNiuBean);
+        _initItemValue(llLevelInfo, value, qingNiuBean);
         llBleResult.addView(view, llBleResult.getChildCount());
 
     }
 
-    private void _initItemValue(LinearLayout  llLevelInfo ,float value, QingNiuBean qingNiuBean) {
+    private void _initItemValue(LinearLayout llLevelInfo, float value, QingNiuBean qingNiuBean) {
         lineLevelView.setValue(qingNiuBean);
         tvValue.setText(value + "");
         tvValueUnit.setText(qingNiuBean.getUnit());
@@ -281,7 +282,7 @@ public class WeightBleFragment extends BaseFragment {
                     QNUser qnUser = createQNUser();
                     data.setUser(qnUser);
                     QNScaleData qnScaleData = data.generateScaleData();
-                    // onReceiveScaleData(qnScaleData);
+                    onReceiveScaleData(qnScaleData);
                 }
             }
 
@@ -339,14 +340,14 @@ public class WeightBleFragment extends BaseFragment {
         clLoad.stop();
         Gson gson = new Gson();
         String data = gson.toJson(md);
-        spUtils.putString("data", data);
+        spUtils.putString("data2", data);
         Log.e(TAG, "onReceiveScaleData: " + data);
         _initData(md);
     }
 
     private void test() {
         Gson gson1 = new Gson();
-        QNScaleData md = gson1.fromJson(spUtils.getString("data"), QNScaleData.class);
+        QNScaleData md = gson1.fromJson(spUtils.getString("data2"), QNScaleData.class);
         _initData(md);
     }
 
@@ -356,11 +357,17 @@ public class WeightBleFragment extends BaseFragment {
         for (QNScaleItemData qnScaleItemData : mDatas) {
             int type = qnScaleItemData.getType();
             float value = (float) qnScaleItemData.getValue();
-            bean = qingNiuUtils.getDataByType(type, Float.valueOf(md.getItemValue(QNIndicator.TYPE_WEIGHT) + ""), value);
-            if (bean != null)
-                addHealthItem(value, bean);
-            else {
-                LogUtils.e("空的类型是" + type);
+            if (type == QNIndicator.TYPE_SCORE) {
+                String[] score = Double.toString(md.getItemValue(QNIndicator.TYPE_WEIGHT)).split(".");
+                tvHealthScore.setText(score[0]);
+                tvHealthScore2.setText(score[1]);
+            } else {
+                bean = qingNiuUtils.getDataByType(type, Float.valueOf(md.getItemValue(QNIndicator.TYPE_WEIGHT) + ""), value);
+                if (bean != null)
+                    addHealthItem(value, bean);
+                else {
+                    LogUtils.e("空的类型是" + type);
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
@@ -35,6 +36,7 @@ import static com.baimeiyx.www.ui.fragment.HealthFoodsDetailFragment.FOODSELEMEN
 public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> {
     private static final String TAG = "HealthFoodsDetailFragme";
     public static final String FOODID = "foodId";
+    public static final String FOODNAME = "foodName";
     @BindView(R.id.cb_food_type)
     CheckBox cbFoodType;
     @BindView(R.id.rc_foods_detail)
@@ -43,6 +45,7 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
     SwipeRefreshLayout srlFood;
     private int currentPage = 1;
     private int foodCategoryId;
+    private String foodName;
     private AdapterHealthFoodsDetail adapterHealthFoodsDetail;
     private FoodsElementPopWindow popWindow;
     private String searchFoodsTypeName, searchFoodsTypeSysId;
@@ -60,6 +63,7 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
         tvTitle.setText("分类查询");
         tvTitle.setTextColor(Color.BLACK);
         toolbar.setBackgroundColor(Color.WHITE);
+        ivBack.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_blcak));
         BarUtils.setColor(mActivity, Color.WHITE, 0);
     }
 
@@ -70,8 +74,8 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
 
     @Override
     protected void _init(Bundle savedInstanceState) {
-
         foodCategoryId = getArguments().getInt(FOODID);
+        foodName = getArguments().getString(FOODNAME);
         _initSwipeRefresh(srlFood);
         _initAdapter();
         _initRv();
@@ -132,6 +136,19 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
                 });
     }
 
+    private void getFoodsNameByList() {
+        // Log.e(TAG, "getCategoryByElementList: " + searchFoodsTypeName + "  " + searchFoodsTypeSysId + " " + foodCategoryId);
+        DataManager.getBaiMeiApiService().getFoodsDetailByName(spUtils.getString(SP_SESSION_ID), Constant.LIMIT, currentPage, foodName)
+                .retryWhen(new RetryExceptionObservable())
+                .compose(RxJavaUtils.rxSchedulerHelper())
+                .subscribe(new DialogSubscribe<FoodsDetailResult>(mActivity) {
+                    @Override
+                    public void dataSuccess(FoodsDetailResult data) {
+                        onDataSuccessChanged(data);
+                    }
+                });
+    }
+
     private void getFoodsElement() {
         DataManager.getBaiMeiApiService().getFoodsSort(spUtils.getString(SP_SESSION_ID), "gudao-element")
                 .retryWhen(new RetryExceptionObservable())
@@ -145,7 +162,6 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
     }
 
     private void getCategoryByElementList() {
-        Log.e(TAG, "getCategoryByElementList: " + searchFoodsTypeName + "  " + searchFoodsTypeSysId + " " + foodCategoryId);
         DataManager.getBaiMeiApiService().getCategoryByElementList(spUtils.getString(SP_SESSION_ID), Constant.LIMIT, currentPage, searchFoodsTypeName, searchFoodsTypeSysId, foodCategoryId)
                 .retryWhen(new RetryExceptionObservable())
                 .compose(RxJavaUtils.rxSchedulerHelper())
@@ -157,12 +173,22 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
                 });
     }
 
+
     private void getData() {
         Log.e(TAG, "getData: " + networkType);
         if (networkType == 0) {
-            getFoodsDetail();
+            getDataList();
         } else {
             getCategoryByElementList();
+        }
+    }
+
+    private void getDataList() {
+        if (foodName != null) {
+            getFoodsNameByList();
+            cbFoodType.setVisibility(View.GONE);
+        } else {
+            getFoodsDetail();
         }
     }
 
@@ -178,7 +204,10 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
         if (baseResult instanceof FoodsDetailResult) {
             FoodsDetailResult.PageBean pageBean = ((FoodsDetailResult) baseResult).getPage();
             if (currentPage == 1) {
-                adapterHealthFoodsDetail.setNewData(pageBean.getList());
+                if (pageBean == null || pageBean.getList().size() == 0) {
+                    adapterHealthFoodsDetail.setEmptyView(R.layout.view_empty);
+                } else
+                    adapterHealthFoodsDetail.setNewData(pageBean.getList());
             } else {
                 if (pageBean == null || pageBean.getList().size() == 0) {
                     adapterHealthFoodsDetail.setEnableLoadMore(false);
@@ -197,7 +226,8 @@ public class HealthFoodsTypeSearchFragment extends BaseUserFragment<BaseResult> 
     @Override
     public void onStart() {
         super.onStart();
-        getFoodsDetail();
+        currentPage = 1;
+        getDataList();
     }
 
     @OnCheckedChanged(R.id.cb_food_type)

@@ -118,6 +118,13 @@ public interface BaiMeiApiService {
     @POST("tbfood/categoryList")
     @FormUrlEncoded
     Observable<FoodsDetailResult> getFoodsDetail(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page, @Field("foodCategoryId") int foodCategoryId);
+    /**
+     * 通过名称获取列表
+     * http://49.4.10.14:8080/gudao-parent-api/api/tbfood/categoryList?MAYI_POS_API_MSID=3f8efc81107643c98c3bbc743aa2f084&page=1&limit=1&foodCategoryId=78
+     */
+    @POST("tbfood/categoryList")
+    @FormUrlEncoded
+    Observable<FoodsDetailResult> getFoodsDetailByName(@Field("MAYI_POS_API_MSID") String seesionId, @Field("limit") int limit, @Field("page") int page, @Field("foodName") String foodName);
 
     /**
      * 获取食品类排序

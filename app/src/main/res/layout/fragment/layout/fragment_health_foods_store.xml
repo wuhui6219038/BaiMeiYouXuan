@@ -24,10 +24,10 @@
                     android:id="@+id/iv_bg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="centerInside" />
+                    android:scaleType="fitXY" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/et_search_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

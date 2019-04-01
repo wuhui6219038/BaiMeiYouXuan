@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -22,6 +23,7 @@ import com.baimeiyx.www.utils.myUtils.FragmentUtils;
 import com.example.mrw.baimeiyouxuan.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 import static com.baimeiyx.www.ui.fragment.HealthFoodsTypeSearchFragment.FOODID;
 
@@ -29,8 +31,6 @@ public class HealthFoodsStoreFragment extends BaseUserFragment<FoodsResult> {
     private static final String TAG = "HealthFoodsStoreFragment";
     @BindView(R.id.iv_bg)
     ImageView ivBg;
-    @BindView(R.id.et_search_info)
-    EditText etSearchInfo;
     @BindView(R.id.rc_foods)
     RecyclerView rcFoods;
     private static final String BG_URL = "https://obs-7bff.obs.cn-north-1.myhwclouds.com/11111_small_app/shiwuku_banner.jpg";
@@ -50,6 +50,7 @@ public class HealthFoodsStoreFragment extends BaseUserFragment<FoodsResult> {
     protected void setToolbar() {
         tvTitle.setText("百媚健康食物库");
         tvTitle.setTextColor(Color.BLACK);
+        ivBack.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_blcak));
         toolbar.setBackgroundColor(Color.WHITE);
         BarUtils.setColor(mActivity, Color.WHITE, 0);
     }
@@ -103,6 +104,7 @@ public class HealthFoodsStoreFragment extends BaseUserFragment<FoodsResult> {
     @Override
     public void onStart() {
         super.onStart();
+        currentPage = 1;
         getFoods();
     }
 
@@ -122,5 +124,10 @@ public class HealthFoodsStoreFragment extends BaseUserFragment<FoodsResult> {
     protected void swipeRefresh() {
         currentPage = 1;
         getFoods();
+    }
+
+    @OnClick(R.id.et_search_info)
+    public void doClick(View view) {
+        FragmentUtils.showFragmentAddStack(getFragmentManager(), R.id.contain, HealthFoodsSearch.newInstance());
     }
 }

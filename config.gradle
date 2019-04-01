@@ -26,7 +26,8 @@ ext {
             "pullrefresh"         : "in.srain.cube:ultra-ptr:1.0.11",
             "qianniu"             : "com.github.YolandaQingniu:qnscalesdk:0.5.7",
             "flowlayout"          : 'com.hyman:flowlayout-lib:1.1.2',
-            "photeView"           : "com.bm.photoview:library:1.4.1"
+            "photeView"           : "com.bm.photoview:library:1.4.1",
+            "autoSize":"me.jessyan:autosize:1.1.2"
 
 
     ]

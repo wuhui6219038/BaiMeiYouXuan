@@ -76,24 +76,24 @@ public class WeightLogFragment extends BaseUserFragment<CustomWeightLogResult> {
     }
 
     private void _initAxisXLables(List<CustomWeightLogResult.DataBean.ListBean> datas) {
+        if (!datas.isEmpty()) {
+            for (int index = 0; index < datas.size() + 2; index++) {
+                CustomWeightLogResult.DataBean.ListBean dateX;
+                if (index == 0) {
+                    dateX = datas.get(0);
+                    tvLastWeight.setText(NumFormatterUtils.getFormatNum(dateX.getCustomerW()));
+                } else if (index == datas.size() + 1) {
+                    dateX = datas.get(datas.size() - 1);
+                } else {
+                    dateX = datas.get(index - 1);
+                }
+                mAxisXValues.add(new AxisValue(index).setLabel(TimeUtils.millis2String(dateX.getCreateTime(), TimeUtils.DEFAULT_PATTERN6)));
+                mPointValues.add(new PointValue(index, (float) dateX.getCustomerW()));
 
-        for (int index = 0; index < datas.size() + 2; index++) {
-            CustomWeightLogResult.DataBean.ListBean dateX;
-            if (index == 0) {
-                dateX = datas.get(0);
-                tvLastWeight.setText(NumFormatterUtils.getFormatNum(dateX.getCustomerW()));
-            } else if (index == datas.size() + 1) {
-                dateX = datas.get(datas.size() - 1);
-            } else {
-                dateX = datas.get(index - 1);
             }
-            mAxisXValues.add(new AxisValue(index).setLabel(TimeUtils.millis2String(dateX.getCreateTime(), TimeUtils.DEFAULT_PATTERN6)));
-            mPointValues.add(new PointValue(index, (float) dateX.getCustomerW()));
-
+            _initlineChart();
         }
-        _initlineChart();
     }
-
 
     private void _initlineChart() {
         Line line = new Line(mPointValues).setColor(getResources().getColor(R.color.colorBarWeightRecord));//折线的颜色
@@ -183,7 +183,6 @@ public class WeightLogFragment extends BaseUserFragment<CustomWeightLogResult> {
                         onDataSuccessChanged(data);
                     }
                 });
-//        mDataViewModel.getCustomerWList().observe(this, this);
     }
 
     @Override

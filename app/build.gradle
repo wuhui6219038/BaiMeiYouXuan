@@ -82,6 +82,10 @@ dependencies {
     implementation rootProject.ext.dependencies['flowlayout']
     //图片选择
     implementation rootProject.ext.dependencies['photeView']
+    //尺寸
+    implementation rootProject.ext.dependencies['autoSize']
+
+
 
     implementation 'org.jetbrains:annotations:15.0'
 

@@ -25,7 +25,7 @@ public class BMILevelVIew extends View {
     /**
      * 默认轨迹的宽度
      */
-    private static final float DEFAULT_STROKEWIDTH = 20.0f;
+    private static final float DEFAULT_STROKEWIDTH = 40.0f;
     /**
      * 外部paint
      */
@@ -42,7 +42,7 @@ public class BMILevelVIew extends View {
     /**
      * 外圆，指针所在圆的半径,内圆的半径
      */
-    private float mOutRadius, mSecRadius, mInnerRadius = 20;
+    private float mOutRadius, mSecRadius, mInnerRadius = 40;
     /**
      * 旋转角度
      */
@@ -180,7 +180,6 @@ public class BMILevelVIew extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(measure(widthMeasureSpec), measure(widthMeasureSpec));
 
-        //TODO calculate inner circle height and then position bottom text at the bottom (3/4)
 
     }
 

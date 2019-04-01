@@ -83,7 +83,7 @@ public class HealthFoodsDetailFragment extends BaseUserFragment<FoodElementDetai
 
 
     @Override
-    protected void setToolbar() {
+    protected void setToolbar() {ivBack.setImageDrawable(getResources().getDrawable(R.drawable.ic_back_blcak));
         tvTitle.setText("食物详情");
         tvTitle.setTextColor(Color.BLACK);
         toolbar.setBackgroundColor(Color.WHITE);

@@ -1,6 +1,8 @@
 package com.baimeiyx.www.ui.dialog;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -37,6 +39,7 @@ public class DialogRecodeWidget extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         View rootView = inflater.inflate(R.layout.dialog_view_recode_widget, container, false);
         unbinder = ButterKnife.bind(this, rootView);
         _init();
@@ -55,7 +58,7 @@ public class DialogRecodeWidget extends DialogFragment {
         if (dialog != null) {
             DisplayMetrics dm = new DisplayMetrics();
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-            int width = (int) (dm.widthPixels * 0.85);
+            int width = (int) (dm.widthPixels * 0.80);
             dialog.getWindow().setLayout(width, WindowManager.LayoutParams.WRAP_CONTENT);
         }
     }
@@ -69,6 +72,7 @@ public class DialogRecodeWidget extends DialogFragment {
                 ToastUtils.showShortToast("功能暂时开放");
                 break;
             case R.id.tv_recode_weight:
+                dismiss();
                 listenser.onClick(1);
                 break;
             case R.id.iv_close:

@@ -27,10 +27,9 @@ import butterknife.OnClick;
 
 public class HomeFragment extends BaseUserFragment<CustomerExpectResult> implements HealthPageCardView.ItemClickListener {
 
-    @BindView(R.id.fl_content)
-    FrameLayout flContent;
-    @BindView(R.id.ll_target_weight)
-    LinearLayout llTargetWeight;
+
+    @BindView(R.id.ll_bg)
+    FrameLayout llBg;
     @BindView(R.id.arc_progress)
     ArcProgress arcProgress;
     @BindView(R.id.stepview)
@@ -67,7 +66,7 @@ public class HomeFragment extends BaseUserFragment<CustomerExpectResult> impleme
 
     private void _init() {
 
-        ImageUtils.loadBackgroudByUrl(getActivity(), llTargetWeight, "https://www.baimeiyx.com/wx-app/cover.png");
+        ImageUtils.loadBackgroudByUrl(getActivity(), llBg, "https://www.baimeiyx.com/wx-app/cover.png");
 
         stepview.setStepsTitle(STEPTILTE);
         _initView();
